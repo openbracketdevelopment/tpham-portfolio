@@ -1,0 +1,33 @@
+/* FINISH CSS FOR TYPED COMPONENT HERE */
+.typed__big-text,
+.typed-cursor {
+  font-family: var(--font-family-compact), -apple-system, "Helvetica Neue",
+    sans-serif;
+  font-size: 4rem;
+  line-height: 3.5rem;
+  text-transform: uppercase;
+  white-space: normal;
+}
+
+@media only screen and (min-width: 768px) {
+  .typed__big-text,
+  .typed-cursor {
+    font-size: 5rem;
+    line-height: 5rem;
+    white-space: pre;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .typed__big-text,
+  .typed-cursor {
+    font-size: 6rem;
+    line-height: 6rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .typed__big-text,
+  .typed-cursor {
+    font-size: 8rem;
+    line-height: 8rem;
+  }
+}

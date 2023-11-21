@@ -1,0 +1,37 @@
+{  
+    "pageTitle": "Trinity Rail - Project Study",
+    "pageDescription": "Designed a website for Trinity Rail, one of the largest railcar manufacturers in the world.",
+    "canonical": "/trinityrail",
+    "pageUrl": "https://tampham.io/trinityrail",
+    "pageImage": "/assets/images/trinity-rail-hero.jpg",
+
+    "fbOgType": "article",
+    "fbOgLocale": "en_US",
+    "fbOgSiteName": "I'm Tam. A Interactive Designer in DFW.",
+    "fbOgAppId": "id_goes_here",
+
+    "twOgCard": "picture",
+
+    "workTitle": "HM Interactive",
+    "workLogo": "/assets/images/trinity-rail-logo.svg",
+    "workMoreLink": "/trinityrail",
+    "workLiveLink": "https://trinity.hmidev.net",
+    "workLiveLink2": "",
+    "workLiveLink3": "",
+    "workLiveLink4": "",
+    "workImagePath": "/assets/images/trinity-rail-thumb.jpg",
+    "workImagePath2": "/assets/images/trinity-screen-wall-perspective.jpg",
+    "workImagePath3": "/assets/images/trinity-desktop-mobile-examples.jpg",
+    "workDesktopClip": "https://d2r52yt7q99fc.cloudfront.net/video/trinity-desktop.mp4",
+    "workDesktopClip2": "https://d2r52yt7q99fc.cloudfront.net/video/trinity-desktop-2.mp4",
+    "workDesktopClip3": "",
+    "workMobileClip1": "https://d2r52yt7q99fc.cloudfront.net/video/trinity-mobile-1.mp4",
+    "workMobileClip2": "https://d2r52yt7q99fc.cloudfront.net/video/trinity-mobile-2.mp4",
+    "workMobileClip3": "",
+    "workMobileClip4": "",
+    "workDescription": "This was a redesign project for Trinity Rail, one of the largest rail car manufacturers in the world. The site needed a full overhaul from their previous one. So I set out to build it in WordPress and used bootstrap to facilitate the layouts I was going for. One of the main components that I enjoyed building was the mega menu, home page, rotatable 3D railcard renderings and rail car catalog, making it easily accessable for users to navigate through the different products.",
+    "workTimeFrame": "Summer 2017",
+    "workRole": "Development, UI/UX, Responsive Design",
+    "workTechnology": "WordPress, PHP, jQuery, Bootstrap, Slick",
+    "workCategory": "Web Design"
+}

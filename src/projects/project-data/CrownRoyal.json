@@ -1,0 +1,36 @@
+{  
+    "pageTitle": "Crown Royal - Project Study",
+    "pageDescription": "Created a motion graphics video for Crown Royal and NFL promo for 2022 Holidays.",
+    "canonical": "/crownroyal",
+    "pageUrl": "https://tampham.io/crownroyal",
+    "pageImage": "/assets/images/crown-royal-bg.webp",
+
+    "fbOgType": "article",
+    "fbOgLocale": "en_US",
+    "fbOgSiteName": "I'm Tam. A Interactive Designer in DFW.",
+    "fbOgAppId": "id_goes_here",
+
+    "twOgCard": "picture",
+
+    "workTitle": "HM Interactive",
+    "workLogo": "/assets/images/crown-royal-logo.svg",
+    "workMoreLink": "/crownroyal",
+    "workLiveLink": "https://holmesmillet.dev",
+    "workLiveLink2": "",
+    "workLiveLink3": "",
+    "workLiveLink4": "",
+    "workImagePath": "/assets/images/crown-bg.webp",
+    "workImagePath2": "",
+    "workDesktopClip": "https://d2r52yt7q99fc.cloudfront.net/video/NFL_CROWN_ROYAL_2022.mp4",
+    "workDesktopClip2": "",
+    "workDesktopClip3": "",
+    "workMobileClip1": "",
+    "workMobileClip2": "",
+    "workMobileClip3": "",
+    "workMobileClip4": "",
+    "workDescription": "Designed and created a video for the Crown Royal brand with NFL promotion. Utilized motion graphics and visual effects based around the given copy, brand assets and storyboard.",
+    "workTimeFrame": "Mid Summer 2022",
+    "workRole": "Motion Graphics",
+    "workTechnology": "After Effects, Photoshop",
+    "workCategory": "Video, 2D Animation"
+}

@@ -1,0 +1,36 @@
+{  
+    "pageTitle": "Cintra TexPress Lanes - Project Study",
+    "pageDescription": "Re-designed the user experience and user interface for Cintra TexPress Saver mobile app.",
+    "canonical": "/cintra",
+    "pageUrl": "https://tampham.io/cintra",
+    "pageImage": "/assets/images/texpress-bg.webp",
+
+    "fbOgType": "article",
+    "fbOgLocale": "en_US",
+    "fbOgSiteName": "I'm Tam. A Interactive Designer in DFW.",
+    "fbOgAppId": "id_goes_here",
+
+    "twOgCard": "picture",
+
+    "workTitle": "Cintra TexPress Saver App",
+    "workLogo": "/assets/images/client-logos_TexPress.svg",
+    "workMoreLink": "/cintra",
+    "workLiveLink": "https://spaces.proto.io/project/C091EC3E-CD7E-8D0E-F41F-664E28B1196A/TEXpress-App-Current-iOS/",
+    "workLiveLink2": "",
+    "workLiveLink3": "",
+    "workLiveLink4": "",
+    "workImagePath": "/assets/images/texpress-bg.webp",
+    "workImagePath2": "/assets/images/texspress-saver-thumbnail-2.webp",
+    "workImagePath3": "/assets/images/cintra-screen-wall-perspective.jpg",
+    "workDesktopClip": "",
+    "workDesktopClip2": "",
+    "workDesktopClip3": "",
+    "workMobileClip1": "https://d2r52yt7q99fc.cloudfront.net/video/cintra-intro-signup-ux.mp4",
+    "workMobileClip2": "https://d2r52yt7q99fc.cloudfront.net/video/cintra-HOV-ux.mp4",
+    "workMobileClip3": "https://d2r52yt7q99fc.cloudfront.net/video/cintra-menu.mp4",
+    "workDescription": "Designed a mobile application for Cintra Texpress Lanes, which is one of the largest private developers of transport infrastructure in the world. The goal was to help commuters understand how the lanes work and the best way to use them, apply discounts, and encourage more carpooling through a new re-imagined user experience.",
+    "workTimeFrame": "Summer - Winter 2016",
+    "workRole": "Mobile App Design, UI/UX, Prototype Design, Strategy",
+    "workTechnology": "Proto.io, Illustrator, Photoshop, Google Draw",
+    "workCategory": "App Design"
+}

@@ -1,0 +1,37 @@
+{  
+    "pageTitle": "Brainstyles - Project Study",
+    "pageDescription": "Designed a new landing page for Brainstyles, a personality test that helps discover your inner Brainstyle.",
+    "canonical": "/brainstyles",
+    "pageUrl": "https://tampham.io/brainstyles",
+    "pageImage": "/assets/images/brainstyles-hero.webp",
+
+    "fbOgType": "article",
+    "fbOgLocale": "en_US",
+    "fbOgSiteName": "I'm Tam. A Interactive Designer in DFW.",
+    "fbOgAppId": "id_goes_here",
+
+    "twOgCard": "picture",
+
+    "workTitle": "HM Interactive",
+    "workLogo": "/assets/images/brainstyles-logo.png",
+    "workMoreLink": "/brainstyles",
+    "workLiveLink": "https://discover.brainstyles.com",
+    "workLiveLink2": "",
+    "workLiveLink3":  "",
+    "workLiveLink4": "",
+    "workImagePath": "/assets/images/brainstyles-thumb.jpg",
+    "workImagePath2": "/assets/images/brainstyles-screen-wall-perspective.jpg",
+    "workImagePath3": "/assets/images/brainstyles-desktop-mobile-examples.jpg",
+    "workDesktopClip": "https://d2r52yt7q99fc.cloudfront.net/video/brainstyles-desktop.mp4",
+    "workDesktopClip2": "",
+    "workDesktopClip3": "",
+    "workMobileClip1": "https://d2r52yt7q99fc.cloudfront.net/video/brainstyles-mobile-1.mp4",
+    "workMobileClip2": "https://d2r52yt7q99fc.cloudfront.net/video/brainstyles-mobile-2.mp4",
+    "workMobileClip3": "https://d2r52yt7q99fc.cloudfront.net/video/brainstyles-mobile-3.mp4",
+    "workMobileClip4": "",
+    "workDescription": "Designed a new landing page for Brainstyles, which is a system of personality tests, books and quizzes that help discover your inner Brainstyle. They needed a new design and look to promote their material in the modern day. So I set out to build this landing page and incorporated scroll-based animation to make it a little more interactive and engaging for users as they get informed of what Brainstyles is all about.",
+    "workTimeFrame": "Summer 2022",
+    "workRole": "Development, UI/UX, Scroll Animation, Responsive Design",
+    "workTechnology": "WordPress, PHP, GSAP, ScrollTrigger",
+    "workCategory": "Web Design, SEO, Photography"
+}

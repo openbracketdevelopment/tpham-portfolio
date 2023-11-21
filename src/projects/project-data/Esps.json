@@ -1,0 +1,34 @@
+{  
+    "pageTitle": "ESPS Trailers - Project Study",
+    "pageDescription": "Re-designed and developed the ESPS Trailers website, an aluminum and steel dump trailer service dealer.",
+    "canonical": "/esps",
+    "pageUrl": "https://tampham.io/esps",
+    "pageImage": "/assets/images/esps-trailers-thumb.webp",
+
+    "fbOgType": "article",
+    "fbOgLocale": "en_US",
+    "fbOgSiteName": "I'm Tam. A Interactive Designer in DFW.",
+    "fbOgAppId": "id_goes_here",
+
+    "twOgCard": "picture",
+
+    "workTitle": "EarthX",
+    "workLogo": "/assets/images/esps-logo.svg",
+    "workMoreLink": "/esps",
+    "workLiveLink": "https://esps-trailers.com/",
+    "workLiveLink2": "",
+    "workLiveLink3": "",
+    "workLiveLink4": "",
+    "workImagePath": "/assets/images/esps-trailers-thumb.webp",
+    "workImagePath2": "/assets/images/esps-screen-wall-perspective.jpg",
+    "workImagePath3": "/assets/images/esps-desktop-mobile-examples.jpg",
+    "workDesktopClip1": "https://d2r52yt7q99fc.cloudfront.net/video/esps-trailers-desktop.mp4",
+    "workDesktopClip2": "",
+    "workMobileClip1": "https://d2r52yt7q99fc.cloudfront.net/video/esps-trailers-mobile-1.mp4",
+    "workMobileClip2": "https://d2r52yt7q99fc.cloudfront.net/video/esps-trailers-mobile-2.mp4",
+    "workDescription": "Developed a brand materials and website for ESPS Trailers, a full service trailer repair and premium parts shop located in Rio Vista TX. The website was built in WordPress. Increased their web presence through search engine optimization, integrated their social media feed, and optimized the website for all devices and browsers. Today you will find their brand of tarps, mudflaps and liners on most trailers in Texas.",
+    "workTimeFrame": "Summer 2018 - Present",
+    "workRole": "Development, UI/UX, Logo Design, Responsive Design",
+    "workTechnology": "WordPress, PHP, jQuery, Facebook API, Google Maps",
+    "workCategory": "Web Design, Branding"
+}

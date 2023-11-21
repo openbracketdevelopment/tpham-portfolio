@@ -1,0 +1,37 @@
+{  
+    "pageTitle": "Diageo - Project Study",
+    "pageDescription": "Developed and designed a private application using PHP and Okta SDK for Diageo",
+    "canonical": "/diageo",
+    "pageUrl": "https://tampham.io/hmi",
+    "pageImage": "/assets/images/diageo.webp",
+
+    "fbOgType": "article",
+    "fbOgLocale": "en_US",
+    "fbOgSiteName": "I'm Tam. A Interactive Designer in DFW.",
+    "fbOgAppId": "id_goes_here",
+
+    "twOgCard": "picture",
+
+    "workTitle": "Diageo",
+    "workLogo": "/assets/images/client-logos_Diageo.svg",
+    "workMoreLink": "/diageo",
+    "workLiveLink": "https://socialkit.hmidev.net",
+    "workLiveLink2": "https://dgo-sso.hmidev.net",
+    "workLiveLink3": "https://dgo-g2fa.hmidev.net",
+    "workLiveLink4": "https://dgo-react.hmidev.net",
+    "workImagePath": "/assets/images/diageo.webp",
+    "workImagePath2": "/assets/images/diageo-screen-wall-perspective.jpg",
+    "workImagePath3": "/assets/images/diageo-desktop-mobile-examples.jpg",
+    "workImagePath4": "/assets/images/diageo-banner-art.jpg",
+    "workImagePath5": "/assets/images/diageo-404-art.jpg",
+    "workDesktopClip": "https://d2r52yt7q99fc.cloudfront.net/video/diageo-desktop-1.mp4",
+    "workDesktopClip2": "https://d2r52yt7q99fc.cloudfront.net/video/diageo-desktop-2.mp4",
+    "workDesktopClip3": "https://d2r52yt7q99fc.cloudfront.net/video/bulleit-emailer-mockup.mp4",
+    "workMobileClip1": "https://d2r52yt7q99fc.cloudfront.net/video/diageo-mobile-1.mp4",
+    "workMobileClip2": "https://d2r52yt7q99fc.cloudfront.net/video/diageo-mobile-2.mp4",
+    "workDescription": "Made a react application with Okta authentication and OIDC. The purpose of the app allowed Diageo Innovation employees to sign in and access downloadable brand assets. The app stored downloadable and formatted images, video, hashtags, copy and guidelines that could be used for posting on any Social Media platform. The framework that was put in place allowed for seamless creation of ongoing and future Diageo brands.",
+    "workTimeFrame": "Winter 2021 - Present",
+    "workRole": "Development, UI/UX, Single Sign On, Problem Solving",
+    "workTechnology": "React, Okta, OpenID Connect, Javascript, GSAP",
+    "workCategory": "Web Design, Branding, Video"
+}

@@ -1,0 +1,36 @@
+{  
+    "pageTitle": "EarthX - Project Study",
+    "pageDescription": "Re-designed and developed the EarthX website, an environmental non-profit organization.",
+    "canonical": "/earthx",
+    "pageUrl": "https://tampham.io/earthx",
+    "pageImage": "/assets/images/earthx.webp",
+
+    "fbOgType": "article",
+    "fbOgLocale": "en_US",
+    "fbOgSiteName": "I'm Tam. A Interactive Designer in DFW.",
+    "fbOgAppId": "id_goes_here",
+
+    "twOgCard": "picture",
+
+    "workTitle": "EarthX",
+    "workLogo": "/assets/images/client-logos_EarthX.svg",
+    "workMoreLink": "/earthx",
+    "workLiveLink": "https://earthx2021.wpengine.com/",
+    "workLiveLink2": "https://earthx2020.wpengine.com/",
+    "workLiveLink3": "https://earthx2019.wpengine.com/",
+    "workLiveLink4": "https://earthxart2021.wpengine.com/",
+    "workImagePath": "/assets/images/earthx.webp",
+    "workImagePath2": "/assets/images/earthx-screen-wall-perspective-2.jpg",
+    "workImagePath3": "/assets/images/earthx-desktop-mobile-examples-2.jpg",
+    "workImagePath4": "/assets/images/okta-sign-in-screen.jpg",
+    "workImagePath5": "/assets/images/okta-end-user-dashboard.jpg",
+    "workDesktopClip1": "https://d2r52yt7q99fc.cloudfront.net/video/earthx-desktop-1.mp4",
+    "workDesktopClip2": "https://d2r52yt7q99fc.cloudfront.net/video/earthx-desktop-2.mp4",
+    "workMobileClip1": "https://d2r52yt7q99fc.cloudfront.net/video/earthx-mobile-1.mp4",
+    "workMobileClip2": "https://d2r52yt7q99fc.cloudfront.net/video/earthx-mobile-2.mp4",
+    "workDescription": "EarthX is an environmental organization that promotes an exposition held every year in Fair Park Dallas TX. Through the agency, I was tasked to redesign their website for EarthX for 2019 to 2021. The site featured exhibitions, attractions, films, conferences, educational content, art competitions, events, news, on-demand video and an online store. Most of the event content was fed through a highly customized event calendar app that also operated as a shcedule. In addition, I helped increase online presence by improving their SEO, and integrated Okta Single Sign-On that would allow users to access multiple applicatons using one account.",
+    "workTimeFrame": "2019 - Current",
+    "workRole": "Development, UI/UX, SEO, Strategy",
+    "workTechnology": "WordPress, Okta, Event Calendar, WooCommerce",
+    "workCategory": "Web Design, Branding, E-Commerce"
+}

@@ -1,0 +1,37 @@
+{  
+    "pageTitle": "Midwest Radiology - Project Study",
+    "pageDescription": "Created a new website and experience using Statamic v2 for Midwest Radiology, one of the largest Radiology groups in the world.",
+    "canonical": "/mwr",
+    "pageUrl": "https://tampham.io/mwr",
+    "pageImage": "/assets/images/mwr-thumbnail-v2.webp",
+
+    "fbOgType": "article",
+    "fbOgLocale": "en_US",
+    "fbOgSiteName": "I'm Tam. A Interactive Designer in DFW.",
+    "fbOgAppId": "id_goes_here",
+
+    "twOgCard": "picture",
+
+    "workTitle": "HM Interactive",
+    "workLogo": "/assets/images/mwr-logo-portfolio.svg",
+    "workMoreLink": "/mwr",
+    "workLiveLink": "https://midwestradiology.com",
+    "workLiveLink2": "",
+    "workLiveLink3": "",
+    "workLiveLink4": "",
+    "workImagePath": "/assets/images/mwr-thumbnail-v2.webp",
+    "workImagePath2": "/assets/images/mwr-screen-wall-perspective.jpg",
+    "workImagePath3": "/assets/images/mwr-desktop-mobile-examples.jpg",
+    "workDesktopClip": "https://d2r52yt7q99fc.cloudfront.net/video/mwr-home.mp4",
+    "workDesktopClip2": "https://d2r52yt7q99fc.cloudfront.net/video/mwr-menus.mp4",
+    "workDesktopClip3": "",
+    "workMobileClip1": "https://d2r52yt7q99fc.cloudfront.net/video/mwr-mobile-1.mp4",
+    "workMobileClip2": "https://d2r52yt7q99fc.cloudfront.net/video/mwr-mobile-2.mp4",
+    "workMobileClip3": "",
+    "workMobileClip4": "",
+    "workDescription": "Designed a new website for Midwest Radiology, one of the largest Radiology centers in St. Paul Minnesota. The website was built in Statamic v2. Some of the cool features includes a searchable directory of physicians, that gets used almost everyday according to Google Analytics and an interactive map that shows other radiology centers in Minnesota. I had a lot of fun building out the  mega menu. I've also helped increase their search presence through SEO and manage their news blog.",
+    "workTimeFrame": "Winter 2018 - Current",
+    "workRole": "Development, UI/UX, Responsive Design",
+    "workTechnology": "Statamic v2, PHP, Laravel, Bootstrap, Slick",
+    "workCategory": "Web Design, SEO"
+}

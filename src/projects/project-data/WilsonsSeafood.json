@@ -1,0 +1,37 @@
+{  
+    "pageTitle": "Wilson's Seafood - Project Study",
+    "pageDescription": "Designed a new website and logo for Wilson's Seafood, a delicious seafood restaurant that's opening in the heart of Founders Row in Midlothian TX.",
+    "canonical": "/wilsonseafood",
+    "pageUrl": "https://tampham.io/wilsonsseafood",
+    "pageImage": "/assets/images/wilson-seafood-bg.jpg",
+
+    "fbOgType": "article",
+    "fbOgLocale": "en_US",
+    "fbOgSiteName": "I'm Tam. A Interactive Designer in DFW.",
+    "fbOgAppId": "id_goes_here",
+
+    "twOgCard": "picture",
+
+    "workTitle": "HM Interactive",
+    "workLogo": "/assets/images/ws-logo.svg",
+    "workMoreLink": "/wilsonsseafood",
+    "workLiveLink": "https://wilsonsseafood.com",
+    "workLiveLink2": "",
+    "workLiveLink3": "",
+    "workLiveLink4": "",
+    "workImagePath": "/assets/images/wilson-seafood-thumb.jpg",
+    "workImagePath2": "/assets/images/ws-screen-wall-perspective.jpg",
+    "workImagePath3": "/assets/images/ws-desktop-mobile-examples.jpg",
+    "workDesktopClip": "https://d2r52yt7q99fc.cloudfront.net/video/ws-desktop-1.mp4",
+    "workDesktopClip2": "https://d2r52yt7q99fc.cloudfront.net/video/ws-desktop-2.mp4",
+    "workDesktopClip3": "",
+    "workMobileClip1": "https://d2r52yt7q99fc.cloudfront.net/video/ws-mobile-2.mp4",
+    "workMobileClip2": "https://d2r52yt7q99fc.cloudfront.net/video/ws-mobile-1.mp4",
+    "workMobileClip3": "",
+    "workMobileClip4": "",
+    "workDescription": "Designed a new landing page for Wilson's Seafood, which is a system of personality tests, books and quizzes that help discover your inner Brainstyle. They needed a new design and look to promote their material in the modern day. So I set out to build this landing page and incorporated scroll-based animation to make it a little more interactive and engaging for users as they get informed of what Wilson's Seafood is all about.",
+    "workTimeFrame": "Fall 2022",
+    "workRole": "Development, UI/UX, Logo Design, Responsive Design",
+    "workTechnology": "WordPress, PHP, GSAP, ScrollTrigger",
+    "workCategory": "Web Design, Branding, SEO"
+}

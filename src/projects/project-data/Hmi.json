@@ -1,0 +1,38 @@
+{  
+    "pageTitle": "HM Interactive - Project Study",
+    "pageDescription": "Primarily led the website development and design for EarthX, an environmental non-profit organization.",
+    "canonical": "/hmi",
+    "pageUrl": "https://tampham.io/hmi",
+    "pageImage": "/assets/images/hminteractive-2.webp",
+
+    "fbOgType": "article",
+    "fbOgLocale": "en_US",
+    "fbOgSiteName": "I'm Tam. A Interactive Designer in DFW.",
+    "fbOgAppId": "id_goes_here",
+
+    "twOgCard": "picture",
+
+    "workTitle": "HM Interactive",
+    "workLogo": "/assets/images/client-logos_HM_Interactive.svg",
+    "workMoreLink": "/hmi",
+    "workLiveLink": "https://holmesmillet.dev",
+    "workLiveLink2": "",
+    "workLiveLink3": "",
+    "workLiveLink4": "",
+    "workImagePath": "/assets/images/hminteractive-2.webp",
+    "workImagePath2": "/assets/images/hmi-screen-wall-perspective.jpg",
+    "workImagePath3": "/assets/images/hmi-desktop-mobile-examples.jpg",
+    "workDesktopClip": "https://d2r52yt7q99fc.cloudfront.net/video/interactive-desktop-1.mp4",
+    "workDesktopClip2": "https://d2r52yt7q99fc.cloudfront.net/video/interactive-desktop-2.mp4",
+    "workDesktopClip3": "https://d2r52yt7q99fc.cloudfront.net/video/interactive-desktop-3.mp4",
+    "workDesktopClip4": "https://openbracket-assets.s3.us-east-2.amazonaws.com/video/cube.mp4",
+    "workMobileClip1": "https://d2r52yt7q99fc.cloudfront.net/video/interactive-mobile-1.mp4",
+    "workMobileClip2": "https://d2r52yt7q99fc.cloudfront.net/video/interactive-mobile-2.mp4",
+    "workMobileClip3": "https://d2r52yt7q99fc.cloudfront.net/video/interactive-mobile-3.mp4",
+    "workMobileClip4": "https://d2r52yt7q99fc.cloudfront.net/video/interactive-mobile-4.mp4",
+    "workDescription": "This was a redesign project for the interactive division of Holmes Millet. The design approach was to communicate interactive services through animation when scrolling down the page. I took a different approach in terms of development and branched off on trying out newer technologies that involved more interaction and scroll-based design. The website was also built ontop of a bespoke content management system that was tailored to a degree and made it easy to manage content.",
+    "workTimeFrame": "Summer 2021 - Current",
+    "workRole": "Development, UI/UX, SEO, Responsive Design",
+    "workTechnology": "CraftCMS, PHP, GSAP, Lottie, Composer",
+    "workCategory": "Web Design, SEO"
+}
