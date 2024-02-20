@@ -3,7 +3,7 @@ import { Button } from "../components/Button.js";
 import { Helmet } from "react-helmet-async";
 import "../App.css";
 import "./ProjectItem.css";
-import Fancybox from "./fancybox.js";
+// import Fancybox from "./fancybox.js";
 import { HashLink as Link } from "react-router-hash-link";
 
 const vetmotlData = require("../projects/project-data/Vetmotl");

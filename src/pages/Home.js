@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 
 import About from "../components/About";
 import Connect from "../components/Connect";
-import Skills from "../components/Skills";
+// import Skills from "../components/Skills";
 import Featured from "../components/Featured";
 import Hero from "../components/Hero";
 

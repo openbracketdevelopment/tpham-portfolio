@@ -15,7 +15,7 @@ import BrainStyles from "./projects/BrainStyles";
 import WilsonsSeafood from "./projects/WilsonsSeafood";
 import Baileys from "./projects/Baileys";
 import CrownRoyal from "./projects/CrownRoyal";
-import Toro from "./projects/Toro";
+// import Toro from "./projects/Toro";
 
 function App() {
   return (
