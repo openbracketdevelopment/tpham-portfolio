@@ -1,4 +1,4 @@
-# Tam's Portfolio Repo test
+# Tam's Portfolio Repo
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
