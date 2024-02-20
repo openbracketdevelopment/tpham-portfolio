@@ -15,6 +15,7 @@ import BrainStyles from "./projects/BrainStyles";
 import WilsonsSeafood from "./projects/WilsonsSeafood";
 import Baileys from "./projects/Baileys";
 import CrownRoyal from "./projects/CrownRoyal";
+import Toro from "./projects/Toro";
 
 function App() {
   return (
@@ -35,6 +36,8 @@ function App() {
           <Route path="/wilsonsseafood" element={<WilsonsSeafood />} />
           <Route path="/crownroyal" element={<CrownRoyal />} />
           <Route path="/baileys" element={<Baileys />} />
+          {/* <Route path="/toro" element={<Toro />} /> */}
+
           <Route path="/projects" element={<Projects />} />
         </Routes>
       </Router>

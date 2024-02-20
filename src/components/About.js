@@ -173,7 +173,7 @@ function About() {
                 ref={leftDoorRef}
               ></div> */}
               <img
-                src="/assets/images/TAM_HEADSHOT_BW-3.webp"
+                src="/assets/images/headshot.jpg"
                 alt="Tam Pham"
                 className="about__photo-image"
                 // ref={photoRef}
@@ -198,16 +198,18 @@ function About() {
               <p>
                 My skills as developer and designer make me a great communicator
                 and an exceptional problem solver in branding and in the web
-                space. I've worked with a wide range of companies such as
-                international to non-profit organizations that include - Diageo,
-                EarthX, Cintra Texpress and Eagle Adventure Camps. From
-                re-imagining the website design and experience for EarthX to
-                building a private Single sign-on (SSO) applications for Diageo.
+                space. I have collaborated with a diverse array of
+                organizations, ranging from international corporations to
+                non-profit entities, including Toro, Diageo, EarthX, Cintra
+                Texpress, and Eagle Adventure Camps. My experiences span from
+                envisioning a fresh website design and user experience for
+                EarthX to developing secure Single Sign-On (SSO) applications
+                tailored for the private infrastructure of Diageo.
               </p>
 
               <p>
                 As a growing developer and quick learner, I'm alway on the look
-                out for learning newer technologies that could benefit the
+                out for learning new technologies that could benefit the
                 end-product. But aside from that, I'm either working on a DIY
                 project at home, traveling, or spending time with my family.
               </p>
