@@ -1,3 +1,6 @@
+@use "mixins" as *;
+@reference "tailwindcss";
+
 .projects__header{
     max-width:80%;
     margin:0 auto;
@@ -7,7 +10,7 @@
 .projects__all{
     padding-bottom:5rem;
 }
-@media only screen and (min-width: 768px) {
+@include mq("md") {
 
     .projects__header{
         max-width:90%;

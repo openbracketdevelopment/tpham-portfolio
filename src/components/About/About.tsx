@@ -1,8 +1,7 @@
 "use client";
 
+import styles from "./About.module.scss";
 import React from "react";
-import "../../styles/globals.css";
-import "./About.css";
 // import { Link } from "react-router-dom";
 import { Button } from "../../components/Button/Button";
 import { Heading } from "../Heading/Heading";
@@ -159,7 +158,7 @@ function About() {
   // }, []);
   return (
     <>
-      <section id="about" className="about__section section__wrap">
+      <section id="about" className={`${styles["about__section"]} section__wrap`}>
         <Heading
           rotationStyle="heading__rotate-none"
           headingStyle="heading__marquee-default"
@@ -167,25 +166,25 @@ function About() {
           // ref={headingRef}
           className="about-header"
         />
-        <div className="about__wrap">
-          <div className="about__container">
-            <div className="about__photo">
+        <div className={styles["about__wrap"]}>
+          <div className={styles["about__container"]}>
+            <div className={styles["about__photo"]}>
               {/* <div
-                className="about__left-door about__door"
+                className={`${styles["about__left-door"]} about__door`}
                 ref={leftDoorRef}
               ></div> */}
               <img
                 src="/assets/images/headshot.jpg"
                 alt="Tam Pham"
-                className="about__photo-image"
+                className={styles["about__photo-image"]}
                 // ref={photoRef}
               />
               {/* <div
-                className="about__right-door about__door"
+                className={`${styles["about__right-door"]} about__door`}
                 ref={rightDoorRef}
               ></div> */}
             </div>
-            <div className="about__bio">
+            <div className={styles["about__bio"]}>
               <h4>
                 If you made it this far, <br />
                 then let me tell you a little about myself.
@@ -218,8 +217,7 @@ function About() {
               <br></br>
               <Button
                 btnLabel="Resume"
-                btnUrl="/assets/files/PHAMT_RESUME.pdf"
-                btnTarget="_blank"
+                btnUrl="/resume"
               />
             </div>
           </div>

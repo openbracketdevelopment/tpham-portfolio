@@ -1,26 +1,21 @@
-@import "tailwindcss";
+@use "sass:meta";
+@use "variables" as *;
+
+:root {
+  @each $key, $value in $colors {
+    --color-#{$key}: #{$value};
+  }
+  @each $key, $value in $font-families {
+    --font-family-#{$key}: #{meta.inspect($value)};
+  }
+  --transition-linear: #{$transition-linear};
+  --transition-swish: #{$transition-swish};
+}
 
 html {
   scroll-behavior: smooth;
 }
 
-:root {
-  --color-01: #c20000;
-  --color-02: #161616;
-  --color-03: #ffffff;
-  --color-04: #3d3d3d;
-  --color-05: rgba(0, 0, 0, 0.65);
-  --color-06: #7fe9e0;
-  --color-07: #878787;
-  --color-08: #000000;
-  --font-family-heading: "Neue Montreal Bold";
-  --font-family-compact: "Right Grotesk Compact Dark";
-  --font-family-medium: "Neue Montreal Medium";
-  --font-family-body: "Trade Gothic LT";
-  --font-family-thin: "Neue Montreal Thin";
-  --transition-linear: linear 0.2s;
-  --transition-swish: cubic-bezier(0.19, 1, 0.22, 1) 1s;
-}
 @font-face {
   font-family: "Right Grotesk Compact Dark";
   src: url(/assets/fonts/RightGrotesk-CompactDark.otf)

@@ -1,9 +1,8 @@
 "use client";
 
+import styles from "../ProjectItem/ProjectItem.module.scss";
 import React from "react";
 import { Button } from "../../components/Button/Button";
-import "../../styles/globals.css";
-import "../ProjectItem/ProjectItem.css";
 import Fancybox from "../Fancybox/Fancybox";
 import Link from "next/link";
 
@@ -13,17 +12,17 @@ function cintra() {
   return (
     <>
       {/* WORK CONTENT */}
-      <section className="project__hero">
-        <div className="project__img-wrap">
+      <section className={styles["project__hero"]}>
+        <div className={styles["project__img-wrap"]}>
           <img
             src={cintraData.workImagePath}
             alt={cintraData.workTitle}
             title={cintraData.workTitle}
-            className="project__img"
+            className={styles["project__img"]}
           />
         </div>
 
-        <h1 className="project__title">
+        <h1 className={styles["project__title"]}>
           <img
             src={cintraData.workLogo}
             alt={cintraData.workTitle}
@@ -31,13 +30,13 @@ function cintra() {
           />
         </h1>
       </section>
-      <section className="project__container">
-        <div className="project__info">
-          <div className="project__description">
+      <section className={styles["project__container"]}>
+        <div className={styles["project__info"]}>
+          <div className={styles["project__description"]}>
             <p>{cintraData.workDescription}</p>
           </div>
-          <div className="project__technology">
-            <div className="project__details">
+          <div className={styles["project__technology"]}>
+            <div className={styles["project__details"]}>
               <div className="project__timeframe">
                 <h3>Timeframe</h3>
                 <p>{cintraData.workTimeFrame}</p>
@@ -57,7 +56,7 @@ function cintra() {
             </div>
           </div>
           {/* BUTTONS */}
-          <div className="project__btns">
+          <div className={styles["project__btns"]}>
             <Button
               btnLabel="Launch the App"
               btnUrl={cintraData.workLiveLink}
@@ -67,22 +66,22 @@ function cintra() {
         </div>
       </section>
       {/* MOBILE */}
-      <section className="project__container">
-        <div className="project__section-heading">
+      <section className={styles["project__container"]}>
+        <div className={styles["project__section-heading"]}>
           <h3>Mobile App Design</h3>
         </div>
-        <div className="project__mobile project__mobile-thirds">
-          <div className="project__mobile-view project__mobile-view-1">
-            <div className="project__mobile-lockup">
+        <div className={`${styles["project__mobile"]} ${styles["project__mobile-thirds"]}`}>
+          <div className={`${styles["project__mobile-view"]} project__mobile-view-1`}>
+            <div className={styles["project__mobile-lockup"]}>
               <video
-                className="project__video project__mobile-website"
+                className={`${styles["project__video"]} ${styles["project__mobile-website"]}`}
                 muted={true}
                 loop={true}
                 autoPlay={true}
                 playsInline={true}
                 src={cintraData.workMobileClip1}
               ></video>
-              <div className="project__mobile-bg">
+              <div className={styles["project__mobile-bg"]}>
                 <svg viewBox="0 0 491.577 987.003">
                   <g>
                     <path
@@ -111,17 +110,17 @@ function cintra() {
               </div>
             </div>
           </div>
-          <div className="project__mobile-view project__mobile-view-2">
-            <div className="project__mobile-lockup">
+          <div className={`${styles["project__mobile-view"]} project__mobile-view-2`}>
+            <div className={styles["project__mobile-lockup"]}>
               <video
-                className="project__video project__mobile-website"
+                className={`${styles["project__video"]} ${styles["project__mobile-website"]}`}
                 muted={true}
                 loop={true}
                 autoPlay={true}
                 playsInline={true}
                 src={cintraData.workMobileClip2}
               ></video>
-              <div className="project__mobile-bg">
+              <div className={styles["project__mobile-bg"]}>
                 <svg viewBox="0 0 491.577 987.003">
                   <g>
                     <path
@@ -150,17 +149,17 @@ function cintra() {
               </div>
             </div>
           </div>
-          <div className="project__mobile-view project__mobile-view-3">
-            <div className="project__mobile-lockup">
+          <div className={`${styles["project__mobile-view"]} project__mobile-view-3`}>
+            <div className={styles["project__mobile-lockup"]}>
               <video
-                className="project__video project__mobile-website"
+                className={`${styles["project__video"]} ${styles["project__mobile-website"]}`}
                 muted={true}
                 loop={true}
                 autoPlay={true}
                 playsInline={true}
                 src={cintraData.workMobileClip3}
               ></video>
-              <div className="project__mobile-bg">
+              <div className={styles["project__mobile-bg"]}>
                 <svg viewBox="0 0 491.577 987.003">
                   <g>
                     <path
@@ -192,17 +191,17 @@ function cintra() {
         </div>
       </section>
       {/* WORK WALL */}
-      <section className="project__container-full">
+      <section className={styles["project__container-full"]}>
         <div className="project__work-wall">
           <img src={cintraData.workImagePath3} alt="" />
         </div>
       </section>
       {/* THE APP */}
-      <section className="project__container">
-        <div className="project__section-heading">
+      <section className={styles["project__container"]}>
+        <div className={styles["project__section-heading"]}>
           <h3>The App</h3>
         </div>
-        <div className="project__launcher-box project__launcher-box-cintra">
+        <div className={`${styles["project__launcher-box"]} ${styles["project__launcher-box-cintra"]}`}>
           <Button
             btnLabel="Launch the App"
             btnUrl={cintraData.workLiveLink}
@@ -211,16 +210,16 @@ function cintra() {
         </div>
       </section>
       {/* UIUX FLOW CHARTS */}
-      <section className="project__container">
-        <div className="project__section-heading">
+      <section className={styles["project__container"]}>
+        <div className={styles["project__section-heading"]}>
           <h3>UI/UX and Flow Charts</h3>
         </div>
-        <div className="project__section-heading-full">
+        <div className={styles["project__section-heading-full"]}>
           <h4>Sign Up Experience</h4>
         </div>
         <Fancybox>
           <a
-            className="project__img-lightbox"
+            className={styles["project__img-lightbox"]}
             data-fancybox
             href="/assets/images/TEXpress-$aver---Sign-Up-Process-full-res.webp"
           >
@@ -230,12 +229,12 @@ function cintra() {
             />
           </a>
         </Fancybox>
-        <div className="project__section-heading-full">
+        <div className={styles["project__section-heading-full"]}>
           <h4>Dashboard Interface and UX</h4>
         </div>
         <Fancybox>
           <a
-            className="project__img-lightbox"
+            className={styles["project__img-lightbox"]}
             data-fancybox
             href="/assets/images/TEXpress-$aver---Dashboard-full-res.webp"
           >
@@ -247,10 +246,10 @@ function cintra() {
         </Fancybox>
       </section>
       {/* ALL WORK */}
-      <section className="project__container project__work-nav">
+      <section className={`${styles["project__container"]} ${styles["project__work-nav"]}`}>
         <Link
           href="/#work"
-          className="project__all-work-btn"
+          className={styles["project__all-work-btn"]}
         >
           All Projects
         </Link>

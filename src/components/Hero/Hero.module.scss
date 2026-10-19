@@ -1,3 +1,6 @@
+@use "mixins" as *;
+@reference "tailwindcss";
+
 .hero__background{
   background-image: linear-gradient(
     to bottom,
@@ -6,8 +9,7 @@
   ),
   url("/assets/images/abstract-bg.jpg");
   height: 100vh;
-  width: 100%;
-  position:fixed;
+  @apply w-full fixed;
   background-size: cover;
   background-position: 50% 50%;
   top:0 !important;
@@ -17,12 +19,10 @@
 }
 .hero {
   height: 100vh;
-  width: 100%;
+  @apply w-full;
   background-size: cover;
   background-position: 50% 50%;
-  display: grid;
-  justify-content: center;
-  align-items: center;
+  @apply grid justify-center items-center;
   color: #ffffff;
 }
 
@@ -30,25 +30,25 @@
   width: 320px;
   max-width: 320px;
   max-height: 160px;
-  height: 100%;
+  @apply h-full;
 }
 .hero__intro-label {
   font-family: var(--font-family-medium), -apple-system, "Helvetica Neue",
     sans-serif;
   font-size: 1.3rem;
   letter-spacing: 1px;
-  display: flex;
+  @apply flex;
   margin-bottom: 0.5rem;
 }
 .hero__btn {
-  position: absolute;
+  @apply absolute;
   bottom: 0rem;
   right: 0rem;
   color: #ffffff;
   background: transparent;
   border: none;
 }
-@media only screen and (min-width: 768px) {
+@include mq("md") {
   .hero__btn {
     bottom: 3rem;
     right: 3rem;
@@ -61,7 +61,7 @@
     font-size: 2rem;
   }
 }
-@media only screen and (min-width: 1024px) {
+@include mq("lg") {
   .hero__label {
     max-width: 800px;
     width: 800px;

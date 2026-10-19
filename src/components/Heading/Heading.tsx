@@ -1,8 +1,7 @@
 "use client";
 
+import styles from "./Heading.module.scss";
 import React from "react";
-import "../../styles/globals.css";
-import "./Heading.css";
 
 const STYLES = [
   "heading__marquee-default",
@@ -34,13 +33,13 @@ export const Heading = React.forwardRef<HTMLDivElement, HeadingProps>(
       : ROTATION[0];
 
     return (
-      <h3 className={`heading ${checkRotationStyle}`}>
-        <div className="heading__marquee" ref={ref}>
-          <div className={`${checkHeadingStyle}`} aria-hidden="true">
+      <h3 className={`${styles["heading"]} ${styles[checkRotationStyle]}`}>
+        <div className={styles["heading__marquee"]} ref={ref}>
+          <div className={styles[checkHeadingStyle]} aria-hidden="true">
             <span>{headingLabel}</span>
-            <span className="heading__marquee-stoke">{headingLabel}</span>
+            <span className={styles["heading__marquee-stoke"]}>{headingLabel}</span>
             <span>{headingLabel}</span>
-            <span className="heading__marquee-stoke">{headingLabel}</span>
+            <span className={styles["heading__marquee-stoke"]}>{headingLabel}</span>
           </div>
         </div>
       </h3>

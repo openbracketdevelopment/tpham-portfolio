@@ -1,3 +1,6 @@
+@use "mixins" as *;
+@reference "tailwindcss";
+
 /* specifics */
 .project__launcher-box-cintra{
   background-image: url("/assets/images/texspress-saver-thumbnail-2.webp");
@@ -6,12 +9,12 @@
 }
 /* end specifics */
 .project__4col-showcase{
-  display:grid;
+  @apply grid;
   grid-template-columns:1fr 1fr;
   gap:2rem;
 }
 .project__thumbnail-text{
-  text-align:center;
+  @apply text-center;
   margin:20px 0px;
   font-family: var(--font-family-heading);
 }
@@ -19,16 +22,14 @@
   max-width: 100%;
     height: 305px;
     object-fit: contain;
-    width: 100%;
+    @apply w-full;
     border: 1px solid #424242;
-    pointer-events: none;
-    z-index: 0;
+    @apply pointer-events-none z-[0];
 }
 .project__thumbnail{
-  display:flex;
-  position:relative;
+  @apply flex relative;
   background:#161616;
-  flex-direction:column;
+  @apply flex-col;
 }
 .project__description p{
   font-family: var(--font-family-heading);
@@ -37,7 +38,7 @@
   color:#b1b1b1;
 }
 .project__details{
-  display:grid;
+  @apply grid;
   grid-template-columns:repeat(auto-fit, minmax(190px, 1fr));
   gap:1rem;
   margin-bottom:0rem;
@@ -47,22 +48,19 @@
   min-height:300px;
   width:90%;
   margin:0 auto;
-  display:grid;
+  @apply grid;
   justify-content:flex-start;
-  align-items:flex-end;
+  @apply items-end;
   margin-bottom:8rem;
 }
 .project__hero {
   height: 100vh;
-  width: 100%;
+  @apply w-full;
   background: var(--color-02);
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+  @apply grid justify-center items-center relative;
 }
 .project__btns {
-  display: flex;
+  @apply flex;
   gap: 2rem;
   flex-flow:column;
   margin-bottom:3rem;
@@ -71,18 +69,18 @@
   min-height:2rem;
 }
 .project__container-full {
-  display: grid;
+  @apply grid;
   grid-template-columns: minmax(auto, 100%);
-  justify-content: center;
+  @apply justify-center;
   margin-bottom:5rem;
 }
 .project__container:first-child{
   border-bottom: 1px solid #262626;
 }
 .project__container {
-  display: grid;
+  @apply grid;
   grid-template-columns: minmax(auto, 90%);
-  justify-content: center;
+  @apply justify-center;
   margin-bottom: 4rem;
   padding-bottom: 2rem;
 }
@@ -92,42 +90,41 @@
 }
 .project__section-heading-full h4{
   padding-bottom:0px;
-  text-align:left;
+  @apply text-left;
   line-height:normal;
   font-weight:normal;
   font-family:var(--font-family-body);
 }
 .project__section-heading-full{
-  display: grid;
+  @apply grid;
   grid-template-columns: 1fr;
-  justify-self: center;
+  @apply justify-self-center;
   width: 90%;
   margin:0 auto;
   max-width: 100%;
   padding-bottom: 1rem;
-  text-align: center;
+  @apply text-center;
 }
 .project__section-heading {
-  display: grid;
+  @apply grid;
   grid-template-columns: 1fr;
-  justify-self: center;
+  @apply justify-self-center;
   width: 80%;
   max-width: 100%;
   padding-bottom: 2rem;
-  text-align: left;
+  @apply text-left;
 }
 .project__video {
   max-width: 100%;
-  width:100%;
+  @apply w-full;
   height: auto;
 }
 .project__img-wrap::after {
   content: "";
-  position: absolute;
+  @apply absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  @apply w-full h-full;
   opacity: 1;
   /* background: hsla(0, 0%, 9%, 1);
 
@@ -156,7 +153,7 @@
   transition: all 0.25s cubic-bezier(0.455, 0.03, 0.515, 0.955); */
 }
 .project__work-nav{
-  width:100%;
+  @apply w-full;
   margin: 5rem auto;
 }
 .project__all-work-btn:hover{
@@ -170,14 +167,11 @@
 .project__all-work-btn{
   font-family: var(--font-family-compact);
   font-size: 2.5rem;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @apply text-center flex justify-center items-center;
   min-height: 110px;
   padding: 20px;
   line-height: normal;
-  width: 100%;
+  @apply w-full;
   margin: 0 auto;
   background: transparent;
   color: var(--color-03);
@@ -189,35 +183,30 @@
 
 .project__img-wrap::before {
   content: "";
-  position: absolute;
+  @apply absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  @apply w-full h-full;
   opacity: 0.5;
   background: url("/assets/images/pattern-dark.webp");
   transition: all 0.25s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 .project__img-wrap {
-  position: absolute;
+  @apply absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
+  @apply w-full h-full z-[0];
 }
 .project__img {
-  display: flex;
-  width: 100%;
-  height: 100%;
+  @apply flex w-full h-full;
   -o-object-fit: cover;
-  object-fit: cover;
+  @apply object-cover;
   object-position: center center;
 }
 /* PROJECT HERO */
 .project__title img{
   max-width:400px;
-  width:100%;
+  @apply w-full;
   filter: drop-shadow(7px 7px 10px rgba(0,0,0,0.8));
         -webkit-filter: drop-shadow(7px 7px 10px rgba(0,0,0,0.8));
 }
@@ -225,7 +214,7 @@
   font-size: 3rem;
   line-height:3rem;
   padding:2.5rem;
-  z-index: 1;
+  @apply z-[1];
   color: var(--color-03);
 }
 /* PROJECT INFO */
@@ -238,10 +227,10 @@
   color: var(--color-03);
 }
 .project__info {
-  display: grid;
+  @apply grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-  justify-self: center;
+  @apply justify-self-center;
   max-width: 100%;
   width: 80%;
   padding: 5em 0rem 0rem 0rem;
@@ -255,9 +244,7 @@
 }
 .project__desktop-piece {
   height: auto;
-  width: 100%;
-  display: flex;
-  overflow: hidden;
+  @apply w-full flex overflow-hidden;
   border-radius: 0 0 12px 12px;
   border-right: 1px solid var(--color-04);
   border-bottom: 1px solid var(--color-04);
@@ -267,13 +254,11 @@
   border: 1px solid var(--color-04);
   box-sizing: border-box;
   height: 30px;
-  width: 100%;
+  @apply w-full;
   border-radius: 12px 12px 0 0;
 }
 .project__browser-head-wrap {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  @apply relative w-full h-full;
 }
 .project__img-lightbox{
   width:90%;
@@ -286,7 +271,7 @@
   border-radius: 10px;
   border: 1px solid var(--color-04);
   box-sizing: border-box;
-  position: absolute;
+  @apply absolute;
   top: 50%;
   margin-top: -5px;
 }
@@ -302,33 +287,23 @@
 /* PROJECT MOBILE */
 .project__mobile-lockup {
   max-width: 320px;
-  width: 100%;
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-items: center;
+  @apply w-full flex relative justify-center items-center;
   padding-bottom: 3rem;
 }
 .project__mobile-website {
-  position: absolute;
-  display: flex;
-  justify-self: center;
-  align-self: center;
+  @apply absolute flex justify-self-center self-center;
   margin-top: -20px;
   width: calc(100% - 50px);
 }
 .project__mobile-view {
-  display: flex;
-  justify-content: center;
-  position: relative;
+  @apply flex justify-center relative;
 }
 
 .project__mobile {
-  display: grid;
+  @apply grid;
   grid-template-columns: 1fr;
   justify-self: flex-start;
-  align-items: center;
-  width: 100%;
+  @apply items-center w-full;
   max-width: 100%;
 }
 .project__mobile-bg svg * {
@@ -338,35 +313,34 @@
   stroke-miterlimit: 10;
 }
 .project__mobile-bg {
-  width: 100%;
+  @apply w-full;
 }
 .project__logo-showcase{
   margin:0 auto;
   width:90%;
 }
 .project__logo-showcase img{
-  width:100%;
+  @apply w-full;
   border:1px solid rgba(255,255,255,0.3)
 }
 .project__logo-showcase-full{
-  display:grid;
+  @apply grid;
   grid-template-columns: 1fr;
   gap:1rem;
   margin-bottom:1rem;
 }
 .project__logo-showcase-halves{
-  display:grid;
+  @apply grid;
   grid-template-columns: 1fr;
   gap:1rem;
   margin-bottom:1rem;
 }
 .project__video-link{
-  position:relative;
+  @apply relative;
 }
 .project__video-icon{
   color:#ffffff;
-  display:grid;
-  position:absolute;
+  @apply grid absolute;
   filter: drop-shadow(3px 5px 9px rgb(0 0 0 / 0.8));
   margin:auto;
   left:0;
@@ -375,16 +349,15 @@
   bottom:0;
   font-size:3rem;
   text-shadow:3px 3px 10px #000000;
-  justify-content:center;
-  align-items:center;
+  @apply justify-center items-center;
 }
 .project__logo-showcase-thirds{
-  display:grid;
+  @apply grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap:1rem;
   margin-bottom:1rem;
 }
-@media only screen and (min-width: 768px) {
+@include mq("md") {
   .project__mobile.project__mobile-thirds{
     grid-template-columns: 1fr 1fr 1fr;
     width:100%
@@ -406,13 +379,13 @@
     padding-bottom: 5rem;
   }
   .project__logo-showcase{
-    width:100%;
+    @apply w-full;
   }
   .project__logo-showcase-halves{
     grid-template-columns: 1fr 1fr;
   }
   .project__all-work-btn{
-    width:100%;
+    @apply w-full;
     font-size:4rem;
     min-height:200px;
   }
@@ -437,8 +410,8 @@
     gap: 0rem;
   }
 }
-@media only screen and (min-width: 1024px) {
+@include mq("lg") {
   .project__launcher-box,.project__img-lightbox,.project__section-heading-full,.project__work-desktop{
-    width:100%;
+    @apply w-full;
   }
 }

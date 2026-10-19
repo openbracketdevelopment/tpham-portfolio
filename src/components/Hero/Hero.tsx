@@ -1,8 +1,7 @@
 "use client";
 
+import styles from "./Hero.module.scss";
 import React from "react";
-import "../../styles/globals.css";
-import "./Hero.css";
 import { MqButton } from "../MqButton/MqButton";
 import TypedLabels from "../TypedLabels/TypedLabels";
 import { gsap } from "gsap";
@@ -13,12 +12,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 function HeroSection() {
   const bgRef = useRef(null);
+  const heroRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const heroBg = bgRef.current;
 
     const hero = gsap.timeline({
       scrollTrigger: {
-        trigger: ".hero",
+        trigger: heroRef.current,
         start: "top top",
         end: "top top",
         endTrigger: "#work",
@@ -43,14 +43,14 @@ function HeroSection() {
 
   return (
     <>
-      <div className="hero__background" ref={bgRef}></div>
-      <div className="hero">
-        <h1 className="hero__label">
-          <span className="hero__intro-label">Hi, I'm Tam.</span>
+      <div className={styles["hero__background"]} ref={bgRef}></div>
+      <div className={styles["hero"]} ref={heroRef}>
+        <h1 className={styles["hero__label"]}>
+          <span className={styles["hero__intro-label"]}>Hi, I'm Tam.</span>
           <TypedLabels />
         </h1>
 
-        <div className="hero__btn">
+        <div className={styles["hero__btn"]}>
           <MqButton
             buttonLabel="See Work - See Work - "
             buttonImg="/assets/images/triangle.svg"

@@ -1,7 +1,7 @@
 "use client";
 
+import styles from "./Button.module.scss";
 import React from "react";
-import "./Button.css";
 // import { Link } from "react-router-dom";
 
 // const STYLES = ["btn--primary", "btn--outline"];
@@ -26,7 +26,7 @@ export const Button = ({ btnLabel, btnUrl, btnTarget }: ButtonProps) => {
   return (
     <a
       href={btnUrl}
-      className="btn"
+      className={styles["btn"]}
       rel="noopener noreferrer"
       target={btnTarget}
     >

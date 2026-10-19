@@ -1,14 +1,12 @@
+@use "mixins" as *;
+@reference "tailwindcss";
+
 .fwork__wrap{
-  display:grid;
+  @apply grid;
   grid-template-columns: 1fr;
 }
 .fwork {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  position: relative;
-  cursor: pointer;
+  @apply flex justify-center items-center flex-col relative cursor-pointer;
   margin-bottom: 1rem;
   transform: preserve-3d;
   max-width:80%;
@@ -16,9 +14,7 @@
   margin-bottom:2rem;
 }
 .fwork__img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+  @apply object-cover w-full h-full;
   transform: scale(1);
   transition: all .3s ease;
 }
@@ -27,51 +23,44 @@
   transition: all .3s ease;
 }
 .fwork__thumbnail {
-  width: 100%;
+  @apply w-full;
   height: 60vh;
-  position: relative;
-  display: flex;
+  @apply relative flex;
   box-shadow: 0 24px 68px -4px var(--color-05);
-  overflow:hidden;
+  @apply overflow-hidden;
 }
 .fwork:hover .fwork__thumbnail::before {
   opacity: 0.5;
 }
 .fwork__thumbnail::before {
   content: "";
-  position: absolute;
+  @apply absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  @apply w-full h-full;
   opacity: 0.7;
-  z-index:1;
+  @apply z-[1];
   background: url("/assets/images/pattern-dark.webp");
   transition: all 0.25s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 .fwork__info {
-  position: absolute;
+  @apply absolute;
   top: 0;
-  width: 100%;
-  height: 100%;
-  display: grid;
+  @apply w-full h-full grid;
   grid-template-columns: 1fr;
   transform: translateZ(0px);
   text-decoration:none;
-  z-index:1;
+  @apply z-[1];
 }
 .fwork__link {
-  position: absolute;
+  @apply absolute;
   inset: 0;
 }
 .fwork__button-group {
-  position: relative;
-  z-index: 1;
+  @apply relative z-[1];
 }
 .fwork__title {
-  display: grid;
-  justify-self: center;
-  align-self: center;
+  @apply grid justify-self-center self-center;
   padding: 1.5rem;
   font-family: var(--font-family-heading), -apple-system, "Helvetica Neue",
   sans-serif;
@@ -83,14 +72,14 @@
 }
 .fwork__button-group {
   /* display: grid; */
-  display:none;
+  @apply hidden;
   justify-self: flex-end;
   align-self: flex-end;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   transform: translate(0rem, 0rem);
   padding: 1.5rem;
-  position:absolute;
+  @apply absolute;
   bottom:0;
   right:0;
 }
@@ -103,13 +92,13 @@
   text-transform: uppercase;
   font-size: 1.2rem;
   letter-spacing: 3px;
-  text-align: center;
+  @apply text-center;
   padding-bottom: 1rem;
   border-bottom: 2px solid var(--color-03);
 }
-@media only screen and (min-width: 768px) {
+@include mq("md") {
   .fwork__wrap{
-    display: grid;
+    @apply grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     max-width: 90%;
@@ -117,17 +106,15 @@
   }
   .fwork {
     max-width:100%;
-    width: 100%;
-    display: flex;
-    justify-self: center;
+    @apply w-full flex justify-self-center;
     margin-bottom:0rem;
   }
   .fwork__thumbnail {
-    width: 100%;
+    @apply w-full;
     height: auto;
   }
   .fwork__title {
-    align-self: center;
+    @apply self-center;
     padding: 0rem;
     font-size: 3rem;
   }
@@ -139,6 +126,6 @@
     transform: translateZ(35px);
   }
 }
-@media only screen and (min-width: 1024px) {
+@include mq("lg") {
 
 }

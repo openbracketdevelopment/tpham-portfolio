@@ -1,8 +1,7 @@
 "use client";
 
+import styles from "../FeaturedWork/FeaturedWork.module.scss";
 import React from "react";
-import "../../styles/globals.css";
-import "../FeaturedWork/FeaturedWork.css";
 // import { Link } from "react-router-dom";
 import Tilty from "react-tilty";
 import { Button } from "../Button/Button";
@@ -20,38 +19,38 @@ import johnnieWalkerData from "../../projects/project-data/JohnnieWalker.json";
 function FeaturedWork() {
   return (
     <>
-      <div className="fwork__wrap">
+      <div className={styles["fwork__wrap"]}>
         {/* Baileys */}
         <Tilty
-          className="fwork"
+          className={styles["fwork"]}
           reverse={true}
           scale={1}
           max={5}
           perspective={900}
           reset={true}
         >
-          <div className="fwork__thumbnail">
+          <div className={styles["fwork__thumbnail"]}>
             <img
               src={baileysData.workImagePath}
               alt={baileysData.workTitle}
               title={baileysData.workTitle}
-              className="fwork__img"
+              className={styles["fwork__img"]}
             />
           </div>
-          <div className="fwork__info">
+          <div className={styles["fwork__info"]}>
             <a
-              className="fwork__link"
+              className={styles["fwork__link"]}
               href={baileysData.workMoreLink}
               aria-label={baileysData.workTitle}
             />
-            <h3 className="fwork__title">
+            <h3 className={styles["fwork__title"]}>
               <img
                 src={baileysData.workLogo}
                 alt={baileysData.workTitle}
                 title={baileysData.workTitle}
               />
             </h3>
-            <div className="fwork__button-group">
+            <div className={styles["fwork__button-group"]}>
               <Button
                 btnLabel="Live"
                 btnUrl={baileysData.workLiveLink}
@@ -63,35 +62,35 @@ function FeaturedWork() {
         </Tilty>
         {/* CROWN ROYAL */}
         <Tilty
-          className="fwork"
+          className={styles["fwork"]}
           reverse={true}
           scale={1}
           max={5}
           perspective={900}
           reset={true}
         >
-          <div className="fwork__thumbnail">
+          <div className={styles["fwork__thumbnail"]}>
             <img
               src={crownRoyalData.workImagePath}
               alt={crownRoyalData.workTitle}
               title={crownRoyalData.workTitle}
-              className="fwork__img"
+              className={styles["fwork__img"]}
             />
           </div>
-          <div className="fwork__info">
+          <div className={styles["fwork__info"]}>
             <a
-              className="fwork__link"
+              className={styles["fwork__link"]}
               href={crownRoyalData.workMoreLink}
               aria-label={crownRoyalData.workTitle}
             />
-            <h3 className="fwork__title">
+            <h3 className={styles["fwork__title"]}>
               <img
                 src={crownRoyalData.workLogo}
                 alt={crownRoyalData.workTitle}
                 title={crownRoyalData.workTitle}
               />
             </h3>
-            <div className="fwork__button-group">
+            <div className={styles["fwork__button-group"]}>
               <Button
                 btnLabel="Live"
                 btnUrl={crownRoyalData.workLiveLink}
@@ -103,35 +102,35 @@ function FeaturedWork() {
         </Tilty>
         {/* JOHNNIE WALKER */}
         <Tilty
-          className="fwork"
+          className={styles["fwork"]}
           reverse={true}
           scale={1}
           max={5}
           perspective={900}
           reset={true}
         >
-          <div className="fwork__thumbnail">
+          <div className={styles["fwork__thumbnail"]}>
             <img
               src={johnnieWalkerData.workImagePath}
               alt={johnnieWalkerData.workTitle}
               title={johnnieWalkerData.workTitle}
-              className="fwork__img"
+              className={styles["fwork__img"]}
             />
           </div>
-          <div className="fwork__info">
+          <div className={styles["fwork__info"]}>
             <a
-              className="fwork__link"
+              className={styles["fwork__link"]}
               href={johnnieWalkerData.workMoreLink}
               aria-label={johnnieWalkerData.workTitle}
             />
-            <h3 className="fwork__title">
+            <h3 className={styles["fwork__title"]}>
               <img
                 src={johnnieWalkerData.workLogo}
                 alt={johnnieWalkerData.workTitle}
                 title={johnnieWalkerData.workTitle}
               />
             </h3>
-            <div className="fwork__button-group">
+            <div className={styles["fwork__button-group"]}>
               <Button
                 btnLabel="Live"
                 btnUrl={johnnieWalkerData.workLiveLink}
@@ -143,35 +142,35 @@ function FeaturedWork() {
         </Tilty>
         {/* DIAGEO */}
         <Tilty
-          className="fwork"
+          className={styles["fwork"]}
           reverse={true}
           scale={1}
           max={5}
           perspective={900}
           reset={true}
         >
-          <div className="fwork__thumbnail">
+          <div className={styles["fwork__thumbnail"]}>
             <img
               src={diageoData.workImagePath}
               alt={diageoData.workTitle}
               title={diageoData.workTitle}
-              className="fwork__img"
+              className={styles["fwork__img"]}
             />
           </div>
-          <div className="fwork__info">
+          <div className={styles["fwork__info"]}>
             <a
-              className="fwork__link"
+              className={styles["fwork__link"]}
               href={diageoData.workMoreLink}
               aria-label={diageoData.workTitle}
             />
-            <h3 className="fwork__title">
+            <h3 className={styles["fwork__title"]}>
               <img
                 src={diageoData.workLogo}
                 alt={diageoData.workTitle}
                 title={diageoData.workTitle}
               />
             </h3>
-            <div className="fwork__button-group">
+            <div className={styles["fwork__button-group"]}>
               <Button
                 btnLabel="Live"
                 btnUrl={diageoData.workLiveLink}
@@ -183,35 +182,35 @@ function FeaturedWork() {
         </Tilty>
         {/* EARTHX */}
         <Tilty
-          className="fwork"
+          className={styles["fwork"]}
           reverse={true}
           scale={1}
           max={5}
           perspective={900}
           reset={true}
         >
-          <div className="fwork__thumbnail">
+          <div className={styles["fwork__thumbnail"]}>
             <img
               src={earthxData.workImagePath}
               alt={earthxData.workTitle}
               title={earthxData.workTitle}
-              className="fwork__img"
+              className={styles["fwork__img"]}
             />
           </div>
-          <div className="fwork__info">
+          <div className={styles["fwork__info"]}>
             <a
-              className="fwork__link"
+              className={styles["fwork__link"]}
               href={earthxData.workMoreLink}
               aria-label={earthxData.workTitle}
             />
-            <h3 className="fwork__title">
+            <h3 className={styles["fwork__title"]}>
               <img
                 src={earthxData.workLogo}
                 alt={earthxData.workTitle}
                 title={earthxData.workTitle}
               />
             </h3>
-            <div className="fwork__button-group">
+            <div className={styles["fwork__button-group"]}>
               <Button
                 btnLabel="Live"
                 btnUrl={earthxData.workLiveLink}
@@ -223,35 +222,35 @@ function FeaturedWork() {
         </Tilty>
         {/* HM INTERACTIVE */}
         <Tilty
-          className="fwork"
+          className={styles["fwork"]}
           reverse={true}
           scale={1}
           max={5}
           perspective={900}
           reset={true}
         >
-          <div className="fwork__thumbnail">
+          <div className={styles["fwork__thumbnail"]}>
             <img
               src={hmiData.workImagePath}
               alt={hmiData.workTitle}
               title={hmiData.workTitle}
-              className="fwork__img"
+              className={styles["fwork__img"]}
             />
           </div>
-          <div className="fwork__info">
+          <div className={styles["fwork__info"]}>
             <a
-              className="fwork__link"
+              className={styles["fwork__link"]}
               href={hmiData.workMoreLink}
               aria-label={hmiData.workTitle}
             />
-            <h3 className="fwork__title">
+            <h3 className={styles["fwork__title"]}>
               <img
                 src={hmiData.workLogo}
                 alt={hmiData.workTitle}
                 title={hmiData.workTitle}
               />
             </h3>
-            <div className="fwork__button-group">
+            <div className={styles["fwork__button-group"]}>
               <Button
                 btnLabel="Live"
                 btnUrl={hmiData.workLiveLink}
@@ -263,35 +262,35 @@ function FeaturedWork() {
         </Tilty>
         {/* Cintra TexPress */}
         <Tilty
-          className="fwork"
+          className={styles["fwork"]}
           reverse={true}
           scale={1}
           max={5}
           perspective={900}
           reset={true}
         >
-          <div className="fwork__thumbnail">
+          <div className={styles["fwork__thumbnail"]}>
             <img
               src={cintraData.workImagePath}
               alt={cintraData.workTitle}
               title={cintraData.workTitle}
-              className="fwork__img"
+              className={styles["fwork__img"]}
             />
           </div>
-          <div className="fwork__info">
+          <div className={styles["fwork__info"]}>
             <a
-              className="fwork__link"
+              className={styles["fwork__link"]}
               href={cintraData.workMoreLink}
               aria-label={cintraData.workTitle}
             />
-            <h3 className="fwork__title">
+            <h3 className={styles["fwork__title"]}>
               <img
                 src={cintraData.workLogo}
                 alt={cintraData.workTitle}
                 title={cintraData.workTitle}
               />
             </h3>
-            <div className="fwork__button-group">
+            <div className={styles["fwork__button-group"]}>
               <Button
                 btnLabel="Live"
                 btnUrl={cintraData.workLiveLink}
@@ -303,35 +302,35 @@ function FeaturedWork() {
         </Tilty>
         {/* ESPS Trailers */}
         <Tilty
-          className="fwork"
+          className={styles["fwork"]}
           reverse={true}
           scale={1}
           max={5}
           perspective={900}
           reset={true}
         >
-          <div className="fwork__thumbnail">
+          <div className={styles["fwork__thumbnail"]}>
             <img
               src={espsData.workImagePath}
               alt={espsData.workTitle}
               title={espsData.workTitle}
-              className="fwork__img"
+              className={styles["fwork__img"]}
             />
           </div>
-          <div className="fwork__info">
+          <div className={styles["fwork__info"]}>
             <a
-              className="fwork__link"
+              className={styles["fwork__link"]}
               href={espsData.workMoreLink}
               aria-label={espsData.workTitle}
             />
-            <h3 className="fwork__title">
+            <h3 className={styles["fwork__title"]}>
               <img
                 src={espsData.workLogo}
                 alt={espsData.workTitle}
                 title={espsData.workTitle}
               />
             </h3>
-            <div className="fwork__button-group">
+            <div className={styles["fwork__button-group"]}>
               <Button
                 btnLabel="Live"
                 btnUrl={espsData.workLiveLink}
@@ -343,35 +342,35 @@ function FeaturedWork() {
         </Tilty>
         {/* Midwest Radiology */}
         <Tilty
-          className="fwork"
+          className={styles["fwork"]}
           reverse={true}
           scale={1}
           max={5}
           perspective={900}
           reset={true}
         >
-          <div className="fwork__thumbnail">
+          <div className={styles["fwork__thumbnail"]}>
             <img
               src={mwrData.workImagePath}
               alt={mwrData.workTitle}
               title={mwrData.workTitle}
-              className="fwork__img"
+              className={styles["fwork__img"]}
             />
           </div>
-          <div className="fwork__info">
+          <div className={styles["fwork__info"]}>
             <a
-              className="fwork__link"
+              className={styles["fwork__link"]}
               href={mwrData.workMoreLink}
               aria-label={mwrData.workTitle}
             />
-            <h3 className="fwork__title">
+            <h3 className={styles["fwork__title"]}>
               <img
                 src={mwrData.workLogo}
                 alt={mwrData.workTitle}
                 title={mwrData.workTitle}
               />
             </h3>
-            <div className="fwork__button-group">
+            <div className={styles["fwork__button-group"]}>
               <Button
                 btnLabel="Live"
                 btnUrl={mwrData.workLiveLink}

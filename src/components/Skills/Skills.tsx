@@ -1,8 +1,7 @@
 "use client";
 
+import styles from "./Skills.module.scss";
 import React from "react";
-import "../../styles/globals.css";
-import "./Skills.css";
 import { Heading } from "../Heading/Heading";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -49,7 +48,7 @@ function Skills() {
           // ref={headingRef}
           className="work-header"
         />
-        <div className="skills__wrap">
+        <div className={styles["skills__wrap"]}>
           <div className="skills__skill">
             <h3>Development</h3>
             <p>

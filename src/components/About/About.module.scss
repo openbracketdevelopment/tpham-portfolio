@@ -1,58 +1,55 @@
+@use "mixins" as *;
+@reference "tailwindcss";
+
 .about__section{
   margin-bottom:7rem;
 }
 .about__wrap {
-  display: grid;
+  @apply grid;
   grid-template-columns: minmax(auto, 1280px);
   max-width: 90%;
   margin: 0 auto;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  position: relative;
+  @apply justify-center items-center flex-col relative;
   margin-bottom: 1rem;
 }
 .about__photo-image{
-  z-index:0;
+  @apply z-[0];
 }
 .about__left-door{
   background: #0f0f0f;
   border:1px solid #3d3d3d;
   height:500px;
   width:500px;
-  position:absolute;
-  z-index:1;
+  @apply absolute z-[1];
   top:0;
   left:0;
-  display:none;
+  @apply hidden;
 }
 .about__right-door{
   background: #0f0f0f;
   border:1px solid #3d3d3d;
   height:500px;
   width:500px;
-  position:absolute;
-  z-index:1;
+  @apply absolute z-[1];
   top:0;
   left:0;
 
-  display:none;
+  @apply hidden;
 }
 .about__container {
-  display: grid;
+  @apply grid;
   grid-template-columns: 1fr;
-  align-items: center;
+  @apply items-center;
   gap: 1rem;
 }
 .about__photo {
   max-width: 90%;
-  justify-self: center;
-  position:relative;
+  @apply justify-self-center relative;
 }
 .about__bio {
-  justify-self: center;
+  @apply justify-self-center;
   max-width: 85%;
-  z-index:11;
+  @apply z-[11];
 }
 .about__bio h4 {
   font-size: 1.5rem;
@@ -64,9 +61,9 @@
   line-height: 1.5rem;
   color: var(--color-03);
 }
-@media only screen and (min-width: 768px) {
+@include mq("md") {
   .about__left-door,.about__right-door{
-    display:block;
+    @apply block;
   }
   .about__container {
     gap: 4rem;
@@ -90,9 +87,9 @@
     max-width: 80%;
   }
 }
-@media only screen and (min-width: 1024px) {
+@include mq("lg") {
   .about__left-door,.about__right-door{
-    height:100%;
+    @apply h-full;
   }
   .about__photo {
     max-width: 100%;

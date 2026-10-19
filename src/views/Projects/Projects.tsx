@@ -1,15 +1,14 @@
+import styles from "./Projects.module.scss";
 import React from "react";
 import AllProjects from "../../components/AllProjects/AllProjects";
-import "../../styles/globals.css";
-import "./Projects.css";
 
 const Projects = () => {
   return (
     <>
-      <section className="projects__header">
+      <section className={styles["projects__header"]}>
         <h1>Projects</h1>
       </section>
-      <section className="projects__all">
+      <section className={styles["projects__all"]}>
         <AllProjects />
       </section>
     </>

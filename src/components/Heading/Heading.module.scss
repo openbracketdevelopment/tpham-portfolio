@@ -1,3 +1,6 @@
+@use "mixins" as *;
+@reference "tailwindcss";
+
 .heading {
   color: var(--color-04);
   font-family: var(--font-family-compact), -apple-system, "Helvetica Neue",
@@ -19,8 +22,7 @@
   --item-font-size: 24vw;
   text-transform: uppercase;
   width: var(--marquee-width);
-  overflow: hidden;
-  pointer-events: none;
+  @apply overflow-hidden pointer-events-none;
 }
 .heading__rotate-none {
   transform: rotate(0deg);
@@ -40,14 +42,12 @@
 }
 .heading__marquee-none{
   width: fit-content;
-  display: flex;
-  position: relative;
+  @apply flex relative;
   opacity: 1;
 }
 .heading__marquee-default {
   width: fit-content;
-  display: flex;
-  position: relative;
+  @apply flex relative;
   transform: translate3d(var(--move-initial), 0, 0);
   opacity: 1;
   transition: opacity 0.1s;
@@ -57,8 +57,7 @@
 }
 .heading__marquee-reverse {
   width: fit-content;
-  display: flex;
-  position: relative;
+  @apply flex relative;
   transform: translate3d(var(--reverse-initial), 0, 0);
   opacity: 1;
   transition: opacity 0.1s;
@@ -75,7 +74,7 @@
   padding: 0 1vw;
   font-weight: 900;
   line-height: 1.15;
-  text-align: center;
+  @apply text-center;
 }
 
 @keyframes marquee {
@@ -96,13 +95,13 @@
     transform: translate3d(var(--reverse-final), 0, 0);
   }
 }
-@media only screen and (min-width: 768px) {
+@include mq("md") {
   .heading {
     margin-bottom: 2rem;
     --item-font-size: 15vw;
   }
 }
-@media only screen and (min-width: 1024px) {
+@include mq("lg") {
   .heading {
     margin-bottom: 3rem;
   }

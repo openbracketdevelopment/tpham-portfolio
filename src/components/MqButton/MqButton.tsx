@@ -1,8 +1,7 @@
 "use client";
 
+import styles from "./MqButton.module.scss";
 import React from "react";
-import "../../styles/globals.css";
-import "./MqButton.css";
 // import { Link } from "react-router-dom";
 
 type MqButtonProps = {
@@ -23,15 +22,15 @@ export const MqButton = ({
   buttonIdHashtag,
 }: MqButtonProps) => {
   return (
-    <div className="mq__button">
+    <div className={styles["mq__button"]}>
       <a
-        className="mq__button-url"
+        className={styles["mq__button-url"]}
         aria-label={buttonImgAlt}
         href={buttonLink}
       >
-        <div className="mq__button-circle">
+        <div className={styles["mq__button-circle"]}>
           <svg
-            className="mq__button-round"
+            className={styles["mq__button-round"]}
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -58,7 +57,7 @@ export const MqButton = ({
               <use xlinkHref={buttonIdHashtag} fill="none" />
               <text fill="#000">
                 <textPath
-                  className="mq__rotating-text"
+                  className={styles["mq__rotating-text"]}
                   xlinkHref={buttonIdHashtag}
                 >
                   {buttonLabel}
@@ -67,16 +66,16 @@ export const MqButton = ({
               </text>
             </g>
           </svg>
-          <div className="mq__button-arrow">
+          <div className={styles["mq__button-arrow"]}>
             <img
               src={buttonImg}
               alt={buttonImgAlt}
-              className="mq__button-arrow-graphic"
+              className={styles["mq__button-arrow-graphic"]}
             />
             {/* <img
               src="/assets/images/triangle.svg"
               alt="See Work"
-              className="mq__button-arrow-graphic"
+              className={styles["mq__button-arrow-graphic"]}
             /> */}
           </div>
         </div>

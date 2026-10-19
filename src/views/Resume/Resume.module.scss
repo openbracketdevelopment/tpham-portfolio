@@ -1,0 +1,294 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+@use "sass:map";
+
+$accent: map.get($colors, "01");
+
+.resume {
+  min-height: 100vh;
+  padding: 7rem 1.25rem 4rem;
+  background: map.get($colors, "02");
+  color: map.get($colors, "03");
+  font-family: map.get($font-families, "body"), sans-serif;
+  line-height: 1.55;
+
+  &__sheet {
+    max-width: 62rem;
+    margin: 0 auto;
+  }
+
+  &__header {
+    display: grid;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid $accent;
+
+    @include mq("md") {
+      grid-template-columns: 1fr auto;
+      align-items: end;
+    }
+  }
+
+  &__name {
+    margin: 0;
+    font-family: map.get($font-families, "heading"), sans-serif;
+    font-size: clamp(2.25rem, 6vw, 3.5rem);
+    line-height: 1.05;
+  }
+
+  &__title {
+    margin: 0.4rem 0 0;
+    color: map.get($colors, "06");
+    font-size: 1.1rem;
+  }
+
+  &__contact {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.9rem;
+
+    @include mq("md") {
+      text-align: right;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        color: map.get($colors, "06");
+      }
+    }
+  }
+
+  &__download {
+    justify-self: start;
+    padding: 0.6rem 1.25rem;
+    background: $accent;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 999px;
+    transition: $transition-linear;
+
+    &:hover {
+      background: #fff;
+      color: map.get($colors, "02");
+    }
+
+    @include mq("md") {
+      grid-column: 2;
+      justify-self: end;
+    }
+  }
+
+  &__section {
+    margin-top: 2rem;
+
+    h2 {
+      margin: 0 0 0.75rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid map.get($colors, "04");
+      color: $accent;
+      font-family: map.get($font-families, "heading"), sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    p {
+      margin: 0.25rem 0;
+    }
+
+    ul {
+      margin: 0.4rem 0 0;
+      padding-left: 1.1rem;
+    }
+  }
+
+  &__strengths {
+    display: grid;
+    gap: 0.1rem 2rem;
+
+    @include mq("md") {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__skills {
+    display: grid;
+    gap: 0.9rem;
+    margin: 0;
+
+    dt {
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      color: map.get($colors, "07");
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    dd {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin: 0;
+    }
+
+    span {
+      padding: 0.2rem 0.65rem;
+      border: 1px solid map.get($colors, "04");
+      border-radius: 999px;
+      font-size: 0.85rem;
+
+      &.is-featured {
+        border-color: $accent;
+        background: rgba($accent, 0.2);
+      }
+    }
+  }
+
+  &__job {
+    margin-bottom: 1.5rem;
+    break-inside: avoid;
+  }
+
+  &__job-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+
+    h3 span {
+      font-weight: 400;
+      color: map.get($colors, "06");
+    }
+
+    p {
+      margin: 0;
+      color: map.get($colors, "07");
+      font-size: 0.9rem;
+    }
+  }
+
+  &__achievement {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  &__footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid map.get($colors, "04");
+    text-align: center;
+  }
+
+  &__cols {
+    display: grid;
+    gap: 0 2rem;
+
+    @include mq("lg") {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+// Print / PDF: light, compact, no site chrome
+@media print {
+  @page {
+    size: Letter;
+    margin: 0.5in;
+  }
+
+  :global(body > header),
+  .resume__download,
+  .resume__footer {
+    display: none !important;
+  }
+
+  .resume {
+    min-height: 0;
+    padding: 0;
+    background: #fff;
+    color: #111;
+    font-size: 9.5pt;
+    line-height: 1.35;
+    letter-spacing: 0.2px;
+
+    p,
+    li,
+    ul {
+      font-size: 9.5pt;
+      line-height: 1.35;
+      letter-spacing: 0.2px;
+      padding-bottom: 0.2rem;
+    }
+
+    h1,
+    h3,
+    p,
+    li,
+    a,
+    dd span {
+      color: #111;
+    }
+
+    &__title,
+    &__job-head h3 span {
+      color: #444 !important;
+    }
+
+    &__contact a:hover {
+      color: inherit;
+    }
+
+    &__skills span {
+      border-color: #bbb;
+
+      &.is-featured {
+        border-color: $accent;
+        background: #fbeaea;
+      }
+    }
+
+    &__job-head p,
+    &__skills dt {
+      color: #555 !important;
+    }
+
+    &__section h2 {
+      border-color: #ccc;
+    }
+
+    &__section {
+      margin-top: 0.75rem;
+    }
+
+    &__job {
+      margin-bottom: 1rem;
+    }
+
+    &__cols {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    &__strengths {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &__header {
+      grid-template-columns: 1fr auto;
+    }
+
+    &__contact {
+      text-align: right;
+    }
+  }
+}

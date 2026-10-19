@@ -1,9 +1,8 @@
 "use client";
 
+import styles from "../ProjectItem/ProjectItem.module.scss";
 import React from "react";
-import "../../styles/globals.css";
 // import { Button } from "../../components/Button/Button";
-import "../ProjectItem/ProjectItem.css";
 import * as FaIcons from "react-icons/fa";
 import Fancybox from "../Fancybox/Fancybox";
 import Link from "next/link";
@@ -14,17 +13,17 @@ function JohnnieWalker() {
   return (
     <>
       {/* WORK CONTENT */}
-      <section className="project__hero">
-        <div className="project__img-wrap">
+      <section className={styles["project__hero"]}>
+        <div className={styles["project__img-wrap"]}>
           <img
             src={JohnnieWalkerData.workImagePath}
             alt={JohnnieWalkerData.workTitle}
             title={JohnnieWalkerData.workTitle}
-            className="project__img"
+            className={styles["project__img"]}
           />
         </div>
 
-        <h1 className="project__title">
+        <h1 className={styles["project__title"]}>
           <img
             src={JohnnieWalkerData.workLogo}
             alt={JohnnieWalkerData.workTitle}
@@ -32,13 +31,13 @@ function JohnnieWalker() {
           />
         </h1>
       </section>
-      <section className="project__container">
-        <div className="project__info">
-          <div className="project__description">
+      <section className={styles["project__container"]}>
+        <div className={styles["project__info"]}>
+          <div className={styles["project__description"]}>
             <p>{JohnnieWalkerData.workDescription}</p>
           </div>
-          <div className="project__technology">
-            <div className="project__details">
+          <div className={styles["project__technology"]}>
+            <div className={styles["project__details"]}>
               <div className="project__timeframe">
                 <h3>Timeframe</h3>
                 <p>{JohnnieWalkerData.workTimeFrame}</p>
@@ -59,18 +58,18 @@ function JohnnieWalker() {
           </div>
         </div>
       </section>
-      <section className="project__container">
-        <div className="project__section-heading">
+      <section className={styles["project__container"]}>
+        <div className={styles["project__section-heading"]}>
           <h3>Play Video</h3>
         </div>
-        <div className="project__logo-showcase project__logo-showcase-full">
+        <div className={`${styles["project__logo-showcase"]} ${styles["project__logo-showcase-full"]}`}>
           <Fancybox>
             <a
-              className="project__video-link"
+              className={styles["project__video-link"]}
               data-fancybox
               href={JohnnieWalkerData.workDesktopClip}
             >
-              <FaIcons.FaPlay className="project__video-icon" />
+              <FaIcons.FaPlay className={styles["project__video-icon"]} />
               <img
                 src="/assets/images/jwalker-video-thumb.webp"
                 alt="Johnnie Walker Video 2022"
@@ -80,10 +79,10 @@ function JohnnieWalker() {
         </div>
       </section>
       {/* ALL WORK */}
-      <section className="project__container project__work-nav">
+      <section className={`${styles["project__container"]} ${styles["project__work-nav"]}`}>
         <Link
           href="/#work"
-          className="project__all-work-btn"
+          className={styles["project__all-work-btn"]}
         >
           All Projects
         </Link>

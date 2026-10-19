@@ -1,9 +1,8 @@
 "use client";
 
+import styles from "../ProjectItem/ProjectItem.module.scss";
 import React from "react";
 import { Button } from "../../components/Button/Button";
-import "../../styles/globals.css";
-import "../ProjectItem/ProjectItem.css";
 import Fancybox from "../Fancybox/Fancybox";
 import Link from "next/link";
 
@@ -13,17 +12,17 @@ function earthx() {
   return (
     <>
       {/* WORK CONTENT */}
-      <section className="project__hero">
-        <div className="project__img-wrap">
+      <section className={styles["project__hero"]}>
+        <div className={styles["project__img-wrap"]}>
           <img
             src={espsData.workImagePath}
             alt={espsData.workTitle}
             title={espsData.workTitle}
-            className="project__img"
+            className={styles["project__img"]}
           />
         </div>
 
-        <h1 className="project__title">
+        <h1 className={styles["project__title"]}>
           <img
             src={espsData.workLogo}
             alt={espsData.workTitle}
@@ -31,14 +30,14 @@ function earthx() {
           />
         </h1>
       </section>
-      <section className="project__container">
-        <div className="project__info">
-          <div className="project__description">
+      <section className={styles["project__container"]}>
+        <div className={styles["project__info"]}>
+          <div className={styles["project__description"]}>
             <p>{espsData.workDescription}</p>
           </div>
 
-          <div className="project__technology">
-            <div className="project__details">
+          <div className={styles["project__technology"]}>
+            <div className={styles["project__details"]}>
               <div className="project__timeframe">
                 <h3>Timeframe</h3>
                 <p>{espsData.workTimeFrame}</p>
@@ -58,7 +57,7 @@ function earthx() {
             </div>
           </div>
 
-          <div className="project__btns">
+          <div className={styles["project__btns"]}>
             <Button
               btnLabel="See it Live"
               btnUrl={espsData.workLiveLink}
@@ -68,21 +67,21 @@ function earthx() {
         </div>
       </section>
       {/* DESKTOP */}
-      <section className="project__container">
-        <div className="project__section-heading">
+      <section className={styles["project__container"]}>
+        <div className={styles["project__section-heading"]}>
           <h3>Desktop</h3>
         </div>
-        <div className="project__work-desktop">
-          <div className="project__browser-head">
-            <div className="project__browser-head-wrap">
-              <div className="project__dot project__dot-1"></div>
-              <div className="project__dot project__dot-2"></div>
-              <div className="project__dot project__dot-3"></div>
+        <div className={styles["project__work-desktop"]}>
+          <div className={styles["project__browser-head"]}>
+            <div className={styles["project__browser-head-wrap"]}>
+              <div className={`${styles["project__dot"]} ${styles["project__dot-1"]}`}></div>
+              <div className={`${styles["project__dot"]} ${styles["project__dot-2"]}`}></div>
+              <div className={`${styles["project__dot"]} ${styles["project__dot-3"]}`}></div>
             </div>
           </div>
-          <div className="project__desktop-piece">
+          <div className={styles["project__desktop-piece"]}>
             <video
-              className="project__video project__desktop-website"
+              className={`${styles["project__video"]} project__desktop-website`}
               muted={true}
               loop={true}
               autoPlay={true}
@@ -93,28 +92,28 @@ function earthx() {
         </div>
       </section>
       {/* WORK WALL */}
-      <section className="project__container-full">
+      <section className={styles["project__container-full"]}>
         <div className="project__work-wall">
           <img src={espsData.workImagePath2} alt="" />
         </div>
       </section>
       {/* MOBILE */}
-      <section className="project__container">
-        <div className="project__section-heading">
+      <section className={styles["project__container"]}>
+        <div className={styles["project__section-heading"]}>
           <h3>Mobile</h3>
         </div>
-        <div className="project__mobile">
-          <div className="project__mobile-view project__mobile-view-1">
-            <div className="project__mobile-lockup">
+        <div className={styles["project__mobile"]}>
+          <div className={`${styles["project__mobile-view"]} project__mobile-view-1`}>
+            <div className={styles["project__mobile-lockup"]}>
               <video
-                className="project__video project__mobile-website"
+                className={`${styles["project__video"]} ${styles["project__mobile-website"]}`}
                 muted={true}
                 loop={true}
                 autoPlay={true}
                 playsInline={true}
                 src={espsData.workMobileClip1}
               ></video>
-              <div className="project__mobile-bg">
+              <div className={styles["project__mobile-bg"]}>
                 <svg viewBox="0 0 491.577 987.003">
                   <g>
                     <path
@@ -143,17 +142,17 @@ function earthx() {
               </div>
             </div>
           </div>
-          <div className="project__mobile-view project__mobile-view-2">
-            <div className="project__mobile-lockup">
+          <div className={`${styles["project__mobile-view"]} project__mobile-view-2`}>
+            <div className={styles["project__mobile-lockup"]}>
               <video
-                className="project__video project__mobile-website"
+                className={`${styles["project__video"]} ${styles["project__mobile-website"]}`}
                 muted={true}
                 loop={true}
                 autoPlay={true}
                 playsInline={true}
                 src={espsData.workMobileClip2}
               ></video>
-              <div className="project__mobile-bg">
+              <div className={styles["project__mobile-bg"]}>
                 <svg viewBox="0 0 491.577 987.003">
                   <g>
                     <path
@@ -185,8 +184,8 @@ function earthx() {
         </div>
       </section>
       {/* MOBILE AND DESKTOP EXAMPLES */}
-      <section className="project__container-full">
-        <div className="project__section-heading">
+      <section className={styles["project__container-full"]}>
+        <div className={styles["project__section-heading"]}>
           <h3>Responsive Design</h3>
         </div>
         <div className="project__work-wall">
@@ -194,11 +193,11 @@ function earthx() {
         </div>
       </section>
       {/* Branding */}
-      <section className="project__container">
-        <div className="project__section-heading">
+      <section className={styles["project__container"]}>
+        <div className={styles["project__section-heading"]}>
           <h3>Branding</h3>
         </div>
-        <div className="project__logo-showcase project__logo-showcase-full">
+        <div className={`${styles["project__logo-showcase"]} ${styles["project__logo-showcase-full"]}`}>
           <Fancybox>
             <a data-fancybox href="/assets/images/esps-logo-1.svg">
               <img
@@ -216,7 +215,7 @@ function earthx() {
             </a>
           </Fancybox>
         </div>
-        <div className="project__logo-showcase project__logo-showcase-thirds">
+        <div className={`${styles["project__logo-showcase"]} ${styles["project__logo-showcase-thirds"]}`}>
           <Fancybox>
             <a data-fancybox href="/assets/images/esps-icon-1.svg">
               <img
@@ -245,11 +244,11 @@ function earthx() {
         </div>
       </section>
       {/* Tarps, Mudflaps signs etc */}
-      <section className="project__container">
-        <div className="project__section-heading">
+      <section className={styles["project__container"]}>
+        <div className={styles["project__section-heading"]}>
           <h3>Tarps, Mudflaps and Signs</h3>
         </div>
-        <div className="project__logo-showcase project__logo-showcase-halves">
+        <div className={`${styles["project__logo-showcase"]} ${styles["project__logo-showcase-halves"]}`}>
           <Fancybox>
             <a data-fancybox href="/assets/images/esps-signs.webp">
               <img
@@ -287,10 +286,10 @@ function earthx() {
         </div>
       </section>
       {/* ALL PROJECTS BTN */}
-      <section className="project__container project__work-nav">
+      <section className={`${styles["project__container"]} ${styles["project__work-nav"]}`}>
         <Link
           href="/#work"
-          className="project__all-work-btn"
+          className={styles["project__all-work-btn"]}
         >
           All Projects
         </Link>

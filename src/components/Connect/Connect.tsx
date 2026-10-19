@@ -1,8 +1,7 @@
 "use client";
 
+import styles from "./Connect.module.scss";
 import React from "react";
-import "../../styles/globals.css";
-import "./Connect.css";
 // import { Link } from "react-router-dom";
 import { Heading } from "../Heading/Heading";
 import * as FaIcons from "react-icons/fa";
@@ -61,11 +60,11 @@ function Connect() {
           // ref={headingRef}
           className="connect-header"
         />
-        <div className="connect__wrap">
-          <div className="connect__container">
-            <div className="connect__socials">
+        <div className={styles["connect__wrap"]}>
+          <div className={styles["connect__container"]}>
+            <div className={styles["connect__socials"]}>
               <a
-                className="connect__social-link"
+                className={styles["connect__social-link"]}
                 target="_blank"
                 rel="noreferrer"
                 href="https://www.linkedin.com/in/tamphamjr/"
@@ -73,7 +72,7 @@ function Connect() {
                 <FaIcons.FaLinkedin />
               </a>
               <a
-                className="connect__social-link"
+                className={styles["connect__social-link"]}
                 target="_blank"
                 rel="noreferrer"
                 href="https://codepen.io/tampham"
@@ -81,7 +80,7 @@ function Connect() {
                 <FaIcons.FaCodepen />
               </a>
               <a
-                className="connect__social-link"
+                className={styles["connect__social-link"]}
                 target="_blank"
                 rel="noreferrer"
                 href="https://github.com/hm-tam"
@@ -89,14 +88,14 @@ function Connect() {
                 <FaIcons.FaGithub />
               </a>
             </div>
-            <div className="connect__text">
+            <div className={styles["connect__text"]}>
               <p>
                 I'm always open for new opportunities and creative projects. If
                 you have a project in mind, then let's work together. I'd love
                 to hear your ideas.
               </p>
             </div>
-            <div className="connect__email">
+            <div className={styles["connect__email"]}>
               <MqButton
                 buttonLabel="Say Hello- Say Hello-"
                 buttonImg="/assets/images/email.svg"

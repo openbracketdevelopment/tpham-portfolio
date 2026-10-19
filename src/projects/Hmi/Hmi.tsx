@@ -1,9 +1,8 @@
 "use client";
 
+import styles from "../ProjectItem/ProjectItem.module.scss";
 import React from "react";
 import { Button } from "../../components/Button/Button";
-import "../../styles/globals.css";
-import "../ProjectItem/ProjectItem.css";
 // import Fancybox from "../Fancybox/Fancybox";
 import Link from "next/link";
 
@@ -13,17 +12,17 @@ function hmi() {
   return (
     <>
       {/* WORK CONTENT */}
-      <section className="project__hero">
-        <div className="project__img-wrap">
+      <section className={styles["project__hero"]}>
+        <div className={styles["project__img-wrap"]}>
           <img
             src={hmiData.workImagePath}
             alt={hmiData.workTitle}
             title={hmiData.workTitle}
-            className="project__img"
+            className={styles["project__img"]}
           />
         </div>
 
-        <h1 className="project__title">
+        <h1 className={styles["project__title"]}>
           <img
             src={hmiData.workLogo}
             alt={hmiData.workTitle}
@@ -32,13 +31,13 @@ function hmi() {
         </h1>
       </section>
       {/* DESCRIPTION */}
-      <section className="project__container">
-        <div className="project__info">
-          <div className="project__description">
+      <section className={styles["project__container"]}>
+        <div className={styles["project__info"]}>
+          <div className={styles["project__description"]}>
             <p>{hmiData.workDescription}</p>
           </div>
-          <div className="project__technology">
-            <div className="project__details">
+          <div className={styles["project__technology"]}>
+            <div className={styles["project__details"]}>
               <div className="project__timeframe">
                 <h3>Timeframe</h3>
                 <p>{hmiData.workTimeFrame}</p>
@@ -57,7 +56,7 @@ function hmi() {
               </div>
             </div>
           </div>
-          <div className="project__btns">
+          <div className={styles["project__btns"]}>
             <Button
               btnLabel="Visit Site"
               btnUrl={hmiData.workLiveLink}
@@ -67,21 +66,21 @@ function hmi() {
         </div>
       </section>
       {/* DESKTOP */}
-      <section className="project__container">
-        <div className="project__section-heading">
+      <section className={styles["project__container"]}>
+        <div className={styles["project__section-heading"]}>
           <h3>Desktop</h3>
         </div>
-        <div className="project__work-desktop">
-          <div className="project__browser-head">
-            <div className="project__browser-head-wrap">
-              <div className="project__dot project__dot-1"></div>
-              <div className="project__dot project__dot-2"></div>
-              <div className="project__dot project__dot-3"></div>
+        <div className={styles["project__work-desktop"]}>
+          <div className={styles["project__browser-head"]}>
+            <div className={styles["project__browser-head-wrap"]}>
+              <div className={`${styles["project__dot"]} ${styles["project__dot-1"]}`}></div>
+              <div className={`${styles["project__dot"]} ${styles["project__dot-2"]}`}></div>
+              <div className={`${styles["project__dot"]} ${styles["project__dot-3"]}`}></div>
             </div>
           </div>
-          <div className="project__desktop-piece">
+          <div className={styles["project__desktop-piece"]}>
             <video
-              className="project__video project__desktop-website"
+              className={`${styles["project__video"]} project__desktop-website`}
               muted={true}
               loop={true}
               autoPlay={true}
@@ -92,24 +91,24 @@ function hmi() {
         </div>
       </section>
       {/* WORK WALL */}
-      <section className="project__container-full">
+      <section className={styles["project__container-full"]}>
         <div className="project__work-wall">
           <img src={hmiData.workImagePath2} alt="" />
         </div>
       </section>
       {/* DESKTOP 2 */}
-      <section className="project__container">
-        <div className="project__work-desktop">
-          <div className="project__browser-head">
-            <div className="project__browser-head-wrap">
-              <div className="project__dot project__dot-1"></div>
-              <div className="project__dot project__dot-2"></div>
-              <div className="project__dot project__dot-3"></div>
+      <section className={styles["project__container"]}>
+        <div className={styles["project__work-desktop"]}>
+          <div className={styles["project__browser-head"]}>
+            <div className={styles["project__browser-head-wrap"]}>
+              <div className={`${styles["project__dot"]} ${styles["project__dot-1"]}`}></div>
+              <div className={`${styles["project__dot"]} ${styles["project__dot-2"]}`}></div>
+              <div className={`${styles["project__dot"]} ${styles["project__dot-3"]}`}></div>
             </div>
           </div>
-          <div className="project__desktop-piece">
+          <div className={styles["project__desktop-piece"]}>
             <video
-              className="project__video project__desktop-website"
+              className={`${styles["project__video"]} project__desktop-website`}
               muted={true}
               loop={true}
               autoPlay={true}
@@ -120,8 +119,8 @@ function hmi() {
         </div>
       </section>
       {/* MOBILE AND DESKTOP EXAMPLES */}
-      <section className="project__container-full">
-        <div className="project__section-heading">
+      <section className={styles["project__container-full"]}>
+        <div className={styles["project__section-heading"]}>
           <h3>Responsive Design</h3>
         </div>
         <div className="project__work-wall">
@@ -129,22 +128,22 @@ function hmi() {
         </div>
       </section>
       {/* MOBILE */}
-      <section className="project__container-full">
-        <div className="project__section-heading">
+      <section className={styles["project__container-full"]}>
+        <div className={styles["project__section-heading"]}>
           <h3>Mobile</h3>
         </div>
-        <div className="project__mobile">
-          <div className="project__mobile-view">
-            <div className="project__mobile-lockup">
+        <div className={styles["project__mobile"]}>
+          <div className={styles["project__mobile-view"]}>
+            <div className={styles["project__mobile-lockup"]}>
               <video
-                className="project__video project__mobile-website"
+                className={`${styles["project__video"]} ${styles["project__mobile-website"]}`}
                 muted={true}
                 loop={true}
                 autoPlay={true}
                 playsInline={true}
                 src={hmiData.workMobileClip2}
               ></video>
-              <div className="project__mobile-bg">
+              <div className={styles["project__mobile-bg"]}>
                 <svg viewBox="0 0 491.577 987.003">
                   <g>
                     <path
@@ -173,17 +172,17 @@ function hmi() {
               </div>
             </div>
           </div>
-          <div className="project__mobile-view">
-            <div className="project__mobile-lockup">
+          <div className={styles["project__mobile-view"]}>
+            <div className={styles["project__mobile-lockup"]}>
               <video
-                className="project__video project__mobile-website"
+                className={`${styles["project__video"]} ${styles["project__mobile-website"]}`}
                 muted={true}
                 loop={true}
                 autoPlay={true}
                 playsInline={true}
                 src={hmiData.workMobileClip1}
               ></video>
-              <div className="project__mobile-bg">
+              <div className={styles["project__mobile-bg"]}>
                 <svg viewBox="0 0 491.577 987.003">
                   <g>
                     <path
@@ -212,17 +211,17 @@ function hmi() {
               </div>
             </div>
           </div>
-          <div className="project__mobile-view">
-            <div className="project__mobile-lockup">
+          <div className={styles["project__mobile-view"]}>
+            <div className={styles["project__mobile-lockup"]}>
               <video
-                className="project__video project__mobile-website"
+                className={`${styles["project__video"]} ${styles["project__mobile-website"]}`}
                 muted={true}
                 loop={true}
                 autoPlay={true}
                 playsInline={true}
                 src={hmiData.workMobileClip3}
               ></video>
-              <div className="project__mobile-bg">
+              <div className={styles["project__mobile-bg"]}>
                 <svg viewBox="0 0 491.577 987.003">
                   <g>
                     <path
@@ -251,17 +250,17 @@ function hmi() {
               </div>
             </div>
           </div>
-          <div className="project__mobile-view">
-            <div className="project__mobile-lockup">
+          <div className={styles["project__mobile-view"]}>
+            <div className={styles["project__mobile-lockup"]}>
               <video
-                className="project__video project__mobile-website"
+                className={`${styles["project__video"]} ${styles["project__mobile-website"]}`}
                 muted={true}
                 loop={true}
                 autoPlay={true}
                 playsInline={true}
                 src={hmiData.workMobileClip4}
               ></video>
-              <div className="project__mobile-bg">
+              <div className={styles["project__mobile-bg"]}>
                 <svg viewBox="0 0 491.577 987.003">
                   <g>
                     <path
@@ -293,13 +292,13 @@ function hmi() {
         </div>
       </section>
       {/* CUBE ANIMATION */}
-      <section className="project__container-full project__container-dark">
-        <div className="project__section-heading">
+      <section className={`${styles["project__container-full"]} ${styles["project__container-dark"]}`}>
+        <div className={styles["project__section-heading"]}>
           <h3>Cube Animation</h3>
         </div>
         <div className="project__work-wall">
           <video
-            className="project__video project__desktop-website"
+            className={`${styles["project__video"]} project__desktop-website`}
             muted={true}
             loop={true}
             autoPlay={true}
@@ -309,21 +308,21 @@ function hmi() {
         </div>
       </section>
       {/* MENUS */}
-      <section className="project__container">
-        <div className="project__section-heading">
+      <section className={styles["project__container"]}>
+        <div className={styles["project__section-heading"]}>
           <h3>MENUS & 3D ART</h3>
         </div>
-        <div className="project__work-desktop">
-          <div className="project__browser-head">
-            <div className="project__browser-head-wrap">
-              <div className="project__dot project__dot-1"></div>
-              <div className="project__dot project__dot-2"></div>
-              <div className="project__dot project__dot-3"></div>
+        <div className={styles["project__work-desktop"]}>
+          <div className={styles["project__browser-head"]}>
+            <div className={styles["project__browser-head-wrap"]}>
+              <div className={`${styles["project__dot"]} ${styles["project__dot-1"]}`}></div>
+              <div className={`${styles["project__dot"]} ${styles["project__dot-2"]}`}></div>
+              <div className={`${styles["project__dot"]} ${styles["project__dot-3"]}`}></div>
             </div>
           </div>
-          <div className="project__desktop-piece">
+          <div className={styles["project__desktop-piece"]}>
             <video
-              className="project__video project__desktop-website"
+              className={`${styles["project__video"]} project__desktop-website`}
               muted={true}
               loop={true}
               autoPlay={true}
@@ -335,10 +334,10 @@ function hmi() {
       </section>
 
       {/* ALL PROJECTS */}
-      <section className="project__container project__work-nav">
+      <section className={`${styles["project__container"]} ${styles["project__work-nav"]}`}>
         <Link
           href="/#work"
-          className="project__all-work-btn"
+          className={styles["project__all-work-btn"]}
         >
           All Projects
         </Link>

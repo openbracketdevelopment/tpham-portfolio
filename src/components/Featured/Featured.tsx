@@ -1,8 +1,6 @@
 "use client";
 
 import React from "react";
-import "../../styles/globals.css";
-import "./Featured.css";
 import FeaturedWork from "../FeaturedWork/FeaturedWork";
 import { Heading } from "../Heading/Heading";
 import { gsap } from "gsap";

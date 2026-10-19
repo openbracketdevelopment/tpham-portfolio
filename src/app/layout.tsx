@@ -1,5 +1,6 @@
 import Script from "next/script";
-import "../styles/globals.css";
+import "../styles/tailwind.css";
+import "../styles/globals.scss";
 import Header from "../components/Header/Header";
 
 export const metadata = {

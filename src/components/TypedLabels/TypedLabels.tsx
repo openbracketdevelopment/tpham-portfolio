@@ -1,8 +1,8 @@
 "use client";
 
+import styles from "./TypedLabels.module.scss";
 import React from "react";
 import Typed from "typed.js";
-import "./TypedLabels.css";
 
 const TypedLabels = () => {
   // Create reference to store the DOM element containing the animation
@@ -32,7 +32,7 @@ const TypedLabels = () => {
     };
   }, []);
 
-  return <span className="typed__big-text" ref={el} />;
+  return <span className={styles["typed__big-text"]} ref={el} />;
 };
 
 export default TypedLabels;

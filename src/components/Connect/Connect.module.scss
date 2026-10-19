@@ -1,14 +1,17 @@
+@use "mixins" as *;
+@reference "tailwindcss";
+
 .connect__wrap {
-  display: grid;
+  @apply grid;
   grid-template-columns: minmax(auto, 1280px);
   max-width: 90%;
   min-height: 40vh;
   margin: 0 auto;
-  position: relative;
+  @apply relative;
   margin-bottom: 1rem;
 }
 .connect__socials {
-  display: flex;
+  @apply flex;
   gap: 1rem;
   flex-direction: row;
   align-self: flex-start;
@@ -18,13 +21,11 @@
   font-size: 2rem;
 }
 .connect__container {
-  display: grid;
-  flex-direction: column;
-  justify-content: center;
+  @apply grid flex-col justify-center;
   align-items: flex-start;
   gap: 1rem;
   max-width: 85%;
-  justify-self: center;
+  @apply justify-self-center;
 }
 /* .connect__email {
   grid-column-start: -3;
@@ -39,14 +40,14 @@
   line-height: 1.8rem;
 }
 
-@media only screen and (min-width: 768px) {
+@include mq("md") {
   .connect__text p {
     font-size: 2rem;
     line-height: 2.5rem;
   }
   .connect__socials {
     align-self: flex-start;
-    flex-direction: column;
+    @apply flex-col;
   }
   .connect__container {
     grid-template-columns: 1fr 4fr 2fr;
@@ -57,5 +58,5 @@
     grid-row-start: unset;
   }
 }
-@media only screen and (min-width: 1024px) {
+@include mq("lg") {
 }

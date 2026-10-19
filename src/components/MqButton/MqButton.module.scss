@@ -1,12 +1,15 @@
+@use "mixins" as *;
+@reference "tailwindcss";
+
 .mq__button-arrow {
-  position: absolute;
+  @apply absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: #ffffff;
 }
 .mq__button-url {
-  display: block;
+  @apply block;
 }
 .mq__button-arrow-graphic {
   height: 35px;
@@ -39,14 +42,14 @@
   height: 170px;
   width: 170px;
   border-radius: 50%;
-  overflow: hidden;
+  @apply overflow-hidden;
 }
 .mq__button-circle {
-  position: relative;
+  @apply relative;
   width: auto;
   background: transparent;
   padding-bottom: 100%;
-  overflow: hidden;
+  @apply overflow-hidden;
 }
 .mq__rotating-text {
   font-family: var(--font-family-body), -apple-system, "Helvetica Neue",
@@ -57,7 +60,7 @@
   letter-spacing: 0.65rem;
 }
 .mq__button-round {
-  position: absolute;
+  @apply absolute;
   left: -42px;
   top: -42px;
   width: 250px;
@@ -166,7 +169,7 @@
   }
 }
 
-@media only screen and (min-width: 768px) {
+@include mq("md") {
   .mq__rotating-text {
     font-size: 1rem;
     letter-spacing: 0.55rem;
