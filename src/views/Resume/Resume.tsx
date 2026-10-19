@@ -8,6 +8,7 @@ import {
   experience,
   education,
   awards,
+  training,
   pdfPath,
 } from "./resume-data";
 
@@ -103,22 +104,23 @@ function Resume() {
             </ul>
           </section>
           <section className={styles["resume__section"]}>
-            <h2>Awards &amp; Certifications</h2>
-            <ul>
-              {awards.map((a) => (
-                <li key={a}>{a}</li>
-              ))}
-            </ul>
-          </section>
-          <section className={styles["resume__section"]}>
             <h2>Areas of Expertise</h2>
-            <ul>
+            <ul className={styles["resume__expertise"]}>
               {expertise.map((e) => (
                 <li key={e}>{e}</li>
               ))}
             </ul>
           </section>
         </div>
+
+        <section className={styles["resume__section"]}>
+          <h2>Awards &amp; Certifications</h2>
+          <ul className={styles["resume__training"]}>
+            {[...awards, ...training].map((t) => (
+              <li key={t}>{t}</li>
+            ))}
+          </ul>
+        </section>
 
         <div className={styles["resume__footer"]}>
           <Button btnLabel="Download Resume" btnUrl={pdfPath} btnTarget="_blank" />

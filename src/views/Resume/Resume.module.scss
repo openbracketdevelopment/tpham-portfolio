@@ -4,6 +4,21 @@
 
 $accent: map.get($colors, "01");
 
+@mixin square-bullet($indent, $size, $top) {
+  position: relative;
+  padding-left: $indent;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: $top;
+    width: $size;
+    height: $size;
+    background: $accent;
+  }
+}
+
 .resume {
   min-height: 100vh;
   padding: 7rem 1.25rem 4rem;
@@ -108,13 +123,69 @@ $accent: map.get($colors, "01");
 
     ul {
       margin: 0.4rem 0 0;
+      padding-left: 0;
+    }
+
+    li {
+      @include square-bullet(1.1rem, 0.45rem, 0.55em);
+    }
+  }
+
+  &__expertise {
+    @include mq("md") {
+      columns: 2;
+      column-gap: 2rem;
+    }
+
+    li {
+      break-inside: avoid;
+    }
+  }
+
+  &__training {
+    display: grid;
+    gap: 0.1rem 2rem;
+    padding-left: 0 !important;
+
+    li {
+      position: relative;
       padding-left: 1.1rem;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.55em;
+        width: 0.45rem;
+        height: 0.45rem;
+        background: $accent;
+      }
+    }
+
+    @include mq("md") {
+      grid-template-columns: 1fr 1fr;
     }
   }
 
   &__strengths {
     display: grid;
     gap: 0.1rem 2rem;
+    padding-left: 0 !important;
+
+    li {
+      position: relative;
+      padding-left: 1.1rem;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.55em;
+        width: 0.45rem;
+        height: 0.45rem;
+        background: $accent;
+      }
+    }
 
     @include mq("md") {
       grid-template-columns: 1fr 1fr;
@@ -195,16 +266,21 @@ $accent: map.get($colors, "01");
     gap: 0 2rem;
 
     @include mq("lg") {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 1.6fr;
     }
   }
 }
 
-// Print / PDF: light, compact, no site chrome
+// Print / PDF: light, compact, clean system font, no site chrome
 @media print {
   @page {
     size: Letter;
-    margin: 0.5in;
+    margin: 0.25in 0.5in;
+  }
+
+  :global(html),
+  :global(body) {
+    background: #fff !important;
   }
 
   :global(body > header),
@@ -213,82 +289,221 @@ $accent: map.get($colors, "01");
     display: none !important;
   }
 
+  .resume,
+  .resume * {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    letter-spacing: 0 !important;
+    color: #1a1a1a;
+    background: transparent;
+  }
+
   .resume {
     min-height: 0;
-    padding: 0;
+    padding: 0 3px 0 0;
     background: #fff;
-    color: #111;
-    font-size: 9.5pt;
-    line-height: 1.35;
-    letter-spacing: 0.2px;
+    font-size: 8.2pt;
+    line-height: 1.32;
 
     p,
     li,
+    ul,
+    dd,
+    dt {
+      margin: 0;
+      padding: 0;
+      font-size: 8.2pt;
+      line-height: 1.32;
+    }
+
     ul {
-      font-size: 9.5pt;
-      line-height: 1.35;
-      letter-spacing: 0.2px;
-      padding-bottom: 0.2rem;
+      padding-left: 0;
+      list-style: none;
     }
 
-    h1,
-    h3,
-    p,
-    li,
-    a,
-    dd span {
-      color: #111;
+    li {
+      padding-bottom: 0.12rem;
     }
 
-    &__title,
-    &__job-head h3 span {
-      color: #444 !important;
-    }
-
-    &__contact a:hover {
-      color: inherit;
-    }
-
-    &__skills span {
-      border-color: #bbb;
-
-      &.is-featured {
-        border-color: $accent;
-        background: #fbeaea;
-      }
-    }
-
-    &__job-head p,
-    &__skills dt {
-      color: #555 !important;
-    }
-
-    &__section h2 {
-      border-color: #ccc;
-    }
-
-    &__section {
-      margin-top: 0.75rem;
-    }
-
-    &__job {
-      margin-bottom: 1rem;
-    }
-
-    &__cols {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    &__strengths {
-      grid-template-columns: 1fr 1fr;
+    &__section li {
+      @include square-bullet(0.7rem, 4pt, 0.5em);
     }
 
     &__header {
       grid-template-columns: 1fr auto;
+      gap: 0.5rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1.5px solid $accent;
+    }
+
+    &__name {
+      padding: 0;
+      font-size: 24pt;
+      font-weight: 700;
+      line-height: 1.05;
+    }
+
+    &__title {
+      margin-top: 0.25rem;
+      font-size: 10.5pt;
+      color: $accent !important;
+      font-weight: 600;
     }
 
     &__contact {
+      padding: 0;
+      list-style: none !important;
       text-align: right;
+      font-size: 8.5pt;
+
+      li {
+        padding: 0;
+      }
+
+      a {
+        text-decoration: none;
+      }
+    }
+
+    &__section {
+      margin-top: 0.38rem;
+
+      h2 {
+        margin: 0 0 0.35rem;
+        padding: 0 0 0.15rem;
+        border-bottom: 0.75pt solid #d0d0d0;
+        color: $accent !important;
+        font-size: 8.5pt;
+        font-weight: 700;
+        letter-spacing: 0.1em !important;
+      }
+
+      h3 {
+        padding: 0;
+        font-size: 9.5pt;
+        font-weight: 700;
+      }
+
+      p {
+        margin: 0 0 0.2rem;
+      }
+    }
+
+    &__training {
+      grid-template-columns: 1fr 1fr;
+      gap: 0 1.5rem;
+      margin-top: 0.3rem;
+      list-style: none !important;
+      padding-left: 0 !important;
+
+      li {
+        padding-left: 0.7rem;
+        position: relative;
+
+        &::before {
+          content: "";
+          top: 0.5em;
+          width: 4pt;
+          height: 4pt;
+          background: $accent;
+        }
+      }
+    }
+
+    &__strengths {
+      grid-template-columns: 1fr 1fr;
+      gap: 0 1.5rem;
+      margin-top: 0.3rem;
+      list-style: none !important;
+      padding-left: 0 !important;
+
+      li {
+        padding-left: 0.7rem;
+        position: relative;
+
+        &::before {
+          content: "";
+          top: 0.5em;
+          width: 4pt;
+          height: 4pt;
+          background: $accent;
+        }
+      }
+    }
+
+    &__skills {
+      gap: 0.2rem;
+
+      > div {
+        display: grid;
+        grid-template-columns: 7.2rem 1fr;
+        gap: 0 0.5rem;
+      }
+
+      dt {
+        color: #555 !important;
+        font-size: 7.8pt;
+        font-weight: 700;
+        letter-spacing: 0.06em !important;
+        margin: 0;
+      }
+
+      dd {
+        display: block;
+      }
+
+      span {
+        display: inline;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        font-size: 8.2pt;
+
+        &:not(:last-child)::after {
+          content: "\00a0· ";
+          color: #999;
+        }
+
+        &.is-featured {
+          background: transparent;
+          font-weight: 700;
+        }
+      }
+    }
+
+    &__job {
+      margin-bottom: 0.3rem;
+    }
+
+    &__job-head {
+      h3 {
+        font-size: 9.8pt;
+
+        span {
+          font-weight: 400;
+          color: #444 !important;
+        }
+      }
+
+      p {
+        color: #555 !important;
+        font-size: 8.3pt;
+      }
+    }
+
+    &__achievement {
+      margin-top: 0.2rem !important;
+      font-size: 8.6pt;
+    }
+
+    &__cols {
+      break-inside: avoid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 0 1.2rem;
+
+      .resume__expertise {
+        columns: 2;
+        column-gap: 1.2rem;
+      }
     }
   }
 }
