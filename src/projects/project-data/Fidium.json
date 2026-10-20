@@ -1,0 +1,27 @@
+{
+  "pageTitle": "Fidium Fiber - Project Study",
+  "pageDescription": "Headless Craft CMS and Next.js platform powering the Fidium Fiber family of websites.",
+  "canonical": "/fidium",
+  "pageUrl": "https://tampham.io/fidium",
+  "pageImage": "/assets/images/project-fidium-hero.svg",
+  "fbOgType": "article",
+  "fbOgLocale": "en_US",
+  "fbOgSiteName": "A Fort Worth based developer who makes unique web experiences.",
+  "twOgCard": "picture",
+  "workTitle": "Fidium Fiber",
+  "workLogo": "/assets/images/project-fidium-logo.svg",
+  "workMoreLink": "/fidium",
+  "workLiveLink": "https://fidium.com",
+  "workImagePath": "/assets/images/project-fidium-hero.svg",
+  "workDescription": "Fidium Fiber is a family of consumer, business, wholesale and partner websites for a fiber internet provider. At Amdocs I architected a headless Craft CMS with a bespoke content editor and page builder, custom modules and a GraphQL API that serves content to seven sites, then redesigned and shipped the Next.js applications on top of it. I planned and drove the work from the first foundation to launch.",
+  "workHighlights": [
+    "Built the headless Craft CMS (bespoke editor, GraphQL, custom modules) that serves content for 7 sites.",
+    "Redesigned and launched Next.js apps for Fidium Fiber, Business, Partners, Wholesale, Consolidated and fidium.net.",
+    "Maintained a shared UI toolkit of components, hooks and webhooks, tested with Jest and documented in Storybook.",
+    "Configured Nginx reverse proxies to serve several sites from one repo, across dev, QA, stage and production on GitLab CI/CD."
+  ],
+  "workTimeFrame": "Sept 2024 - Present",
+  "workRole": "Software Engineer, Lead Craft CMS Developer",
+  "workTechnology": "Craft CMS, GraphQL, Next.js, React, Storybook, Jest, Nginx",
+  "workCategory": "Web Platform, Headless CMS"
+}

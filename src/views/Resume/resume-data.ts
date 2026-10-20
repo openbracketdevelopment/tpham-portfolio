@@ -1,6 +1,6 @@
 export const profile = {
   name: "Tam Pham II",
-  title: "Full-Stack Developer · Web Design & Development",
+  title: "Software Engineer · Full-Stack Development & Design",
   location: "Fort Worth, TX",
   phone: "817.845.1242",
   email: "phamt@live.com",
@@ -9,7 +9,7 @@ export const profile = {
   linkedin: "linkedin.com/in/tamphamjr",
   linkedinUrl: "https://www.linkedin.com/in/tamphamjr",
   summary:
-    "Proactive, self-motivated Full-Stack Developer with 11+ years of experience building custom UI, templates, and web experiences for international brands, corporations, startups, law firms, and non-profits. Strong in React, Next.js, Craft CMS, Wordpress and PHP, with hands-on server administration, CI/CD, and cloud delivery. Agile, detail-oriented, and comfortable owning a project from design through deployment.",
+    "Software Engineer and designer with 11+ years of experience building web experiences for international brands, corporations, startups, and non-profits. Currently leading a headless Craft CMS and Next.js platform at Amdocs, with strong skills in React, TypeScript, GraphQL, CI/CD, and cloud delivery. Uses AI coding tools such as GitHub Copilot, Codex, and Claude Code to ship faster without sacrificing quality or security. Detail-oriented and comfortable owning a project from design through deployment.",
 };
 
 export const strengths = [
@@ -37,8 +37,13 @@ export const skillGroups: { label: string; items: string[]; featured?: string[] 
   },
   {
     label: "Testing & Tooling",
-    items: ["Dynatrace", "Splunk", "Jira", "Postman", "Jest", "Storybook", "ESLint", "Webpack", "BrowserStack"],
-    featured: ["Dynatrace", "Splunk", "Jira", "Postman", "Jest", "Storybook"],
+    items: ["Dynatrace", "Splunk", "Jira", "Postman", "Jest", "Storybook", "ESLint", "Snyk", "Webpack", "BrowserStack"],
+    featured: ["Dynatrace", "Splunk", "Jira", "Postman", "Jest", "Storybook", "Snyk"],
+  },
+  {
+    label: "AI Tools",
+    items: ["GitHub Copilot", "OpenAI Codex", "Claude Code", "Cursor", "Prompt Engineering"],
+    featured: ["GitHub Copilot", "OpenAI Codex", "Claude Code"],
   },
   {
     label: "Design",
@@ -49,6 +54,7 @@ export const skillGroups: { label: string; items: string[]; featured?: string[] 
 
 export const expertise = [
   "Server & client-side development",
+  "AI-assisted development",
   "Performance & SEO",
   "Responsive, cross-browser UI",
   "Web accessibility (ADA)",

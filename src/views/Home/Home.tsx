@@ -4,6 +4,7 @@ import About from "../../components/About/About";
 import Connect from "../../components/Connect/Connect";
 // import Skills from "../../components/Skills/Skills";
 import Featured from "../../components/Featured/Featured";
+import Brands from "../../components/Brands/Brands";
 import Hero from "../../components/Hero/Hero";
 
 function Home() {
@@ -13,6 +14,7 @@ function Home() {
       <Hero />
       {/* <Skills /> */}
       <Featured />
+      <Brands />
       <About />
       <Connect />
     </>

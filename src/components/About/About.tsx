@@ -190,29 +190,25 @@ function About() {
                 then let me tell you a little about myself.
               </h4>
               <p>
-                I'm an interactive developer and designer with 8+ years of
-                professional experience. My focus is in creating unique and
-                modern experiences for the web. I am based out of Fort Worth but
-                I've worked in Dallas for most of my career.
+                I'm a software engineer and designer with 11+ years of
+                experience, based in Fort Worth, TX. I enjoy building clean,
+                fast, and thoughtful web experiences that people actually like
+                using.
               </p>
 
               <p>
-                My skills as developer and designer make me a great communicator
-                and an exceptional problem solver in branding and in the web
-                space. I have collaborated with a diverse array of
-                organizations, ranging from international corporations to
-                non-profit entities, including Toro, Diageo, EarthX, Cintra
-                Texpress, and Eagle Adventure Camps. My experiences span from
-                envisioning a fresh website design and user experience for
-                EarthX to developing secure Single Sign-On (SSO) applications
-                tailored for the private infrastructure of Diageo.
+                These days I work mostly with React, Next.js, and Craft CMS,
+                creating headless content platforms and reusable UI that help
+                engineering, design, and marketing teams move faster. At
+                Amdocs, I led the build of the Craft CMS and Next.js sites
+                behind Fidium Fiber.
               </p>
 
               <p>
-                As a growing developer and quick learner, I'm alway on the look
-                out for learning new technologies that could benefit the
-                end-product. But aside from that, I'm either working on a DIY
-                project at home, traveling, or spending time with my family.
+                I'm a problem solver at heart who loves a good challenge and
+                working closely with great teams. Outside of work, you'll find
+                me learning new things as a software engineer, playing video
+                games, or spending time with my family.
               </p>
               <br></br>
               <Button

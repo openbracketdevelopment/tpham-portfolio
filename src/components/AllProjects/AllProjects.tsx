@@ -5,6 +5,7 @@ import React from "react";
 // import { Link } from "react-router-dom";
 import Tilty from "react-tilty";
 import { Button } from "../Button/Button";
+import LatestWork from "../LatestWork/LatestWork";
 
 import earthxData from "../../projects/project-data/Earthx.json";
 import hmiData from "../../projects/project-data/Hmi.json";
@@ -20,6 +21,7 @@ function FeaturedWork() {
   return (
     <>
       <div className={styles["fwork__wrap"]}>
+        <LatestWork />
         {/* Baileys */}
         <Tilty
           className={styles["fwork"]}
