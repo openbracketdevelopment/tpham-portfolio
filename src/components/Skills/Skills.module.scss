@@ -1,0 +1,6 @@
+@use "mixins" as *;
+@reference "tailwindcss";
+
+.skills__wrap{
+    @apply grid grid-cols-4;
+}

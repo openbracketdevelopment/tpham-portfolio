@@ -1,0 +1,38 @@
+"use client";
+
+import styles from "./TypedLabels.module.scss";
+import React from "react";
+import Typed from "typed.js";
+
+const TypedLabels = () => {
+  // Create reference to store the DOM element containing the animation
+  const el = React.useRef<HTMLSpanElement>(null);
+  // Create reference to store the Typed instance itself
+  const typed = React.useRef<Typed | null>(null);
+
+  React.useEffect(() => {
+    const options = {
+      strings: [
+        "Developer^1000",
+        "<span style='color:var(--color-06);'>Designer</span>^1000",
+        "<span style='color:var(--color-01);'>Problem Solver</span>^3000",
+      ],
+      typeSpeed: 70,
+      backSpeed: 80,
+      loop: true,
+    };
+
+    // elRef refers to the <span> rendered below
+    typed.current = new Typed(el.current as HTMLSpanElement, options);
+
+    return () => {
+      // Make sure to destroy Typed instance during cleanup
+      // to prevent memory leaks
+      typed.current?.destroy();
+    };
+  }, []);
+
+  return <span className={styles["typed__big-text"]} ref={el} />;
+};
+
+export default TypedLabels;

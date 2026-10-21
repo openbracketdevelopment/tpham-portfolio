@@ -1,0 +1,70 @@
+@use "mixins" as *;
+@reference "tailwindcss";
+
+.connect__section {
+  border-top: 1px solid var(--color-04);
+  padding-block: 4rem;
+}
+
+.connect__wrap {
+  @apply grid;
+  grid-template-columns: minmax(auto, 1280px);
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+  @apply relative;
+}
+.connect__socials {
+  @apply flex;
+  gap: 1rem;
+  flex-direction: row;
+  align-self: flex-start;
+}
+.connect__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 44px;
+  min-height: 44px;
+  color: var(--color-03);
+  font-size: 1.25rem;
+}
+.connect__container {
+  @apply grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+.connect__content {
+  min-width: 0;
+  text-align: left;
+  display: grid;
+  gap: 1rem;
+}
+.connect__text {
+  max-width: 680px;
+}
+.connect__text h2 {
+  width: 100%;
+  margin: 0;
+  padding: 0 0 1rem;
+}
+.connect__text p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.connect__email {
+  align-self: center;
+  justify-self: center;
+}
+
+@include mq("md") {
+  .connect__container {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 3rem;
+  }
+}
+@include mq("lg") {
+}

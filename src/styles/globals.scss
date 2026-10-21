@@ -1,0 +1,126 @@
+@use "sass:meta";
+@use "variables" as *;
+
+:root {
+  @each $key, $value in $colors {
+    --color-#{$key}: #{$value};
+  }
+  @each $key, $value in $font-families {
+    --font-family-#{$key}: #{meta.inspect($value)};
+  }
+  --transition-linear: #{$transition-linear};
+  --transition-swish: #{$transition-swish};
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: "Right Grotesk Compact Dark";
+  src: url(/assets/fonts/RightGrotesk-CompactDark.otf)
+    format("opentype");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Neue Montreal Bold";
+  src: url(/assets/fonts/NeueMontreal-Bold.otf) format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Neue Montreal Book";
+  src: url(/assets/fonts/NeueMontreal-Book.otf) format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Neue Montreal Medium";
+  src: url(/assets/fonts/NeueMontreal-Medium.otf) format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Neue Montreal Thin";
+  src: url(/assets/fonts/NeueMontreal-Thin.otf) format("opentype");
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Trade Gothic LT";
+  src: url(/assets/fonts/TradeGothic-LT.otf) format("opentype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-family: var(--font-family-compact), -apple-system, "Helvetica Neue",
+    sans-serif;
+  color: var(--color-03);
+  padding-bottom: 1rem;
+}
+body {
+  background: var(--color-02);
+}
+body,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-family: var(--font-family-body), -apple-system, "Helvetica Neue",
+    sans-serif;
+  font-size: 1rem;
+  color: var(--color-07);
+  letter-spacing: 1px;
+  line-height: 1.5rem;
+}
+p,
+ol,
+ul {
+  padding-bottom: 1rem;
+}
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  width:100%;
+}
+.section__wrap {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: minmax(auto, 1280px);
+  overflow-x: clip;
+}
+.fancybox__content{
+  width:auto !important;
+  height:100% !important;
+}
+.fancybox__slide{
+
+  padding:64px 40px !important;
+}

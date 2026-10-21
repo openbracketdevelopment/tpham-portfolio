@@ -1,0 +1,154 @@
+@use "mixins" as *;
+@reference "tailwindcss";
+
+.fwork__wrap{
+  @apply grid;
+  grid-template-columns: 1fr;
+}
+.fwork {
+  @apply flex justify-center items-center flex-col relative cursor-pointer;
+  margin-bottom: 1rem;
+  transform: preserve-3d;
+  max-width:80%;
+  margin: 0 auto;
+  margin-bottom:2rem;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+  border-radius: 1.5rem;
+}
+.fwork:hover,
+.fwork:focus-within {
+  filter: grayscale(0%);
+}
+.fwork__img {
+  @apply object-cover w-full h-full;
+  transform: scale(1);
+  transition: all .3s ease;
+}
+.fwork:hover .fwork__img{
+  transform:scale(1.05);
+  transition: all .3s ease;
+}
+.fwork__thumbnail {
+  border-radius: inherit;
+  @apply w-full;
+  aspect-ratio: 16 / 9;
+  @apply relative flex;
+  box-shadow: 0 24px 68px -4px var(--color-05);
+  @apply overflow-hidden;
+}
+.fwork:hover .fwork__thumbnail::before {
+  opacity: 0.5;
+}
+.fwork__thumbnail::before {
+  content: "";
+  @apply absolute;
+  top: 0;
+  left: 0;
+  @apply w-full h-full;
+  opacity: 0.7;
+  @apply z-[1];
+  background: url("/assets/images/pattern-dark.webp");
+  transition: all 0.25s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+.fwork__info {
+  @apply absolute;
+  top: 0;
+  @apply w-full h-full grid;
+  grid-template-columns: 1fr;
+  transform: translateZ(0px);
+  text-decoration:none;
+  @apply z-[1];
+}
+.fwork__link {
+  border-radius: inherit;
+  @apply absolute;
+  inset: 0;
+}
+.fwork__button-group {
+  @apply relative z-[1];
+}
+.fwork__title {
+  @apply grid justify-self-center self-center;
+  padding: 1.5rem;
+  font-family: var(--font-family-heading), -apple-system, "Helvetica Neue",
+  sans-serif;
+  text-decoration: none;
+  color: var(--color-03);
+  letter-spacing: 2px;
+  font-size: 3rem;
+  line-height:3rem;
+  // Filtered logos (e.g. Fidium) form their own stacking context and would otherwise sit above .fwork__link
+  pointer-events: none;
+}
+.fwork__title img[src="/assets/images/toro-haven-logo.webp"] {
+  width: clamp(180px, 24vw, 320px);
+  max-width: 100%;
+  height: auto;
+}
+.fwork__title img[src="/assets/images/fidium-logo.svg"] {
+  width: clamp(160px, 20vw, 280px);
+  max-width: 100%;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+.fwork__button-group {
+  /* display: grid; */
+  @apply hidden;
+  justify-self: flex-end;
+  align-self: flex-end;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  transform: translate(0rem, 0rem);
+  padding: 1.5rem;
+  @apply absolute;
+  bottom:0;
+  right:0;
+}
+.fwork__more-link,
+.fwork__live-link {
+  text-decoration: none;
+  color: var(--color-03);
+  font-family: var(--font-family-compact), -apple-system, "Helvetica Neue",
+    sans-serif;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  @apply text-center;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-03);
+}
+@include mq("md") {
+  .fwork__wrap{
+    @apply grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  .fwork {
+    max-width:100%;
+    @apply w-full flex justify-self-center;
+    margin-bottom:0rem;
+  }
+  .fwork__thumbnail {
+    @apply w-full;
+  }
+  .fwork__title {
+    @apply self-center;
+    padding: 0rem;
+    font-size: 3rem;
+  }
+  .fwork__button-group {
+    transform: translate(-4rem, 2rem);
+    padding: 0rem;
+  }
+  .fwork__info {
+    transform: translateZ(35px);
+  }
+}
+@include mq("lg") {
+  .fwork__wrap {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

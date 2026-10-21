@@ -1,0 +1,102 @@
+@use "mixins" as *;
+@reference "tailwindcss";
+
+.about__section{
+  padding-block: clamp(4rem, 8vw, 7rem);
+}
+.about__wrap {
+  @apply grid;
+  grid-template-columns: minmax(auto, 1280px);
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+  @apply justify-center items-center flex-col relative;
+}
+.about__photo-image{
+  @apply z-[0];
+  filter: grayscale(100%);
+  border-radius: 1.5rem;
+  transition: filter 0.3s ease;
+}
+.about__photo:hover .about__photo-image {
+  filter: grayscale(0%);
+}
+.about__left-door{
+  background: #000000;
+  border:1px solid #3d3d3d;
+  height:500px;
+  width:500px;
+  @apply absolute z-[1];
+  top:0;
+  left:0;
+  @apply hidden;
+}
+.about__right-door{
+  background: #000000;
+  border:1px solid #3d3d3d;
+  height:500px;
+  width:500px;
+  @apply absolute z-[1];
+  top:0;
+  left:0;
+
+  @apply hidden;
+}
+.about__container {
+  @apply grid;
+  grid-template-columns: 1fr;
+  @apply items-center;
+  gap: 1rem;
+}
+.about__photo {
+  width: 100%;
+  min-width: 0;
+  @apply justify-self-center relative;
+}
+.about__bio {
+  @apply justify-self-center;
+  width: 100%;
+  min-width: 0;
+  @apply z-[11];
+}
+.about__bio h2 {
+  width: 100%;
+  margin: 0;
+  padding: 0 0 1rem;
+}
+.about__bio p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: var(--color-03);
+}
+@include mq("md") {
+  .about__left-door,.about__right-door{
+    @apply block;
+  }
+  .about__container {
+    gap: 4rem;
+  }
+  .about__photo {
+    max-width: 60%;
+
+    justify-self: flex-start;
+  }
+  .about__bio {
+    justify-self: flex-end;
+  }
+}
+@include mq("lg") {
+  .about__left-door,.about__right-door{
+    @apply h-full;
+  }
+  .about__photo {
+    max-width: 100%;
+  }
+  .about__bio {
+    max-width: 100%;
+    margin-top: unset;
+  }
+  .about__container {
+    grid-template-columns: 1fr 1fr;
+  }
+}

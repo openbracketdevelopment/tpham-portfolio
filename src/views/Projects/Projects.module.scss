@@ -1,0 +1,23 @@
+@use "mixins" as *;
+@reference "tailwindcss";
+
+.projects__header{
+    max-width:80%;
+    margin:0 auto;
+    font-size:2.5rem;
+    padding:12rem 0rem 6rem 0rem;
+}
+.projects__all{
+    padding-bottom:5rem;
+}
+@include mq("md") {
+
+    .projects__header{
+        max-width:90%;
+        font-size:5rem;
+        padding:14rem 0rem 8rem 0rem;
+    }
+    .projects__all{
+        padding-bottom:5rem;
+    }
+}

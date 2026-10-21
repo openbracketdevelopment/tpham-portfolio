@@ -1,0 +1,34 @@
+name: Publish production
+
+# Manually promotes a draft deploy (created by the Release build workflow) to production.
+on:
+  workflow_dispatch:
+    inputs:
+      deploy_id:
+        description: "Netlify deploy ID from the Release build summary"
+        required: true
+        type: string
+
+concurrency:
+  group: publish-production
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      DEPLOY_ID: ${{ inputs.deploy_id }}
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Publish deploy
+        run: |
+          [[ "$DEPLOY_ID" =~ ^[a-f0-9]{24}$ ]] || { echo "Invalid deploy ID"; exit 1; }
+          npx --yes netlify-cli@27 api restoreSiteDeploy \
+            --data "{\"site_id\":\"${NETLIFY_SITE_ID}\",\"deploy_id\":\"${DEPLOY_ID}\"}" > result.json
+          echo "Published $(jq -r .deploy_ssl_url result.json) ($(jq -r .state result.json))" | tee -a "$GITHUB_STEP_SUMMARY"

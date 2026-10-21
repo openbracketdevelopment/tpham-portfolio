@@ -1,0 +1,19 @@
+@use "sass:map";
+@use "variables" as *;
+
+@mixin mq($name) {
+  @media only screen and (min-width: map.get($breakpoints, $name)) {
+    @content;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin absolute-fill {
+  position: absolute;
+  inset: 0;
+}

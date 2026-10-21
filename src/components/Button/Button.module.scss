@@ -1,0 +1,15 @@
+@use "mixins" as *;
+@reference "tailwindcss";
+
+.btn {
+  text-decoration: none;
+  color: var(--color-03);
+  font-family: var(--font-family-compact), -apple-system, "Helvetica Neue",
+    sans-serif;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  @apply text-center;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-03);
+}
