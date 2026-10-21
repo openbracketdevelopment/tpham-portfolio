@@ -3,17 +3,24 @@
   "pageDescription": "Craft CMS, Payload CMS and Next.js platform work for the Fidium Fiber family of websites.",
   "canonical": "/fidium",
   "pageUrl": "https://tampham.io/fidium",
-  "pageImage": "/assets/images/project-fidium-hero.svg",
+  "pageImage": "/assets/images/fidium-hero.webp",
   "fbOgType": "article",
   "fbOgLocale": "en_US",
   "fbOgSiteName": "A Fort Worth based developer who makes unique web experiences.",
   "twOgCard": "picture",
   "workTitle": "Fidium Fiber",
-  "workLogo": "/assets/images/project-fidium-logo.svg",
+  "workLogo": "/assets/images/fidium-logo.svg",
   "workMoreLink": "/fidium",
-  "workLiveLink": "https://fidium.com",
-  "workImagePath": "/assets/images/project-fidium-hero.svg",
-  "workDescription": "Fidium Fiber is a family of consumer, business, wholesale and partner websites for a fiber internet provider. At Amdocs I architected a headless Craft CMS with a bespoke content editor and page builder, custom modules and a GraphQL API that serves content to seven sites, then redesigned and shipped the Next.js applications on top of it. The platform work also included Payload CMS. I planned and drove the work from the first foundation to launch.",
+  "workLiveLink": "https://www.fidiumfiber.com/",
+  "workImagePath": "/assets/images/fidium-thumb.webp",
+  "workHeroImagePath": "/assets/images/fidium-hero.webp",
+  "workHeroImageAlt": "Family playing video games together on a couch at home",
+  "workDescription": "One shared content platform, built for a family of distinct websites. At Amdocs, I led development of the headless Craft CMS behind the Fidium ecosystem and built Next.js and React experiences for Fidium Fiber, Business, Wholesale, Partners and Consolidated Communications.",
+  "workNarrative": [
+    "I built a bespoke page editor, page builder and custom Craft modules, with GraphQL APIs delivering content to seven Next.js applications. My responsibility extended beyond launch: maintaining content integrity, supporting the applications from the CMS side and developing solutions as technical issues arose. The broader platform work also included Payload CMS.",
+    "Across the sites, I maintained reusable components, hooks and webhooks, with Jest tests and Storybook documentation. I configured Nginx reverse proxies and supported dev, QA, staging and production deployments through GitLab CI/CD, working with engineering, marketing, IT and cloud teams.",
+    "The five sites below show how that shared foundation supports different audiences: residential customers, businesses, wholesale customers, partners and existing Consolidated customers."
+  ],
   "workHighlights": [
     "Built the headless Craft CMS (bespoke editor, GraphQL, custom modules) that serves content for 7 sites.",
     "Redesigned and launched Next.js apps for Fidium Fiber, Business, Partners, Wholesale, Consolidated and fidium.net.",
@@ -21,39 +28,69 @@
     "Configured Nginx reverse proxies to serve several sites from one repo, across dev, QA, stage and production on GitLab CI/CD."
   ],
   "workTimeFrame": "Sept 2024 - Present",
-  "workRole": "Software Engineer, Lead Craft CMS Developer",
-  "workTechnology": "Craft CMS, Payload CMS, GraphQL, Next.js, React, Storybook, Jest, Nginx, Amazon Web Services (SES, S3, RDS)",
+  "workRole": "Software Engineer, Lead Craft CMS Developer, React/Next.js Developer",
+  "workTechnology": "Craft CMS, Payload CMS, Next.js, React, TypeScript, GraphQL, Storybook, Jest, Nginx, GitLab CI/CD, Amazon Web Services (SES, S3, RDS)",
   "workCategory": "Web Platform, Headless CMS",
   "workSites": [
     {
       "name": "Fidium Fiber",
+      "description": "The primary residential experience, bringing internet plans, service availability and customer support together.",
       "url": "https://www.fidiumfiber.com/",
-      "desktopImagePath": "/assets/images/fidium-fiber-desktop.jpg",
-      "mobileImagePath": "/assets/images/fidium-fiber-mobile.jpg"
+      "desktopImagePath": "/assets/images/fidium-fiber-desktop-clean.webp",
+      "mobileImagePath": "/assets/images/fidium-fiber-mobile-1-showcase.webp",
+      "mobileViews": [
+        { "imagePath": "/assets/images/fidium-fiber-mobile-1-showcase.webp", "alt": "Fidium Fiber mobile homepage with residential internet offer and availability search" },
+        { "imagePath": "/assets/images/fidium-fiber-mobile-se-2.webp", "alt": "Fidium Fiber whole-home WiFi and app controls feature cards on iPhone SE", "width": 375, "height": 667 },
+        { "imagePath": "/assets/images/fidium-fiber-mobile-se-3.webp", "alt": "Fidium Fiber neighborhood photography and fiber capacity feature card on iPhone SE", "width": 375, "height": 667 }
+      ]
     },
     {
       "name": "Fidium Business",
+      "description": "A commercial experience focused on business connectivity, network solutions and quote requests.",
       "url": "https://www.fidiumbusiness.com/",
-      "desktopImagePath": "/assets/images/fidium-business-desktop.jpg",
-      "mobileImagePath": "/assets/images/fidium-business-mobile.jpg"
-    },
-    {
-      "name": "Fidium Partners",
-      "url": "https://www.fidiumpartners.com/",
-      "desktopImagePath": "/assets/images/fidium-partners-desktop.jpg",
-      "mobileImagePath": "/assets/images/fidium-partners-mobile.jpg"
+      "desktopImagePath": "/assets/images/fidium-business-desktop-clean.webp",
+      "mobileImagePath": "/assets/images/fidium-business-mobile-1-showcase.webp",
+      "mobileViews": [
+        { "imagePath": "/assets/images/fidium-business-mobile-1-showcase.webp", "alt": "Fidium Business mobile homepage with scalable fiber solutions and business imagery" },
+        { "imagePath": "/assets/images/fidium-business-mobile-se-2.webp", "alt": "Fidium Business complete green network statistics panel on iPhone SE", "width": 375, "height": 667 },
+        { "imagePath": "/assets/images/fidium-business-mobile-se-3.webp", "alt": "Fidium Business solutions introduction and Fiber Internet service card on iPhone SE", "width": 375, "height": 667 }
+      ]
     },
     {
       "name": "Fidium Wholesale",
+      "description": "A dedicated site for wholesale fiber services and network connectivity solutions.",
       "url": "https://www.fidiumwholesale.com/",
-      "desktopImagePath": "/assets/images/fidium-wholesale-desktop.jpg",
-      "mobileImagePath": "/assets/images/fidium-wholesale-mobile.jpg"
+      "desktopImagePath": "/assets/images/fidium-wholesale-desktop-clean.webp",
+      "mobileImagePath": "/assets/images/fidium-wholesale-mobile-1-showcase.webp",
+      "mobileViews": [
+        { "imagePath": "/assets/images/fidium-wholesale-mobile-1-showcase.webp", "alt": "Fidium Wholesale mobile homepage featuring carrier-grade fiber transport and connectivity" },
+        { "imagePath": "/assets/images/fidium-wholesale-mobile-se-2.webp", "alt": "Fidium Wholesale data center photography and High-Performance Network card on iPhone SE", "width": 375, "height": 667 },
+        { "imagePath": "/assets/images/fidium-wholesale-mobile-se-3.webp", "alt": "Fidium Wholesale fiber coverage links and network download button on iPhone SE", "width": 375, "height": 667 }
+      ]
+    },
+    {
+      "name": "Fidium Partners",
+      "description": "A partner-focused experience connecting channel partners with Fidium's network and program resources.",
+      "url": "https://www.fidiumpartners.com/",
+      "desktopImagePath": "/assets/images/fidium-partners-desktop-clean.webp",
+      "mobileImagePath": "/assets/images/fidium-partners-mobile-1-showcase.webp",
+      "mobileViews": [
+        { "imagePath": "/assets/images/fidium-partners-mobile-1-showcase.webp", "alt": "Fidium Partners mobile homepage with partner program introduction and business imagery" },
+        { "imagePath": "/assets/images/fidium-partners-mobile-se-2.webp", "alt": "Fidium Partners lightbulb photography and Fast Quoting benefit card on iPhone SE", "width": 375, "height": 667 },
+        { "imagePath": "/assets/images/fidium-partners-mobile-se-3.webp", "alt": "Fidium Partners complete Strategic Support and Solutions Built for the Channel cards on iPhone SE", "width": 375, "height": 667 }
+      ]
     },
     {
       "name": "Consolidated Communications",
+      "description": "A customer-support destination that connects existing Consolidated customers with account services and the Fidium brand.",
       "url": "https://www.consolidated.com/",
-      "desktopImagePath": "/assets/images/fidium-consolidated-desktop.jpg",
-      "mobileImagePath": "/assets/images/fidium-consolidated-mobile.jpg"
+      "desktopImagePath": "/assets/images/fidium-consolidated-desktop-clean.webp",
+      "mobileImagePath": "/assets/images/fidium-consolidated-mobile-1-showcase.webp",
+      "mobileViews": [
+        { "imagePath": "/assets/images/fidium-consolidated-mobile-1-showcase.webp", "alt": "Consolidated Communications mobile homepage announcing Fidium and customer support services" },
+        { "imagePath": "/assets/images/fidium-consolidated-mobile-se-2.webp", "alt": "Consolidated Communications residential support card with account and service links on iPhone SE", "width": 375, "height": 667 },
+        { "imagePath": "/assets/images/fidium-consolidated-mobile-se-3.webp", "alt": "Consolidated Communications Fidium services introduction and home internet card on iPhone SE", "width": 375, "height": 667 }
+      ]
     }
   ]
 }

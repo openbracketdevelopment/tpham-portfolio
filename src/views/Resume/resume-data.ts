@@ -22,12 +22,12 @@ export const strengths = [
 export const skillGroups: { label: string; items: string[]; featured?: string[] }[] = [
   {
     label: "Front End",
-    items: ["React", "Next.js", "JavaScript / TypeScript", "HTML / CSS", "Tailwind", "Sass", "shadcn/ui", "MUI", "Apollo Client", "GSAP"],
+    items: ["React", "Next.js", "JavaScript / TypeScript", "HTML / CSS", "Tailwind", "Sass", "shadcn/ui", "MUI", "Apollo Client", "Axios", "GSAP"],
     featured: ["React", "Next.js", "Tailwind", "Sass", "shadcn/ui", "Apollo Client"],
   },
   {
     label: "Back End & CMS",
-    items: ["PHP", "Craft CMS", "Custom Craft Modules", "Twig", "Headless CMS", "GraphQL", "REST APIs", "Kong API Gateway", "OpenStreetMap APIs", "Webhooks", "PostgreSQL", "MySQL", "Redis", "Next.js Cache Handlers", "WordPress / Gutenberg"],
+    items: ["PHP", "Craft CMS", "Custom Craft Modules", "Twig", "Headless CMS", "GraphQL", "REST APIs", "Okta", "Kong API Gateway", "OpenStreetMap APIs", "Webhooks", "PostgreSQL", "MySQL", "Redis", "Next.js Cache Handlers", "WordPress / Gutenberg"],
     featured: ["PHP", "Craft CMS", "Custom Craft Modules", "Headless CMS", "GraphQL", "REST APIs", "Kong API Gateway", "OpenStreetMap APIs", "Webhooks", "PostgreSQL", "Redis", "Next.js Cache Handlers"],
   },
   {
@@ -49,6 +49,11 @@ export const skillGroups: { label: string; items: string[]; featured?: string[] 
     label: "Design",
     items: ["Figma", "UI/UX", "Prototyping", "Wireframing", "Photoshop", "Illustrator", "Web Accessibility (ADA)"],
     featured: ["Figma"],
+  },
+  {
+    label: "Motion & Media",
+    items: ["After Effects", "Premiere Pro", "DaVinci Resolve", "Blender", "Lightroom", "Motion Graphics", "Video Production", "Video Editing", "Visual Effects (VFX)", "3D Modeling & Rendering", "Photography", "Color Grading"],
+    featured: ["After Effects", "Premiere Pro", "Blender", "Motion Graphics"],
   },
 ];
 

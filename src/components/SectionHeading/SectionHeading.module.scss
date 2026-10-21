@@ -14,6 +14,11 @@
   overflow-wrap: break-word;
 }
 
+.centered {
+  text-align: center;
+  text-wrap: balance;
+}
+
 .outlined {
   -webkit-text-stroke: 1px var(--color-03);
   color: transparent;

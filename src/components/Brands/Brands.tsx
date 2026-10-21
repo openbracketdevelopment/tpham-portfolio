@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { IconType } from "react-icons";
-import { FaAws, FaSlack, FaTerminal } from "react-icons/fa";
+import { FaAws, FaSlack } from "react-icons/fa";
 import {
   TbBrandAdobeAfterEffect,
   TbBrandAdobeIllustrator,
@@ -13,6 +13,9 @@ import {
 } from "react-icons/tb";
 import {
   SiBitbucket,
+  SiNetlify,
+  SiVercel,
+  SiWpengine,
   SiBlender,
   SiClaudecode,
   SiCraftcms,
@@ -47,33 +50,61 @@ import {
   SiTypescript,
   SiWoocommerce,
   SiWordpress,
+  SiZsh,
 } from "react-icons/si";
 import { SectionHeading } from "../SectionHeading/SectionHeading";
 import styles from "./Brands.module.scss";
 
-type Brand = { name: string; logo?: string; icon?: IconType };
+type Brand = { name: string; logo?: string; icon?: IconType; keepTones?: boolean };
+
+const LightroomIcon: IconType = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    width="1em"
+    height="1em"
+    {...props}
+  >
+    <rect x="3" y="3" width="18" height="18" rx="4" />
+    <path d="M7.5 8v8h3.5M14 16v-5M14 13a2 2 0 0 1 2-2h1" />
+  </svg>
+);
 
 const brands: Brand[] = [
-  { name: "Fidium", logo: "/assets/images/project-fidium-logo.svg" },
-  { name: "Fluval" },
-  { name: "Nutrience" },
-  { name: "Toro", logo: "/assets/images/project-toro-logo.svg" },
+  { name: "Fidium", logo: "/assets/images/fidium-logo.svg" },
+  { name: "Toro Haven", logo: "/assets/images/toro-haven-logo.webp", keepTones: true },
   { name: "Diageo", logo: "/assets/images/client-logos_Diageo.svg" },
-  { name: "EarthX", logo: "/assets/images/client-logos_EarthX.svg" },
-  { name: "Baileys", logo: "/assets/images/baileys-logo.png" },
+  { name: "Johns Hopkins University", logo: "/assets/images/johns-hopkins-university-logo.svg" },
   { name: "Crown Royal", logo: "/assets/images/crown-royal-logo.svg" },
+  { name: "Fluval Aquatics", logo: "/assets/images/logo-fluval.svg" },
+  { name: "Nutrience", logo: "/assets/images/nutrience-logo.svg" },
   { name: "Johnnie Walker", logo: "/assets/images/johnniewalker-logo.png" },
-  { name: "Trinity Rail", logo: "/assets/images/trinity-rail-logo.svg" },
+  { name: "Haynes Boone", logo: "/assets/images/haynesboone-logo.svg" },
+  { name: "Baileys", logo: "/assets/images/baileys-logo.png" },
+  { name: "Captain Morgan", logo: "/assets/images/captain-morgan-logo.webp" },
+  { name: "Trinity Rail", logo: "/assets/images/trinity-logo.svg" },
+  { name: "Curaleaf", logo: "/assets/images/curaleaf-logo-transparent.webp" },
+  { name: "Cricketeer", logo: "/assets/images/cricketeer-logo.svg" },
+  { name: "EarthX", logo: "/assets/images/client-logos_EarthX.svg" },
+  { name: "VetMotl", logo: "/assets/images/VetMotl_Logo_Reg.svg" },
+  { name: "Midwest Radiology", logo: "/assets/images/midwest-radiology-logo.svg" },
+  { name: "Ladd Gardner Aviation Insurance", logo: "/assets/images/lga-logo-sticky-patriot.png" },
+  { name: "Omnia Exterior Solutions", logo: "/assets/images/omnia-logo.svg" },
+  { name: "Bestolife", logo: "/assets/images/bestolife-logo.avif" },
+  { name: "Founders Row", logo: "/assets/images/foundersrow-logo.png" },
+  { name: "Eagle Adventure Camps", logo: "/assets/images/eagle-adventure-camps-logo.svg" },
+  { name: "Sargent Law", logo: "/assets/images/sargent-law-logo.png" },
+  { name: "Leasing Impressions", logo: "/assets/images/leasing-impressions-logo.svg" },
+  { name: "Black Bear Woodcraft", logo: "/assets/images/black-bear-woodcraft-logo.svg" },
   { name: "Wilson's Seafood", logo: "/assets/images/ws-logo.svg" },
   { name: "Brain Styles", logo: "/assets/images/brainstyles-logo.png" },
-  { name: "ESPS Trailer Parts", logo: "/assets/images/esps-logo.svg" },
+  { name: "ESPS Trailers", logo: "/assets/images/esps-logo.svg" },
   { name: "TEXpress", logo: "/assets/images/client-logos_TexPress.svg" },
-  { name: "Holmes Millet", logo: "/assets/images/client-logos_HM_Interactive.svg" },
-  { name: "VETMOTL", logo: "/assets/images/project-vetmotl-logo.svg" },
-  { name: "Amdocs" },
-  { name: "Linchpin" },
-  { name: "Planit Advertising" },
-  { name: "Gorilla Pro" },
+  { name: "Automated Food Systems", logo: "/assets/images/afs-logo.svg" },
 ];
 
 const platforms: Brand[] = [
@@ -89,6 +120,9 @@ const platforms: Brand[] = [
   { name: "MUI", icon: SiMui },
   { name: "PostgreSQL", icon: SiPostgresql },
   { name: "Amazon Web Services", icon: FaAws },
+  { name: "Vercel", icon: SiVercel },
+  { name: "Netlify", icon: SiNetlify },
+  { name: "WP Engine", icon: SiWpengine },
   { name: "Kubernetes", icon: SiKubernetes },
   { name: "GitLab", icon: SiGitlab },
   { name: "GitHub", icon: SiGithub },
@@ -119,17 +153,19 @@ const platforms: Brand[] = [
   { name: "Blender", icon: SiBlender },
   { name: "Dynatrace", icon: SiDynatrace },
   { name: "Splunk", icon: SiSplunk },
-  { name: "Oh My Zsh", icon: FaTerminal },
+  { name: "Oh My Zsh", icon: SiZsh },
   { name: "Slack", icon: FaSlack },
-  { name: "Lightroom" },
+  { name: "Lightroom", icon: LightroomIcon },
 ];
 
 const allItems = [...brands, ...platforms];
+const GLITCH_OUT_MS = 480;
+const GLITCH_IN_MS = 560;
 const initialTiles = brands.slice(0, 9).flatMap((brand, index) => [brand, platforms[index]]);
 
 function Brands() {
   const [tiles, setTiles] = useState(initialTiles);
-  const [changingIndex, setChangingIndex] = useState<number | null>(null);
+  const [glitch, setGlitch] = useState<{ index: number; phase: "out" | "in" } | null>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -154,25 +190,36 @@ function Brands() {
     const stop = () => {
       clearTimeout(rotationTimer);
       clearTimeout(transitionTimer);
-      setChangingIndex(null);
+      setGlitch(null);
     };
 
     const schedule = () => {
       rotationTimer = setTimeout(() => {
         const visibleTileCount = desktopViewport.matches ? initialTiles.length : tabletViewport.matches ? 12 : 4;
         const index = Math.floor(Math.random() * visibleTileCount);
-        setChangingIndex(index);
-        transitionTimer = setTimeout(() => {
-          setTiles((current) => {
-            const available = allItems.filter(
-              (item) => !current.some((tile) => tile.name === item.name),
-            );
-            const replacement = available[Math.floor(Math.random() * available.length)];
-            return current.map((tile, tileIndex) => tileIndex === index ? replacement : tile);
-          });
-          setChangingIndex(null);
+        const swap = () => setTiles((current) => {
+          const available = allItems.filter(
+            (item) => !current.some((tile) => tile.name === item.name),
+          );
+          const replacement = available[Math.floor(Math.random() * available.length)];
+          return current.map((tile, tileIndex) => tileIndex === index ? replacement : tile);
+        });
+
+        if (reducedMotion) {
+          swap();
           schedule();
-        }, reducedMotion ? 0 : 800);
+          return;
+        }
+
+        setGlitch({ index, phase: "out" });
+        transitionTimer = setTimeout(() => {
+          swap();
+          setGlitch({ index, phase: "in" });
+          transitionTimer = setTimeout(() => {
+            setGlitch(null);
+            schedule();
+          }, GLITCH_IN_MS);
+        }, GLITCH_OUT_MS);
       }, 4000 + Math.random() * 4000);
     };
 
@@ -206,20 +253,35 @@ function Brands() {
         id="brands-title"
         label="Brands & tools"
         outlinedLabel="I've worked with"
+        align="center"
       />
+      <svg className={styles["brands__filters"]} aria-hidden="true" focusable="false">
+        <defs>
+          {[11, 47, 83, 129].map((seed, index) => (
+            <filter key={seed} id={`brands-static-${index + 1}`} x="-10%" y="-10%" width="120%" height="120%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.01 0.6" numOctaves="1" seed={seed} result="noise" />
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale={14 + index * 4} xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+          ))}
+        </defs>
+      </svg>
       <ul className={styles["brands__grid"]}>
         {tiles.map((brand, index) => {
           const Icon = brand.icon;
+          const phase = glitch?.index === index ? glitch.phase : null;
           return (
-            <li key={index} className={styles["brands__item"]}>
+            <li
+              key={index}
+              className={`${styles["brands__item"]} ${phase ? styles["brands__item--glitching"] : ""}`}
+            >
               <div
-                className={`${styles["brands__content"]} ${changingIndex === index ? styles["brands__content--changing"] : ""}`}
+                className={`${styles["brands__content"]} ${phase ? styles[`brands__content--glitch-${phase}`] : ""}`}
               >
                 {brand.logo ? (
                   <img
                     src={brand.logo}
                     alt={brand.name}
-                    className={styles["brands__logo"]}
+                    className={`${styles["brands__logo"]} ${brand.keepTones ? styles["brands__logo--tones"] : ""}`}
                     width={160}
                     height={64}
                     loading="lazy"

@@ -1,0 +1,52 @@
+{
+    "pageTitle": "ESPS Trailer Parts - Project Study",
+    "pageDescription": "Designed and developed ESPS Trailer Parts, a Shopify store for genuine aluminum end-dump trailer parts, tarps, valves and suspensions.",
+    "canonical": "/esps-parts",
+    "pageUrl": "https://tampham.io/esps-parts",
+    "pageImage": "/assets/images/esps-parts-hero.webp",
+
+    "fbOgType": "article",
+    "fbOgLocale": "en_US",
+    "fbOgSiteName": "A Fort Worth based developer who makes unique web experiences.",
+    "fbOgAppId": "id_goes_here",
+
+    "twOgCard": "picture",
+
+    "workTitle": "ESPS Trailer Parts",
+    "workLogo": "/assets/images/esps-parts-logo.svg",
+    "workMoreLink": "/esps-parts",
+    "workLiveLink": "https://esps-trailers.parts/",
+    "workLiveLink2": "https://esps-trailers.com/",
+    "workImagePath": "/assets/images/esps-parts-thumb.webp",
+    "workHeroImagePath": "/assets/images/esps-parts-hero.webp",
+    "workHeroImageAlt": "Genuine Hendrickson suspension parts including an air spring, bushings and a cam shaft sold on the ESPS Trailer Parts store",
+    "workDesktopImage1": "/assets/images/esps-parts-desktop-home.webp",
+    "workDesktopImage1Alt": "ESPS Trailer Parts homepage hero reading Quality Genuine Trailer Parts",
+    "workImagePath2": "/assets/images/esps-parts-desktop-mobile-examples.webp",
+    "workImagePath2Alt": "ESPS Trailer Parts tarps section and tarp motor product page shown side by side on desktop and mobile",
+    "workDesktopImage2": "/assets/images/esps-parts-desktop-valves.webp",
+    "workDesktopImage2Alt": "ESPS Trailer Parts valves section with a carousel of Alkon valves",
+    "workMobileImages": [
+        {
+            "imagePath": "/assets/images/esps-parts-mobile-home.webp",
+            "alt": "ESPS Trailer Parts homepage on mobile with the Get Parts call to action"
+        },
+        {
+            "imagePath": "/assets/images/esps-parts-mobile-collection.webp",
+            "alt": "ESPS Trailer Parts tarps collection grid on mobile"
+        },
+        {
+            "imagePath": "/assets/images/esps-parts-mobile-product.webp",
+            "alt": "ESPS Trailer Parts roll over vinyl tarp product page on mobile"
+        }
+    ],
+    "workDesktopImage3": "/assets/images/esps-parts-desktop-collection.webp",
+    "workDesktopImage3Alt": "ESPS Trailer Parts Hendrickson collection with category, brand, availability and price filters",
+    "workDesktopImage4": "/assets/images/esps-parts-desktop-product.webp",
+    "workDesktopImage4Alt": "ESPS Trailer Parts roll over vinyl tarp product page with color and size options",
+    "workDescription": "Designed and developed ESPS Trailer Parts, the online parts store for ESPS Trailers. Built on Shopify with a custom theme that carries the ESPS brand into e-commerce, the store organizes genuine parts for aluminum end-dump trailers into shoppable collections for tarps, valves, suspensions, liners and used parts, alongside brand collections for Hendrickson, Alkon, Roll-Rite, Sealco and Shur-Co. The storefront is optimized for every device, with a bottom navigation on mobile for quick access to search, shop, cart and account.",
+    "workTimeFrame": "2024 - Present",
+    "workRole": "Shopify Development, UI/UX",
+    "workTechnology": "Shopify, Liquid, JavaScript, GSAP ScrollTrigger, Shop Pay",
+    "workCategory": "E-Commerce, Web Design"
+}

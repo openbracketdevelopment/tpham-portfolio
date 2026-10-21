@@ -7,16 +7,21 @@ import { Button } from "../../components/Button/Button";
 export type GenericProjectData = {
   workSites?: {
     name: string;
+    description?: string;
     url: string;
     desktopImagePath: string;
     mobileImagePath: string;
+    mobileViews?: { imagePath: string; alt: string; width?: number; height?: number }[];
   }[];
   workTitle: string;
   workLogo: string;
   workLiveLink: string;
   workImagePath: string;
+  workHeroImagePath?: string;
+  workHeroImageAlt?: string;
   workDescription: string;
   workHighlights: string[];
+  workNarrative?: string[];
   workTimeFrame: string;
   workRole: string;
   workTechnology: string;
@@ -29,8 +34,8 @@ function GenericProject({ data }: { data: GenericProjectData }) {
       <section className={styles["project__hero"]}>
         <div className={styles["project__img-wrap"]}>
           <img
-            src={data.workImagePath}
-            alt={data.workTitle}
+            src={data.workHeroImagePath ?? data.workImagePath}
+            alt={data.workHeroImageAlt ?? data.workTitle}
             title={data.workTitle}
             className={styles["project__img"]}
           />
@@ -43,6 +48,9 @@ function GenericProject({ data }: { data: GenericProjectData }) {
         <div className={styles["project__info"]}>
           <div className={styles["project__description"]}>
             <p>{data.workDescription}</p>
+            {data.workNarrative?.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
           </div>
           <div className={styles["project__technology"]}>
             <div className={styles["project__details"]}>
@@ -65,17 +73,35 @@ function GenericProject({ data }: { data: GenericProjectData }) {
             </div>
           </div>
           <div className={styles["project__btns"]}>
-            <Button btnLabel="See it Live" btnUrl={data.workLiveLink} btnTarget="_blank" />
+            {data.workSites ? (
+              <nav className={styles["project__site-links"]} aria-label="Live project websites">
+                {data.workSites.map((site) => (
+                  <a
+                    className={styles["project__site-link"]}
+                    href={site.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    key={site.url}
+                  >
+                    {site.name}
+                  </a>
+                ))}
+              </nav>
+            ) : (
+              <Button btnLabel="See it Live" btnUrl={data.workLiveLink} btnTarget="_blank" />
+            )}
           </div>
         </div>
       </section>
-      <section className={styles["project__container"]}>
-        <div className={styles["project__description"]}>
-          {data.workHighlights.map((h) => (
-            <p key={h}>• {h}</p>
-          ))}
-        </div>
-      </section>
+      {!data.workNarrative && (
+        <section className={styles["project__container"]}>
+          <div className={styles["project__description"]}>
+            {data.workHighlights.map((h) => (
+              <p key={h}>• {h}</p>
+            ))}
+          </div>
+        </section>
+      )}
       {data.workSites && (
         <section
           className={`${styles["project__container"]} ${styles["project__site-gallery"]}`}
@@ -95,11 +121,13 @@ function GenericProject({ data }: { data: GenericProjectData }) {
                   Visit website
                 </a>
               </div>
-              <div className={styles["project__site-views"]}>
+              {site.description && (
+                <p className={styles["project__site-description"]}>{site.description}</p>
+              )}
+              <div
+                className={`${styles["project__site-views"]} ${site.mobileViews ? styles["project__site-views-stacked"] : ""}`}
+              >
                 <figure className={styles["project__site-capture"]}>
-                  <figcaption className={styles["project__capture-caption"]}>
-                    Desktop · 1440 × 1000
-                  </figcaption>
                   <div className={styles["project__browser-head"]}>
                     <div className={styles["project__browser-head-wrap"]}>
                       <div className={`${styles["project__dot"]} ${styles["project__dot-1"]}`} />
@@ -117,22 +145,26 @@ function GenericProject({ data }: { data: GenericProjectData }) {
                     decoding="async"
                   />
                 </figure>
-                <figure className={styles["project__site-capture"]}>
-                  <figcaption className={styles["project__capture-caption"]}>
-                    Mobile · 390 × 844
-                  </figcaption>
-                  <div className={styles["project__phone-frame"]}>
-                    <img
-                      className={styles["project__phone-image"]}
-                      src={site.mobileImagePath}
-                      alt={`${site.name} website at a 390 by 844 mobile viewport`}
-                      width={390}
-                      height={844}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                </figure>
+                <div className={site.mobileViews ? styles["project__site-mobile-views"] : undefined}>
+                  {(site.mobileViews ?? [{
+                    imagePath: site.mobileImagePath,
+                    alt: `${site.name} website at a 390 by 844 mobile viewport`,
+                  }]).map((view) => (
+                    <figure className={styles["project__site-capture"]} key={view.imagePath}>
+                      <div className={styles["project__phone-frame"]}>
+                        <img
+                          className={styles["project__phone-image"]}
+                          src={view.imagePath}
+                          alt={view.alt}
+                          width={view.width ?? 390}
+                          height={view.height ?? 844}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+                    </figure>
+                  ))}
+                </div>
               </div>
             </section>
           ))}

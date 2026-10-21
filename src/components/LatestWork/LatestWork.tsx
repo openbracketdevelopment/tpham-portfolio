@@ -4,7 +4,7 @@ import Tilty from "react-tilty";
 import styles from "../FeaturedWork/FeaturedWork.module.scss";
 import { Button } from "../Button/Button";
 import fidium from "../../projects/project-data/Fidium.json";
-import esps from "../../projects/project-data/Esps.json";
+import esps from "../../projects/project-data/EspsParts.json";
 import toro from "../../projects/project-data/Toro.json";
 
 const items = [fidium, esps, toro];
