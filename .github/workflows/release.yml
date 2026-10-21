@@ -1,0 +1,50 @@
+name: Release build
+
+# Pushing a tag like v1.4.0 builds the site and uploads it to Netlify as a draft deploy.
+# Nothing goes live until the "Publish production" workflow is run manually.
+on:
+  push:
+    tags:
+      - "v*"
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build and upload draft deploy
+        id: deploy
+        run: |
+          npx --yes netlify-cli@27 deploy \
+            --context production \
+            --message "Release ${GITHUB_REF_NAME} (${GITHUB_SHA::7})" \
+            --json > deploy.json
+          echo "deploy_id=$(jq -r .deploy_id deploy.json)" >> "$GITHUB_OUTPUT"
+          echo "deploy_url=$(jq -r .deploy_url deploy.json)" >> "$GITHUB_OUTPUT"
+
+      - name: Summary
+        run: |
+          {
+            echo "## Draft deploy ready for ${GITHUB_REF_NAME}"
+            echo ""
+            echo "- Preview: ${{ steps.deploy.outputs.deploy_url }}"
+            echo "- Deploy ID: \`${{ steps.deploy.outputs.deploy_id }}\`"
+            echo ""
+            echo "To go live, run **Actions → Publish production** with this deploy ID,"
+            echo "or click **Publish deploy** on it in the Netlify Deploys list."
+          } >> "$GITHUB_STEP_SUMMARY"
