@@ -2,9 +2,8 @@
 
 import styles from "../ProjectItem/ProjectItem.module.scss";
 import React from "react";
+import { InlineVideo } from "../../components/InlineVideo/InlineVideo";
 import { Button } from "../../components/Button/Button";
-import * as FaIcons from "react-icons/fa";
-import Fancybox from "../Fancybox/Fancybox";
 import Link from "next/link";
 
 import BaileysData from "../project-data/Baileys.json";
@@ -67,28 +66,15 @@ function Baileys() {
         </div>
       </section>
       <section className={styles["project__container"]}>
-        <div className={styles["project__section-heading"]}>
-          <h3>Play Video</h3>
-        </div>
-        <div className={`${styles["project__logo-showcase"]} ${styles["project__logo-showcase-full"]}`}>
-          <Fancybox>
-            <a
-              className={styles["project__video-link"]}
-              data-fancybox
-              href={BaileysData.workDesktopClip}
-            >
-              <FaIcons.FaPlay className={styles["project__video-icon"]} />
-              <img
-                src="/assets/images/baileys-video-thumb.webp"
-                alt="Baileys S'mores Video 2022"
-              />
-            </a>
-          </Fancybox>
-        </div>
+        <InlineVideo
+          className={styles["project__inline-video"]}
+          poster="/assets/images/baileys-video-thumb.webp"
+          src={BaileysData.workDesktopClip}
+          label="Baileys S'mores video, 2022"
+        />
       </section>
       <section className={styles["project__container"]}>
         <div className={styles["project__section-heading"]}>
-          <h3>Various Video Sizes and Formats</h3>
           <p>
             Readjusted the graphics and video to fit each of the 4 sizes. Some
             of the visual effects were redone to fit the appropriate format and
@@ -96,70 +82,22 @@ function Baileys() {
           </p>
         </div>
         <div className={styles["project__4col-showcase"]}>
-          <div className={styles["project__thumbnail"]}>
-            <Fancybox>
-              <a
-                className={styles["project__video-link"]}
-                data-fancybox
-                href={BaileysData.workDesktopClip2}
-              >
-                <img
-                  className={styles["project__thumbnail-img"]}
-                  src={BaileysData.workImagePath2}
-                  alt="Baileys S'mores 1x1"
-                />
-              </a>
-            </Fancybox>
-            <p className={styles["project__thumbnail-text"]}>1x1</p>
-          </div>
-          <div className={styles["project__thumbnail"]}>
-            <Fancybox>
-              <a
-                className={styles["project__video-link"]}
-                data-fancybox
-                href={BaileysData.workDesktopClip3}
-              >
-                <img
-                  className={styles["project__thumbnail-img"]}
-                  src={BaileysData.workImagePath3}
-                  alt="Baileys S'mores 9x16"
-                />
-              </a>
-            </Fancybox>
-            <p className={styles["project__thumbnail-text"]}>9x16</p>
-          </div>
-          <div className={styles["project__thumbnail"]}>
-            <Fancybox>
-              <a
-                className={styles["project__video-link"]}
-                data-fancybox
-                href={BaileysData.workDesktopClip4}
-              >
-                <img
-                  className={styles["project__thumbnail-img"]}
-                  src={BaileysData.workImagePath4}
-                  alt="Baileys S'mores 4x5"
-                />
-              </a>
-            </Fancybox>
-            <p className={styles["project__thumbnail-text"]}>4x5</p>
-          </div>
-          <div className={styles["project__thumbnail"]}>
-            <Fancybox>
-              <a
-                className={styles["project__video-link"]}
-                data-fancybox
-                href={BaileysData.workDesktopClip5}
-              >
-                <img
-                  className={styles["project__thumbnail-img"]}
-                  src={BaileysData.workImagePath5}
-                  alt="Baileys S'mores 16x9"
-                />
-              </a>
-            </Fancybox>
-            <p className={styles["project__thumbnail-text"]}>16x9</p>
-          </div>
+          {[
+            { format: "1x1", clip: BaileysData.workDesktopClip2, poster: BaileysData.workImagePath2 },
+            { format: "9x16", clip: BaileysData.workDesktopClip4, poster: BaileysData.workImagePath3 },
+            { format: "4x5", clip: BaileysData.workDesktopClip3, poster: BaileysData.workImagePath4 },
+            { format: "16x9", clip: BaileysData.workDesktopClip5, poster: BaileysData.workImagePath5 },
+          ].map(({ format, clip, poster }) => (
+            <div key={format} className={styles["project__thumbnail"]}>
+              <InlineVideo
+                className={styles["project__thumbnail-video"]}
+                poster={poster}
+                src={clip}
+                label={`Baileys S'mores ${format} video`}
+              />
+              <p className={styles["project__thumbnail-text"]}>{format}</p>
+            </div>
+          ))}
         </div>
       </section>
       {/* ALL WORK */}

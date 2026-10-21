@@ -67,9 +67,6 @@ function BrainStyles() {
       </section>
       {/* DESKTOP */}
       <section className={styles["project__container"]}>
-        <div className={styles["project__section-heading"]}>
-          <h3>Desktop</h3>
-        </div>
         <div className={styles["project__work-desktop"]}>
           <div className={styles["project__browser-head"]}>
             <div className={styles["project__browser-head-wrap"]}>
@@ -98,9 +95,6 @@ function BrainStyles() {
       </section>
       {/* MOBILE */}
       <section className={styles["project__container"]}>
-        <div className={styles["project__section-heading"]}>
-          <h3>Mobile</h3>
-        </div>
         <div className={styles["project__mobile"]}>
           <div className={`${styles["project__mobile-view"]} project__mobile-view-1`}>
             <div className={styles["project__mobile-lockup"]}>
@@ -223,9 +217,6 @@ function BrainStyles() {
       </section>
       {/* MOBILE AND DESKTOP EXAMPLES */}
       <section className={styles["project__container-full"]}>
-        <div className={styles["project__section-heading"]}>
-          <h3>Responsive Design</h3>
-        </div>
         <div className="project__work-wall">
           <img src={BrainStylesData.workImagePath3} alt="" />
         </div>

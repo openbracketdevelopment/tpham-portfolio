@@ -3,7 +3,7 @@
 import styles from "./Connect.module.scss";
 import React from "react";
 // import { Link } from "react-router-dom";
-import { Heading } from "../Heading/Heading";
+import { SectionHeading } from "../SectionHeading/SectionHeading";
 import * as FaIcons from "react-icons/fa";
 import { MqButton } from "../MqButton/MqButton";
 import { gsap } from "gsap";
@@ -52,54 +52,53 @@ function Connect() {
   // }, []);
   return (
     <>
-      <section id="connect" className="connect__section section__wrap">
-        <Heading
-          rotationStyle="heading__rotate-none"
-          headingStyle="heading__marquee-reverse"
-          headingLabel="Let's Connect"
-          // ref={headingRef}
-          className="connect-header"
-        />
+      <section id="connect" className={styles["connect__section"]}>
         <div className={styles["connect__wrap"]}>
           <div className={styles["connect__container"]}>
-            <div className={styles["connect__socials"]}>
-              <a
-                className={styles["connect__social-link"]}
-                target="_blank"
-                rel="noreferrer"
-                href="https://www.linkedin.com/in/tamphamjr/"
-              >
-                <FaIcons.FaLinkedin />
-              </a>
-              <a
-                className={styles["connect__social-link"]}
-                target="_blank"
-                rel="noreferrer"
-                href="https://codepen.io/tampham"
-              >
-                <FaIcons.FaCodepen />
-              </a>
-              <a
-                className={styles["connect__social-link"]}
-                target="_blank"
-                rel="noreferrer"
-                href="https://github.com/hm-tam"
-              >
-                <FaIcons.FaGithub />
-              </a>
-            </div>
-            <div className={styles["connect__text"]}>
-              <p>
-                I'm always open for new opportunities and creative projects. If
-                you have a project in mind, then let's work together. I'd love
-                to hear your ideas.
-              </p>
+            <div className={styles["connect__content"]}>
+              <div className={styles["connect__text"]}>
+                <SectionHeading label="Let's" outlinedLabel="Connect" />
+                <p>
+                  I'm always open for new opportunities and creative projects. If
+                  you have a project in mind, then let's work together. I'd love
+                  to hear your ideas.
+                </p>
+              </div>
+              <div className={styles["connect__socials"]}>
+                <a
+                  className={styles["connect__social-link"]}
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://www.linkedin.com/in/tamphamjr/"
+                  aria-label="LinkedIn"
+                >
+                  <FaIcons.FaLinkedin />
+                </a>
+                <a
+                  className={styles["connect__social-link"]}
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://codepen.io/tampham"
+                  aria-label="CodePen"
+                >
+                  <FaIcons.FaCodepen />
+                </a>
+                <a
+                  className={styles["connect__social-link"]}
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://github.com/hm-tam"
+                  aria-label="GitHub"
+                >
+                  <FaIcons.FaGithub />
+                </a>
+              </div>
             </div>
             <div className={styles["connect__email"]}>
               <MqButton
                 buttonLabel="Say Hello- Say Hello-"
                 buttonImg="/assets/images/email.svg"
-                buttonImgAlt="See Work"
+                buttonImgAlt="Say hello by email"
                 buttonLink="mailto:phamt@live.com"
                 buttonId="mq__circle-path"
                 buttonIdHashtag="#mq__circle-path"

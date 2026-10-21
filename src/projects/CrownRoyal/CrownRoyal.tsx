@@ -2,9 +2,8 @@
 
 import styles from "../ProjectItem/ProjectItem.module.scss";
 import React from "react";
+import { InlineVideo } from "../../components/InlineVideo/InlineVideo";
 // import { Button } from "../../components/Button/Button";
-import * as FaIcons from "react-icons/fa";
-import Fancybox from "../Fancybox/Fancybox";
 import Link from "next/link";
 
 import CrownRoyalData from "../project-data/CrownRoyal.json";
@@ -59,24 +58,12 @@ function crownRoyal() {
         </div>
       </section>
       <section className={styles["project__container"]}>
-        <div className={styles["project__section-heading"]}>
-          <h3>Play Video</h3>
-        </div>
-        <div className={`${styles["project__logo-showcase"]} ${styles["project__logo-showcase-full"]}`}>
-          <Fancybox>
-            <a
-              className={styles["project__video-link"]}
-              data-fancybox
-              href={CrownRoyalData.workDesktopClip}
-            >
-              <FaIcons.FaPlay className={styles["project__video-icon"]} />
-              <img
-                src="/assets/images/crown-video-thumb.webp"
-                alt="Crown Royal and NFL 2022"
-              />
-            </a>
-          </Fancybox>
-        </div>
+        <InlineVideo
+          className={styles["project__inline-video"]}
+          poster="/assets/images/crown-video-thumb.webp"
+          src={CrownRoyalData.workDesktopClip}
+          label="Crown Royal and NFL video, 2022"
+        />
       </section>
       {/* ALL WORK */}
       <section className={`${styles["project__container"]} ${styles["project__work-nav"]}`}>

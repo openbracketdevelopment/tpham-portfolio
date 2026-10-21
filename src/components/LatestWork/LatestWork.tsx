@@ -4,10 +4,11 @@ import Tilty from "react-tilty";
 import styles from "../FeaturedWork/FeaturedWork.module.scss";
 import { Button } from "../Button/Button";
 import fidium from "../../projects/project-data/Fidium.json";
+import esps from "../../projects/project-data/Esps.json";
 import toro from "../../projects/project-data/Toro.json";
 import vetmotl from "../../projects/project-data/Vetmotl.json";
 
-const items = [fidium, toro, vetmotl];
+const items = [fidium, esps, toro, vetmotl];
 
 function LatestWork() {
   return (

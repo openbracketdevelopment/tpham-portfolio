@@ -17,13 +17,14 @@ const ROTATION = [
 
 type HeadingProps = {
   headingLabel: string;
+  outlinedLabel?: string;
   headingStyle?: string;
   rotationStyle?: string;
   className?: string;
 };
 
 export const Heading = React.forwardRef<HTMLDivElement, HeadingProps>(
-  ({ headingLabel, headingStyle = "", rotationStyle = "" }, ref) => {
+  ({ headingLabel, outlinedLabel = headingLabel, headingStyle = "", rotationStyle = "" }, ref) => {
     const checkHeadingStyle = STYLES.includes(headingStyle)
       ? headingStyle
       : STYLES[0];
@@ -37,9 +38,9 @@ export const Heading = React.forwardRef<HTMLDivElement, HeadingProps>(
         <div className={styles["heading__marquee"]} ref={ref}>
           <div className={styles[checkHeadingStyle]} aria-hidden="true">
             <span>{headingLabel}</span>
-            <span className={styles["heading__marquee-stoke"]}>{headingLabel}</span>
+            <span className={styles["heading__marquee-stoke"]}>{outlinedLabel}</span>
             <span>{headingLabel}</span>
-            <span className={styles["heading__marquee-stoke"]}>{headingLabel}</span>
+            <span className={styles["heading__marquee-stoke"]}>{outlinedLabel}</span>
           </div>
         </div>
       </h3>

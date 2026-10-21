@@ -4,7 +4,7 @@ import styles from "./About.module.scss";
 import React from "react";
 // import { Link } from "react-router-dom";
 import { Button } from "../../components/Button/Button";
-import { Heading } from "../Heading/Heading";
+import { SectionHeading } from "../SectionHeading/SectionHeading";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 // import { useRef, useEffect } from "react";
@@ -158,14 +158,7 @@ function About() {
   // }, []);
   return (
     <>
-      <section id="about" className={`${styles["about__section"]} section__wrap`}>
-        <Heading
-          rotationStyle="heading__rotate-none"
-          headingStyle="heading__marquee-default"
-          headingLabel="How Are Ya?"
-          // ref={headingRef}
-          className="about-header"
-        />
+      <section id="about" className={styles["about__section"]}>
         <div className={styles["about__wrap"]}>
           <div className={styles["about__container"]}>
             <div className={styles["about__photo"]}>
@@ -185,10 +178,7 @@ function About() {
               ></div> */}
             </div>
             <div className={styles["about__bio"]}>
-              <h4>
-                If you made it this far, <br />
-                then let me tell you a little about myself.
-              </h4>
+              <SectionHeading label="How Are" outlinedLabel="Ya?" />
               <p>
                 I'm a software engineer and designer with 11+ years of
                 experience, based in Fort Worth, TX. I enjoy building clean,

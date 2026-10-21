@@ -5,6 +5,12 @@ import styles from "../ProjectItem/ProjectItem.module.scss";
 import { Button } from "../../components/Button/Button";
 
 export type GenericProjectData = {
+  workSites?: {
+    name: string;
+    url: string;
+    desktopImagePath: string;
+    mobileImagePath: string;
+  }[];
   workTitle: string;
   workLogo: string;
   workLiveLink: string;
@@ -64,15 +70,74 @@ function GenericProject({ data }: { data: GenericProjectData }) {
         </div>
       </section>
       <section className={styles["project__container"]}>
-        <div className={styles["project__section-heading"]}>
-          <h3>Highlights</h3>
-        </div>
         <div className={styles["project__description"]}>
           {data.workHighlights.map((h) => (
             <p key={h}>• {h}</p>
           ))}
         </div>
       </section>
+      {data.workSites && (
+        <section
+          className={`${styles["project__container"]} ${styles["project__site-gallery"]}`}
+          aria-label="Project websites"
+        >
+          {data.workSites.map((site) => (
+            <section className={styles["project__site"]} key={site.name}>
+              <div className={styles["project__site-heading"]}>
+                <h4>{site.name}</h4>
+                <a
+                  className={styles["project__site-link"]}
+                  href={site.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Visit ${site.name} website in a new tab`}
+                >
+                  Visit website
+                </a>
+              </div>
+              <div className={styles["project__site-views"]}>
+                <figure className={styles["project__site-capture"]}>
+                  <figcaption className={styles["project__capture-caption"]}>
+                    Desktop · 1440 × 1000
+                  </figcaption>
+                  <div className={styles["project__browser-head"]}>
+                    <div className={styles["project__browser-head-wrap"]}>
+                      <div className={`${styles["project__dot"]} ${styles["project__dot-1"]}`} />
+                      <div className={`${styles["project__dot"]} ${styles["project__dot-2"]}`} />
+                      <div className={`${styles["project__dot"]} ${styles["project__dot-3"]}`} />
+                    </div>
+                  </div>
+                  <img
+                    className={styles["project__desktop-image"]}
+                    src={site.desktopImagePath}
+                    alt={`${site.name} website at a 1440 by 1000 desktop viewport`}
+                    width={1440}
+                    height={1000}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+                <figure className={styles["project__site-capture"]}>
+                  <figcaption className={styles["project__capture-caption"]}>
+                    Mobile · 390 × 844
+                  </figcaption>
+                  <div className={styles["project__phone-frame"]}>
+                    <img
+                      className={styles["project__phone-image"]}
+                      src={site.mobileImagePath}
+                      alt={`${site.name} website at a 390 by 844 mobile viewport`}
+                      width={390}
+                      height={844}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </figure>
+              </div>
+            </section>
+          ))}
+        </section>
+      )}
       <section className={`${styles["project__container"]} ${styles["project__work-nav"]}`}>
         <Link href="/#work" className={styles["project__all-work-btn"]}>
           All Projects

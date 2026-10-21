@@ -1,6 +1,6 @@
 {
   "pageTitle": "Fidium Fiber - Project Study",
-  "pageDescription": "Headless Craft CMS and Next.js platform powering the Fidium Fiber family of websites.",
+  "pageDescription": "Craft CMS, Payload CMS and Next.js platform work for the Fidium Fiber family of websites.",
   "canonical": "/fidium",
   "pageUrl": "https://tampham.io/fidium",
   "pageImage": "/assets/images/project-fidium-hero.svg",
@@ -13,7 +13,7 @@
   "workMoreLink": "/fidium",
   "workLiveLink": "https://fidium.com",
   "workImagePath": "/assets/images/project-fidium-hero.svg",
-  "workDescription": "Fidium Fiber is a family of consumer, business, wholesale and partner websites for a fiber internet provider. At Amdocs I architected a headless Craft CMS with a bespoke content editor and page builder, custom modules and a GraphQL API that serves content to seven sites, then redesigned and shipped the Next.js applications on top of it. I planned and drove the work from the first foundation to launch.",
+  "workDescription": "Fidium Fiber is a family of consumer, business, wholesale and partner websites for a fiber internet provider. At Amdocs I architected a headless Craft CMS with a bespoke content editor and page builder, custom modules and a GraphQL API that serves content to seven sites, then redesigned and shipped the Next.js applications on top of it. The platform work also included Payload CMS. I planned and drove the work from the first foundation to launch.",
   "workHighlights": [
     "Built the headless Craft CMS (bespoke editor, GraphQL, custom modules) that serves content for 7 sites.",
     "Redesigned and launched Next.js apps for Fidium Fiber, Business, Partners, Wholesale, Consolidated and fidium.net.",
@@ -22,6 +22,38 @@
   ],
   "workTimeFrame": "Sept 2024 - Present",
   "workRole": "Software Engineer, Lead Craft CMS Developer",
-  "workTechnology": "Craft CMS, GraphQL, Next.js, React, Storybook, Jest, Nginx",
-  "workCategory": "Web Platform, Headless CMS"
+  "workTechnology": "Craft CMS, Payload CMS, GraphQL, Next.js, React, Storybook, Jest, Nginx, Amazon Web Services (SES, S3, RDS)",
+  "workCategory": "Web Platform, Headless CMS",
+  "workSites": [
+    {
+      "name": "Fidium Fiber",
+      "url": "https://www.fidiumfiber.com/",
+      "desktopImagePath": "/assets/images/fidium-fiber-desktop.jpg",
+      "mobileImagePath": "/assets/images/fidium-fiber-mobile.jpg"
+    },
+    {
+      "name": "Fidium Business",
+      "url": "https://www.fidiumbusiness.com/",
+      "desktopImagePath": "/assets/images/fidium-business-desktop.jpg",
+      "mobileImagePath": "/assets/images/fidium-business-mobile.jpg"
+    },
+    {
+      "name": "Fidium Partners",
+      "url": "https://www.fidiumpartners.com/",
+      "desktopImagePath": "/assets/images/fidium-partners-desktop.jpg",
+      "mobileImagePath": "/assets/images/fidium-partners-mobile.jpg"
+    },
+    {
+      "name": "Fidium Wholesale",
+      "url": "https://www.fidiumwholesale.com/",
+      "desktopImagePath": "/assets/images/fidium-wholesale-desktop.jpg",
+      "mobileImagePath": "/assets/images/fidium-wholesale-mobile.jpg"
+    },
+    {
+      "name": "Consolidated Communications",
+      "url": "https://www.consolidated.com/",
+      "desktopImagePath": "/assets/images/fidium-consolidated-desktop.jpg",
+      "mobileImagePath": "/assets/images/fidium-consolidated-mobile.jpg"
+    }
+  ]
 }

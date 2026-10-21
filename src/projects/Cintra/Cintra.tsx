@@ -67,9 +67,6 @@ function cintra() {
       </section>
       {/* MOBILE */}
       <section className={styles["project__container"]}>
-        <div className={styles["project__section-heading"]}>
-          <h3>Mobile App Design</h3>
-        </div>
         <div className={`${styles["project__mobile"]} ${styles["project__mobile-thirds"]}`}>
           <div className={`${styles["project__mobile-view"]} project__mobile-view-1`}>
             <div className={styles["project__mobile-lockup"]}>
@@ -198,9 +195,6 @@ function cintra() {
       </section>
       {/* THE APP */}
       <section className={styles["project__container"]}>
-        <div className={styles["project__section-heading"]}>
-          <h3>The App</h3>
-        </div>
         <div className={`${styles["project__launcher-box"]} ${styles["project__launcher-box-cintra"]}`}>
           <Button
             btnLabel="Launch the App"
@@ -211,12 +205,6 @@ function cintra() {
       </section>
       {/* UIUX FLOW CHARTS */}
       <section className={styles["project__container"]}>
-        <div className={styles["project__section-heading"]}>
-          <h3>UI/UX and Flow Charts</h3>
-        </div>
-        <div className={styles["project__section-heading-full"]}>
-          <h4>Sign Up Experience</h4>
-        </div>
         <Fancybox>
           <a
             className={styles["project__img-lightbox"]}
@@ -229,9 +217,6 @@ function cintra() {
             />
           </a>
         </Fancybox>
-        <div className={styles["project__section-heading-full"]}>
-          <h4>Dashboard Interface and UX</h4>
-        </div>
         <Fancybox>
           <a
             className={styles["project__img-lightbox"]}

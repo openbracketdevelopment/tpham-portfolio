@@ -2,7 +2,6 @@
 
 import React from "react";
 import FeaturedWork from "../FeaturedWork/FeaturedWork";
-import { Heading } from "../Heading/Heading";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 // import { useRef, useEffect } from "react";
@@ -40,14 +39,7 @@ function Featured() {
   // }, []);
   return (
     <>
-      <section id="work" className="featured__section section__wrap">
-        <Heading
-          rotationStyle="heading__rotate-none"
-          headingStyle="heading__marquee-reverse"
-          headingLabel="Latest Work"
-          // ref={headingRef}
-          className="work-header"
-        />
+      <section id="work" className="featured__section">
         <FeaturedWork />
       </section>
     </>

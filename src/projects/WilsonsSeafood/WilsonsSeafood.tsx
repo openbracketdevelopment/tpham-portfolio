@@ -67,9 +67,6 @@ function wilsonsSeafood() {
       </section>
       {/* DESKTOP */}
       <section className={styles["project__container"]}>
-        <div className={styles["project__section-heading"]}>
-          <h3>Desktop</h3>
-        </div>
         <div className={styles["project__work-desktop"]}>
           <div className={styles["project__browser-head"]}>
             <div className={styles["project__browser-head-wrap"]}>
@@ -98,9 +95,6 @@ function wilsonsSeafood() {
       </section>
       {/* DESKTOP */}
       <section className={styles["project__container"]}>
-        <div className={styles["project__section-heading"]}>
-          <h3>Menu</h3>
-        </div>
         <div className={styles["project__work-desktop"]}>
           <div className={styles["project__browser-head"]}>
             <div className={styles["project__browser-head-wrap"]}>
@@ -123,18 +117,12 @@ function wilsonsSeafood() {
       </section>
       {/* MOBILE AND DESKTOP EXAMPLES */}
       <section className={styles["project__container-full"]}>
-        <div className={styles["project__section-heading"]}>
-          <h3>Responsive Design</h3>
-        </div>
         <div className="project__work-wall">
           <img src={wilsonsSeafoodData.workImagePath3} alt="" />
         </div>
       </section>
       {/* MOBILE */}
       <section className={styles["project__container"]}>
-        <div className={styles["project__section-heading"]}>
-          <h3>Mobile</h3>
-        </div>
         <div className={styles["project__mobile"]}>
           <div className={`${styles["project__mobile-view"]} project__mobile-view-1`}>
             <div className={styles["project__mobile-lockup"]}>
@@ -218,9 +206,6 @@ function wilsonsSeafood() {
       </section>
       {/* Branding */}
       <section className={styles["project__container"]}>
-        <div className={styles["project__section-heading"]}>
-          <h3>Branding</h3>
-        </div>
         <div className={`${styles["project__logo-showcase"]} ${styles["project__logo-showcase-full"]}`}>
           <Fancybox>
             <a data-fancybox href="/assets/images/ws-logo-01.svg">
@@ -269,9 +254,6 @@ function wilsonsSeafood() {
       </section>
       {/* Other Brand Concepts */}
       <section className={styles["project__container"]}>
-        <div className={styles["project__section-heading"]}>
-          <h3>Other Brand Concepts</h3>
-        </div>
         <div className={`${styles["project__logo-showcase"]} ${styles["project__logo-showcase-full"]}`}>
           <Fancybox>
             <a data-fancybox href="/assets/images/ws-logo-weave_1@3x-100.jpg">

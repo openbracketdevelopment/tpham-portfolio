@@ -12,6 +12,13 @@
   max-width:80%;
   margin: 0 auto;
   margin-bottom:2rem;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+  border-radius: 1.5rem;
+}
+.fwork:hover,
+.fwork:focus-within {
+  filter: grayscale(0%);
 }
 .fwork__img {
   @apply object-cover w-full h-full;
@@ -23,8 +30,9 @@
   transition: all .3s ease;
 }
 .fwork__thumbnail {
+  border-radius: inherit;
   @apply w-full;
-  height: 60vh;
+  aspect-ratio: 16 / 9;
   @apply relative flex;
   box-shadow: 0 24px 68px -4px var(--color-05);
   @apply overflow-hidden;
@@ -53,6 +61,7 @@
   @apply z-[1];
 }
 .fwork__link {
+  border-radius: inherit;
   @apply absolute;
   inset: 0;
 }
@@ -111,7 +120,6 @@
   }
   .fwork__thumbnail {
     @apply w-full;
-    height: auto;
   }
   .fwork__title {
     @apply self-center;
@@ -127,5 +135,7 @@
   }
 }
 @include mq("lg") {
-
+  .fwork__wrap {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }

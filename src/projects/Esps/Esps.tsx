@@ -68,9 +68,6 @@ function earthx() {
       </section>
       {/* DESKTOP */}
       <section className={styles["project__container"]}>
-        <div className={styles["project__section-heading"]}>
-          <h3>Desktop</h3>
-        </div>
         <div className={styles["project__work-desktop"]}>
           <div className={styles["project__browser-head"]}>
             <div className={styles["project__browser-head-wrap"]}>
@@ -99,9 +96,6 @@ function earthx() {
       </section>
       {/* MOBILE */}
       <section className={styles["project__container"]}>
-        <div className={styles["project__section-heading"]}>
-          <h3>Mobile</h3>
-        </div>
         <div className={styles["project__mobile"]}>
           <div className={`${styles["project__mobile-view"]} project__mobile-view-1`}>
             <div className={styles["project__mobile-lockup"]}>
@@ -185,18 +179,12 @@ function earthx() {
       </section>
       {/* MOBILE AND DESKTOP EXAMPLES */}
       <section className={styles["project__container-full"]}>
-        <div className={styles["project__section-heading"]}>
-          <h3>Responsive Design</h3>
-        </div>
         <div className="project__work-wall">
           <img src={espsData.workImagePath3} alt="" />
         </div>
       </section>
       {/* Branding */}
       <section className={styles["project__container"]}>
-        <div className={styles["project__section-heading"]}>
-          <h3>Branding</h3>
-        </div>
         <div className={`${styles["project__logo-showcase"]} ${styles["project__logo-showcase-full"]}`}>
           <Fancybox>
             <a data-fancybox href="/assets/images/esps-logo-1.svg">
@@ -245,9 +233,6 @@ function earthx() {
       </section>
       {/* Tarps, Mudflaps signs etc */}
       <section className={styles["project__container"]}>
-        <div className={styles["project__section-heading"]}>
-          <h3>Tarps, Mudflaps and Signs</h3>
-        </div>
         <div className={`${styles["project__logo-showcase"]} ${styles["project__logo-showcase-halves"]}`}>
           <Fancybox>
             <a data-fancybox href="/assets/images/esps-signs.webp">

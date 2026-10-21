@@ -1,0 +1,20 @@
+.heading {
+  box-sizing: border-box;
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 4rem 0 2rem;
+  color: var(--color-03);
+  font-family: var(--font-family-compact), sans-serif;
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  text-align: left;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+}
+
+.outlined {
+  -webkit-text-stroke: 1px var(--color-03);
+  color: transparent;
+}

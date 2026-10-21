@@ -77,9 +77,6 @@ function hmi() {
 
       {/* DESKTOP */}
       <section className={styles["project__container"]}>
-        <div className={styles["project__section-heading"]}>
-          <h3>Desktop</h3>
-        </div>
         <div className={styles["project__work-desktop"]}>
           <div className={styles["project__browser-head"]}>
             <div className={styles["project__browser-head-wrap"]}>
@@ -103,9 +100,6 @@ function hmi() {
 
       {/* ARTWORK */}
       <section className={styles["project__container"]}>
-        <div className={styles["project__section-heading"]}>
-          <h3>ARTWORK</h3>
-        </div>
         <div className={`${styles["project__logo-showcase"]} ${styles["project__logo-showcase-full"]}`}>
           <Fancybox>
             <a data-fancybox href={diageoData.workImagePath4}>
@@ -128,9 +122,6 @@ function hmi() {
       </section>
       {/* OKTA SSO */}
       <section className={styles["project__container"]}>
-        <div className={styles["project__section-heading"]}>
-          <h3>Okta SSO - Single Sign On</h3>
-        </div>
         <div className={styles["project__work-desktop"]}>
           <div className={styles["project__browser-head"]}>
             <div className={styles["project__browser-head-wrap"]}>
@@ -153,18 +144,12 @@ function hmi() {
       </section>
       {/* MOBILE AND DESKTOP EXAMPLES */}
       <section className={styles["project__container-full"]}>
-        <div className={styles["project__section-heading"]}>
-          <h3>Responsive Design</h3>
-        </div>
         <div className="project__work-wall">
           <img src={diageoData.workImagePath3} alt="" />
         </div>
       </section>
       {/* MOBILE */}
       <section className={styles["project__container"]}>
-        <div className={styles["project__section-heading"]}>
-          <h3>Mobile</h3>
-        </div>
         <div className={styles["project__mobile"]}>
           <div className={`${styles["project__mobile-view"]} project__mobile-view-1`}>
             <div className={styles["project__mobile-lockup"]}>
@@ -248,9 +233,6 @@ function hmi() {
       </section>
       {/* EMAIL DESIGN */}
       <section className={`${styles["project__container"]} ${styles["project__container-dark"]}`}>
-        <div className={styles["project__section-heading"]}>
-          <h3>Email Design</h3>
-        </div>
         <div className="project__work-emailer">
           <video
             className={`${styles["project__video"]} project__emailer-video`}
