@@ -3,16 +3,25 @@
   "pageDescription": "Launch site for the Toro Haven robotic mower, built on WordPress and Gutenberg.",
   "canonical": "/toro",
   "pageUrl": "https://tampham.io/toro",
-  "pageImage": "/assets/images/project-toro-hero.svg",
+  "pageImage": "/assets/images/toro-haven-night.webp",
   "fbOgType": "article",
   "fbOgLocale": "en_US",
   "fbOgSiteName": "A Fort Worth based developer who makes unique web experiences.",
   "twOgCard": "picture",
   "workTitle": "Toro Haven",
-  "workLogo": "/assets/images/project-toro-logo.svg",
+  "workLogo": "/assets/images/toro-haven-logo.webp",
   "workMoreLink": "/toro",
   "workLiveLink": "https://www.toro.com",
-  "workImagePath": "/assets/images/project-toro-hero.svg",
+  "workImagePath": "/assets/images/toro-haven-night.webp",
+  "workMowerImagePath": "/assets/images/toro-haven-mower.webp",
+  "workDesktopViews": [
+    { "name": "Haven Smartyard", "video": "https://d2r52yt7q99fc.cloudfront.net/video/toro-haven-smartyard-desktop.mp4" },
+    { "name": "Haven robotic mower", "video": "https://d2r52yt7q99fc.cloudfront.net/video/toro-haven-robotic-mower-desktop.mp4" }
+  ],
+  "workMobileViews": [
+    { "name": "Haven Smartyard", "video": "https://d2r52yt7q99fc.cloudfront.net/video/toro-haven-smartyard-mobile.mp4" },
+    { "name": "Haven robotic mower", "video": "https://d2r52yt7q99fc.cloudfront.net/video/toro-haven-robotic-mower-mobile.mp4" }
+  ],
   "workDescription": "Toro Haven is the launch site for Toro's robotic mower. Through the agency, I built the required sections as custom Gutenberg blocks, added functional enhancements, and refined the interface for a smooth, responsive experience on every device, delivering through dev, staging and production with QA and ADA checks.",
   "workHighlights": [
     "Built custom Gutenberg blocks within the shared Toro site template.",

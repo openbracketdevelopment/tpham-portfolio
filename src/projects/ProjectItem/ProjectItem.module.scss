@@ -222,8 +222,6 @@
 .project__title img{
   max-width:400px;
   @apply w-full;
-  filter: drop-shadow(7px 7px 10px rgba(0,0,0,0.8));
-        -webkit-filter: drop-shadow(7px 7px 10px rgba(0,0,0,0.8));
 }
 .project__title {
   font-size: 3rem;
@@ -352,43 +350,35 @@
   border-left: 1px solid var(--color-04);
   border-radius: 0 0 12px 12px;
 }
-.project__phone-frame {
+.project__phone-frame,
+.project__mobile-lockup {
   position: relative;
   box-sizing: border-box;
   width: min(100%, 220px);
   margin: 0 auto;
-  padding: 24px 6px 8px;
-  border: 1px solid var(--color-04);
-  border-radius: 32px;
-  background: #0b0b0b;
+  aspect-ratio: 491.577 / 987.003;
+  background: #000 url("/assets/images/phone-frame.svg") center / 100% 100% no-repeat;
 }
-.project__phone-frame::before {
+.project__phone-image,
+.project__phone-screen,
+.project__mobile-website {
   position: absolute;
-  top: 10px;
-  left: 50%;
-  width: 44px;
-  height: 4px;
-  border-radius: 999px;
-  background: var(--color-04);
-  content: "";
-  transform: translateX(-50%);
-}
-.project__phone-image {
+  top: 12.96%;
+  left: 6.1%;
+  width: 87%;
+  height: 77.7%;
   display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 21px;
+  object-fit: contain;
+  background: #000;
+}
+.project__phone-screen {
+  overflow: hidden;
 }
 /* PROJECT MOBILE */
 .project__mobile-lockup {
   max-width: 320px;
-  @apply w-full flex relative justify-center items-center;
-  padding-bottom: 3rem;
-}
-.project__mobile-website {
-  @apply absolute flex justify-self-center self-center;
-  margin-top: -20px;
-  width: calc(100% - 50px);
+  width: 100%;
+  margin: 0 auto 3rem;
 }
 .project__mobile-view {
   @apply flex justify-center relative;
@@ -401,14 +391,8 @@
   @apply items-center w-full;
   max-width: 100%;
 }
-.project__mobile-bg svg * {
-  fill: none;
-  stroke: var(--color-04);
-  stroke-width: 1;
-  stroke-miterlimit: 10;
-}
 .project__mobile-bg {
-  @apply w-full;
+  display: none;
 }
 .project__logo-showcase{
   margin:0 auto;

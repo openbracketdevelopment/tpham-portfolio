@@ -1,0 +1,73 @@
+@use "../../styles/mixins" as *;
+
+.hero {
+  overflow: hidden;
+}
+
+.title {
+  width: min(90vw, 600px);
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.desktop {
+  width: 100%;
+  margin: 0;
+
+  .placeholder,
+  video {
+    aspect-ratio: 16 / 9;
+  }
+
+  video {
+    object-fit: cover;
+    object-position: center top;
+  }
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1.5rem;
+  background: #080808;
+  color: var(--color-03);
+  text-align: center;
+  font-family: var(--font-family-body), sans-serif;
+}
+
+.placeholderNote {
+  font-size: 0.875rem;
+  color: #b1b1b1;
+}
+
+.mobileViews {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  gap: 3rem;
+}
+
+.phone {
+  width: min(100%, 320px);
+  margin: 0;
+}
+
+.phoneScreen {
+  .placeholder,
+  video {
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+@include mq("md") {
+  .mobileViews {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

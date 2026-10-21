@@ -79,6 +79,11 @@
   font-size: 3rem;
   line-height:3rem;
 }
+.fwork__title img[src="/assets/images/toro-haven-logo.webp"] {
+  width: clamp(180px, 24vw, 320px);
+  max-width: 100%;
+  height: auto;
+}
 .fwork__button-group {
   /* display: grid; */
   @apply hidden;

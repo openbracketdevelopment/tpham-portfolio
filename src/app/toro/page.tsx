@@ -1,6 +1,6 @@
 import { buildMetadata } from "../../lib/metadata";
 import data from "../../projects/project-data/Toro.json";
-import Page from "../../projects/GenericProject/GenericProject";
+import Page from "../../projects/Toro/Toro";
 
 export const metadata = buildMetadata(data);
 
@@ -8,5 +8,5 @@ export const metadata = buildMetadata(data);
 export const revalidate = 3600;
 
 export default function Route() {
-  return <Page data={data} />;
+  return <Page />;
 }
