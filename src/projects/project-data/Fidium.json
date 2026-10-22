@@ -1,6 +1,6 @@
 {
   "pageTitle": "Fidium Fiber - Project Study",
-  "pageDescription": "Enterprise website development with Craft CMS and Next.js for the Fidium family of websites.",
+  "pageDescription": "A shared Craft CMS and Next.js enterprise platform serving seven Fidium websites and applications, with CI/CD, monitoring and ISR/Redis caching.",
   "canonical": "/fidium",
   "pageUrl": "https://tampham.io/fidium",
   "pageImage": "/assets/images/fidium-hero.webp",
@@ -15,25 +15,28 @@
   "workImagePath": "/assets/images/fidium-thumb.webp",
   "workHeroImagePath": "/assets/images/fidium-hero.webp",
   "workHeroImageAlt": "Family playing video games together on a couch at home",
-  "workDescription": "At Amdocs, I work on the enterprise website platform for Fidium Fiber, Business, Wholesale, Partners and Consolidated Communications, using Craft CMS, Next.js and React.",
+  "workDescription": "At Amdocs, I work on Fidium's enterprise web platform, using Craft CMS, Next.js and React. The shared headless CMS serves content to seven websites and applications: fidiumfiber.com, fidiumbusiness.com, fidiumwholesale.com, fidiumpartners.com, consolidated.com, the fidium.net customer portal and Buyflow, the purchasing experience.",
   "workNarrative": [
-    "My work includes CMS development, page-building tools, GraphQL integration and shared React components, along with testing and documentation.",
-    "I also support maintenance and deployments across development, QA, staging and production, working with engineering, marketing, IT and cloud teams."
+    "This shared content platform supports marketing, customer account access and purchasing, making its availability important across the customer journey. My work includes custom Craft modules, page-building tools, GraphQL integration and shared React components, with Jest unit tests and Storybook documentation.",
+    "We built Fidium Fiber's Check Availability experience to guide prospective customers from exploring internet plans into the purchasing journey, with a clear handoff to Buyflow.",
+    "With multiple containerized application pods running in production on Kubernetes, we introduced Redis caching alongside Incremental Static Regeneration (ISR) to reduce their combined demand on Craft CMS and improve response times in the React/Next.js applications.",
+    "I support GitLab CI/CD pipelines and deployments across development, QA, staging and production, working with engineering, IT and cloud teams on Kubernetes-hosted applications and Nginx reverse proxies. Dynatrace and Splunk provide visibility into application performance and logs, helping us investigate deployment issues and production incidents."
   ],
   "workHighlights": [
-    "Built the headless Craft CMS (bespoke editor, GraphQL, custom modules) that serves content for 7 sites.",
-    "Redesigned and launched Next.js apps for Fidium Fiber, Business, Partners, Wholesale, Consolidated and fidium.net.",
-    "Maintained a shared UI toolkit of components, hooks and webhooks, tested with Jest and documented in Storybook.",
-    "Configured Nginx reverse proxies to serve several sites from one repo, across dev, QA, stage and production on GitLab CI/CD."
+    "Developed a shared headless Craft CMS serving content to five public websites, the fidium.net customer portal and Buyflow.",
+    "Built the Check Availability experience to guide prospective customers into purchasing, with a clear handoff to Buyflow.",
+    "Introduced Redis caching alongside ISR to reduce Craft CMS load from multiple production Kubernetes pods and improve React/Next.js response times.",
+    "Maintained shared React components with Jest unit tests and Storybook documentation.",
+    "Supported GitLab CI/CD deployments, Kubernetes-hosted applications and Nginx routing, with Dynatrace and Splunk for performance and log visibility."
   ],
   "workTimeFrame": "Aug 2024 - Present",
   "workRole": "Software Engineer, Lead Craft CMS Developer, React/Next.js Developer",
-  "workTechnology": "Craft CMS, Payload CMS, Next.js, React, TypeScript, GraphQL, Storybook, Jest, Nginx, Kubernetes, GitLab CI/CD, Amazon Web Services (SES, S3, RDS)",
+  "workTechnology": "Craft CMS, Payload CMS, Next.js, React, TypeScript, GraphQL, ISR, Redis, Storybook, Jest, Nginx, Kubernetes, GitLab CI/CD, Dynatrace, Splunk, Amazon Web Services (SES, S3, RDS)",
   "workCategory": "Enterprise Web Platform, Headless CMS",
   "workSites": [
     {
       "name": "Fidium Fiber",
-      "description": "The primary residential experience, bringing internet plans, service availability and customer support together.",
+      "description": "The primary residential experience, bringing internet plans, service availability and customer support together. We built its Check Availability experience to guide prospective customers into purchasing, with a clear handoff to Buyflow.",
       "url": "https://www.fidiumfiber.com/",
       "desktopImagePath": "/assets/images/fidium-fiber-desktop-clean.webp",
       "mobileImagePath": "/assets/images/fidium-fiber-mobile-1-showcase.webp",
@@ -41,7 +44,9 @@
         { "imagePath": "/assets/images/fidium-fiber-mobile-1-showcase.webp", "alt": "Fidium Fiber mobile homepage with residential internet offer and availability search" },
         { "imagePath": "/assets/images/fidium-fiber-mobile-se-2.webp", "alt": "Fidium Fiber whole-home WiFi and app controls feature cards on iPhone SE", "width": 375, "height": 667 },
         { "imagePath": "/assets/images/fidium-fiber-mobile-se-3.webp", "alt": "Fidium Fiber neighborhood photography and fiber capacity feature card on iPhone SE", "width": 375, "height": 667 },
-        { "imagePath": "/assets/images/fidium-fiber-mobile-availability.webp", "alt": "Fidium Fiber Check Availability component with address entry, availability button and service lookup guidance", "width": 390, "height": 844 }
+        { "imagePath": "/assets/images/fidium-fiber-mobile-availability.webp", "alt": "Fidium Fiber Check Availability component with address entry, availability button and service lookup guidance", "width": 390, "height": 844 },
+        { "imagePath": "/assets/images/fidium-fiber-mobile-antelope-map.webp", "alt": "Fidium Fiber Antelope, California mobile page with a local fiber internet coverage map", "width": 390, "height": 844 },
+        { "imagePath": "/assets/images/fidium-fiber-mobile-getting-started.webp", "alt": "Fidium Fiber mobile Getting Started support category with WiFi app and appointment help articles", "width": 390, "height": 844 }
       ]
     },
     {

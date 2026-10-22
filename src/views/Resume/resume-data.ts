@@ -78,16 +78,16 @@ export const experience = [
     location: "Plano, TX (Remote)",
     dates: "Aug 2024 – Present",
     bullets: [
-      "Lead Craft CMS developer for the Fidium Fiber enterprise website platform: architected and own a headless Craft CMS with a bespoke editor, page builder, GraphQL API, and custom modules serving Fidium Fiber, Business, Wholesale, Partners, Support, buyflow, fidium.net, and consolidated.com.",
-      "Planned and drove delivery from foundation to launch, including the custom Craft modules that extend the platform.",
+      "Lead Craft CMS developer for Fidium's enterprise web platform: own a headless CMS, page builder, GraphQL API, and custom modules serving seven websites and applications: fidiumfiber.com, fidiumbusiness.com, fidiumwholesale.com, fidiumpartners.com, consolidated.com, fidium.net (customer portal), and Buyflow (purchasing).",
+      "Introduced Redis caching alongside Incremental Static Regeneration (ISR) to reduce Craft CMS load from multiple production Kubernetes pods and improve React/Next.js response times.",
       "Redesigned and built the Next.js/React applications for Fidium Fiber, Business, Wholesale, Partners, and Consolidated, and built the original foundation of fidium.net; collaborate with the teams that own fidium.net and buyflow.",
-      "Maintain a shared UI toolkit of reusable components, hooks, and webhooks, tested with Jest and documented in Storybook.",
-      "Configured Nginx reverse proxies to serve the Wholesale, Partners, Business, and Consolidated sites from a single repo; own dev, QA, staging, and production environments with GitLab CI/CD.",
-      "Monitor with Dynatrace and Splunk, stay on call, and join incident war rooms to diagnose root causes and restore service quickly.",
+      "Maintain shared components, hooks, and webhooks with Jest unit tests and Storybook documentation; built Fidium Fiber's Check Availability experience to guide customers into purchasing with a clear handoff to Buyflow.",
+      "Configure Nginx reverse proxies for multiple sites from one repo; support GitLab CI/CD pipelines and Kubernetes deployments across dev, QA, staging, and production.",
+      "Use Dynatrace and Splunk for performance and log visibility; provide on-call incident response for a shared platform supporting marketing, customer access, and purchasing.",
       "Partner with engineers, marketing, IT, and cloud ops in Jira; mentor developers on Craft CMS. Authored pull requests and reviewed other developers' PRs to maintain code quality.",
     ],
     achievement:
-      "Built the headless Craft CMS (bespoke editor, GraphQL, custom modules) that serves content for 7 newly redesigned sites, and lead the launch and shipment of the Next.js applications for fidium.com, fidiumbusiness.com, fidiumpartners.com, fidiumwholesale.com, consolidated.com, and fidium.net.",
+      "Built a shared headless Craft CMS serving seven websites and applications across marketing, customer access, and purchasing; delivered Next.js sites for Fidium Fiber, Business, Partners, Wholesale, and Consolidated, plus the original fidium.net foundation.",
   },
   {
     role: "Lead PHP / WordPress Developer",
