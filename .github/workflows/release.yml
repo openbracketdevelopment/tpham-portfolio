@@ -1,6 +1,6 @@
 name: Release build
 
-# Pushing a tag like v1.4.0 builds the site and uploads it to Netlify as a draft deploy.
+# Pushing a tag like v1.4.0 (on a master commit) builds the site and uploads it to Netlify as a draft deploy.
 # Nothing goes live until the "Publish production" workflow is run manually.
 on:
   push:
@@ -19,6 +19,13 @@ jobs:
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Ensure tag is on master
+        run: |
+          git merge-base --is-ancestor "$GITHUB_SHA" origin/master \
+            || { echo "::error::Tag ${GITHUB_REF_NAME} is not on master. Tag a commit from master."; exit 1; }
 
       - uses: actions/setup-node@v4
         with:
