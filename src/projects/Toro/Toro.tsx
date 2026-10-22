@@ -124,7 +124,7 @@ export default function Toro() {
       ))}
 
       <section className={shared["project__container"]} aria-label="Haven mobile previews">
-        <div className={styles.mobileViews}>
+        <div className={`${styles.mobileViews} ${shared["project__mobile-gallery"]}`}>
           {data.workMobileViews.map((view) => <ScrollPreview key={view.name} {...view} mobile />)}
         </div>
       </section>
