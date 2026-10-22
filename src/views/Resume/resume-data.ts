@@ -76,7 +76,7 @@ export const experience = [
     role: "Software Engineer",
     company: "Amdocs",
     location: "Plano, TX (Remote)",
-    dates: "Sept 2024 – Present",
+    dates: "Aug 2024 – Present",
     bullets: [
       "Lead Craft CMS developer for the Fidium Fiber ecosystem: architected and own a headless Craft CMS with a bespoke editor, page builder, GraphQL API, and custom modules serving Fidium Fiber, Business, Wholesale, Partners, Support, buyflow, fidium.net, and consolidated.com.",
       "Planned and drove delivery from foundation to launch, including the custom Craft modules that extend the platform.",
