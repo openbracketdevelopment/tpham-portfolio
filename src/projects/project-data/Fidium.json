@@ -1,6 +1,6 @@
 {
   "pageTitle": "Fidium Fiber - Project Study",
-  "pageDescription": "Craft CMS, Payload CMS and Next.js platform work for the Fidium Fiber family of websites.",
+  "pageDescription": "Enterprise website platform work with Craft CMS, Payload CMS and Next.js for the Fidium Fiber family of websites.",
   "canonical": "/fidium",
   "pageUrl": "https://tampham.io/fidium",
   "pageImage": "/assets/images/fidium-hero.webp",
@@ -15,7 +15,7 @@
   "workImagePath": "/assets/images/fidium-thumb.webp",
   "workHeroImagePath": "/assets/images/fidium-hero.webp",
   "workHeroImageAlt": "Family playing video games together on a couch at home",
-  "workDescription": "One shared content platform, built for a family of distinct websites. At Amdocs, I led development of the headless Craft CMS behind the Fidium ecosystem and built Next.js and React experiences for Fidium Fiber, Business, Wholesale, Partners and Consolidated Communications.",
+  "workDescription": "One shared enterprise website platform, built for a family of distinct websites. At Amdocs, I led development of the headless Craft CMS behind the Fidium ecosystem and built Next.js and React experiences for Fidium Fiber, Business, Wholesale, Partners and Consolidated Communications.",
   "workNarrative": [
     "I built a bespoke page editor, page builder and custom Craft modules, with GraphQL APIs delivering content to seven Next.js applications. My responsibility extended beyond launch: maintaining content integrity, supporting the applications from the CMS side and developing solutions as technical issues arose. The broader platform work also included Payload CMS.",
     "Across the sites, I maintained reusable components, hooks and webhooks, with Jest tests and Storybook documentation. I configured Nginx reverse proxies and supported dev, QA, staging and production deployments through GitLab CI/CD, working with engineering, marketing, IT and cloud teams.",
@@ -27,10 +27,10 @@
     "Maintained a shared UI toolkit of components, hooks and webhooks, tested with Jest and documented in Storybook.",
     "Configured Nginx reverse proxies to serve several sites from one repo, across dev, QA, stage and production on GitLab CI/CD."
   ],
-  "workTimeFrame": "Sept 2024 - Present",
+  "workTimeFrame": "Aug 2024 - Present",
   "workRole": "Software Engineer, Lead Craft CMS Developer, React/Next.js Developer",
-  "workTechnology": "Craft CMS, Payload CMS, Next.js, React, TypeScript, GraphQL, Storybook, Jest, Nginx, GitLab CI/CD, Amazon Web Services (SES, S3, RDS)",
-  "workCategory": "Web Platform, Headless CMS",
+  "workTechnology": "Craft CMS, Payload CMS, Next.js, React, TypeScript, GraphQL, Storybook, Jest, Nginx, Kubernetes, GitLab CI/CD, Amazon Web Services (SES, S3, RDS)",
+  "workCategory": "Enterprise Web Platform, Headless CMS",
   "workSites": [
     {
       "name": "Fidium Fiber",
@@ -41,7 +41,8 @@
       "mobileViews": [
         { "imagePath": "/assets/images/fidium-fiber-mobile-1-showcase.webp", "alt": "Fidium Fiber mobile homepage with residential internet offer and availability search" },
         { "imagePath": "/assets/images/fidium-fiber-mobile-se-2.webp", "alt": "Fidium Fiber whole-home WiFi and app controls feature cards on iPhone SE", "width": 375, "height": 667 },
-        { "imagePath": "/assets/images/fidium-fiber-mobile-se-3.webp", "alt": "Fidium Fiber neighborhood photography and fiber capacity feature card on iPhone SE", "width": 375, "height": 667 }
+        { "imagePath": "/assets/images/fidium-fiber-mobile-se-3.webp", "alt": "Fidium Fiber neighborhood photography and fiber capacity feature card on iPhone SE", "width": 375, "height": 667 },
+        { "imagePath": "/assets/images/fidium-fiber-mobile-availability.webp", "alt": "Fidium Fiber Check Availability component with address entry, availability button and service lookup guidance", "width": 390, "height": 844 }
       ]
     },
     {

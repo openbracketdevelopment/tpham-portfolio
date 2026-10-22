@@ -7,9 +7,7 @@
 .about__wrap {
   @apply grid;
   grid-template-columns: minmax(auto, 1280px);
-  width: 90%;
-  max-width: 1280px;
-  margin: 0 auto;
+  @include content-container;
   @apply justify-center items-center flex-col relative;
 }
 .about__photo-image{

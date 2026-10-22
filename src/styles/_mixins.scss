@@ -13,6 +13,11 @@
   justify-content: center;
 }
 
+@mixin content-container {
+  width: var(--content-width);
+  margin-inline: auto;
+}
+
 @mixin absolute-fill {
   position: absolute;
   inset: 0;

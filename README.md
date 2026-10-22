@@ -2,6 +2,25 @@
 
 ## Instructions
 
+### Content gutters
+
+Content sections share `--content-width: min(90%, 1280px)` from
+`src/styles/globals.scss`. Use the `content-container` Sass mixin for standalone
+wrappers; case-study sections use the same width for their grid track. Nested
+content fills that track instead of adding another percentage-based gutter.
+Hero backgrounds remain full bleed, and desktop phone frames retain their size
+limits. Resume print styles use the printable page width independently.
+
+### Adobe product artwork
+
+The Brands & tools section uses product SVGs from
+[Devicon](https://github.com/devicons/devicon) (Photoshop, Illustrator, XD) and
+[SVGL](https://github.com/pheralb/svgl) (Premiere Pro, After Effects, Lightroom).
+The SVG colors are adapted to white lettering and outlines for the dark layout.
+Their MIT license notices are included alongside the assets as
+`adobe-devicon-LICENSE.txt` and `adobe-svgl-LICENSE.txt`. Adobe product names and
+logos remain the property of their respective owners.
+
 ### Node.js and Netlify
 
 Use the latest Node.js 26.x release for local development and deployments.

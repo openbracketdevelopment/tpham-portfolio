@@ -63,6 +63,7 @@ function earthx() {
               btnUrl={espsData.workLiveLink}
               btnTarget="_blank"
             />
+            <Link href="/esps-parts">ESPS Trailer Parts case study</Link>
           </div>
         </div>
       </section>

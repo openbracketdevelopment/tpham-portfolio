@@ -39,9 +39,7 @@
 .hero__content {
   position: relative;
   z-index: 1;
-  width: 90%;
-  max-width: 1280px;
-  margin: 0 auto;
+  @include content-container;
   padding-block: 8rem 4rem;
 }
 

@@ -6,7 +6,7 @@
   @apply grid fixed w-full z-[11];
 }
 .header__logo {
-  padding: 1rem;
+  padding-block: 1rem;
 }
 .header__logo-img {
   width: 60px;
@@ -14,6 +14,8 @@
 }
 .header__nav {
   @apply grid;
+  @include content-container;
+  position: relative;
   grid-template-columns: 100px 1fr;
 }
 .header__nav-wrap {
@@ -45,7 +47,7 @@
   grid-template-columns: 1fr;
   column-gap: 2rem;
   @apply items-center;
-  padding: 2rem;
+  padding-block: 2rem;
   transition: all 0.5s ease;
 }
 .header__nav-menu.active {
@@ -66,7 +68,9 @@
 }
 .header__menu-icon {
   @apply grid self-center;
-  padding: 2rem;
+  padding: 1rem 0 1rem 1rem;
+  min-height: 44px;
+  min-width: 44px;
   font-size: 2rem;
   color: var(--color-03);
 }

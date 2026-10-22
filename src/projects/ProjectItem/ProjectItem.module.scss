@@ -3,6 +3,7 @@
 
 /* specifics */
 .project__title img[src="/assets/images/fidium-logo.svg"] {
+  width: clamp(200px, 60vw, 320px);
   filter: brightness(0) invert(1);
 }
 .project__launcher-box-cintra{
@@ -56,7 +57,7 @@
 .project__launcher-box{
   padding:3rem;
   min-height:300px;
-  width:90%;
+  width:100%;
   margin:0 auto;
   @apply grid;
   justify-content:flex-start;
@@ -71,16 +72,22 @@
 }
 .project__btns {
   @apply flex;
-  gap: 2rem;
-  flex-flow:column;
+  align-items: baseline;
+  gap: 1rem 2rem;
+  flex-wrap: wrap;
   margin-bottom:3rem;
+
+  > h3 {
+    flex-basis: 100%;
+    padding-bottom: 0;
+  }
 }
 .project__spacer{
   min-height:2rem;
 }
 .project__container-full {
   @apply grid;
-  grid-template-columns: minmax(auto, 100%);
+  grid-template-columns: minmax(0, var(--content-width));
   @apply justify-center;
   margin-bottom:5rem;
 
@@ -97,7 +104,7 @@
 }
 .project__container {
   @apply grid;
-  grid-template-columns: minmax(auto, 90%);
+  grid-template-columns: minmax(0, var(--content-width));
   @apply justify-center;
   margin-bottom: 4rem;
   padding-bottom: 2rem;
@@ -117,7 +124,7 @@
   @apply grid;
   grid-template-columns: 1fr;
   @apply justify-self-center;
-  width: 90%;
+  width: 100%;
   margin:0 auto;
   max-width: 100%;
   padding-bottom: 1rem;
@@ -127,7 +134,7 @@
   @apply grid;
   grid-template-columns: 1fr;
   @apply justify-self-center;
-  width: 80%;
+  width: 100%;
   max-width: 100%;
   padding-bottom: 2rem;
   @apply text-left;
@@ -223,10 +230,14 @@
 }
 /* PROJECT HERO */
 .project__title img{
+  display: block;
   max-width:400px;
+  height: auto;
+  margin: 0 auto;
   @apply w-full;
 }
 .project__title {
+  width: min(500px, 90vw);
   font-size: 3rem;
   line-height:3rem;
   padding:2.5rem;
@@ -248,14 +259,14 @@
   gap: 2rem;
   @apply justify-self-center;
   max-width: 100%;
-  width: 80%;
+  width: 100%;
   padding: 5em 0rem 0rem 0rem;
 }
 
 /* PROJECT DESKTOP */
 .project__work-desktop {
   padding-bottom: 2rem;
-  width:90%;
+  width:100%;
   margin: 0 auto;
 }
 .project__desktop-piece {
@@ -277,7 +288,7 @@
   @apply relative w-full h-full;
 }
 .project__img-lightbox{
-  width:90%;
+  width:100%;
   margin:0 auto;
   margin-bottom:3rem;
 }
@@ -329,10 +340,25 @@
   margin: 0;
   font-size: 1.5rem;
 }
-.project__site-link {
+.project__site-link,
+.project__btns a {
   color: inherit;
+  font-family: var(--font-family-body), sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: none;
+  text-align: left;
   text-decoration: underline;
   text-underline-offset: 0.2em;
+  border: 0;
+  padding: 0;
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+  }
 }
 .project__site-links {
   display: flex;
@@ -429,7 +455,7 @@
 }
 .project__logo-showcase{
   margin:0 auto;
-  width:90%;
+  width:100%;
 }
 .project__logo-showcase img{
   @apply w-full;
@@ -470,6 +496,9 @@
   margin-bottom:1rem;
 }
 @include mq("md") {
+  .project__site-mobile-views:has(> figure:nth-child(4)) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .project__mobile.project__mobile-thirds{
     grid-template-columns: 1fr 1fr 1fr;
     width:100%
@@ -486,7 +515,6 @@
     line-height:2rem;
   }
   .project__container {
-    grid-template-columns: minmax(auto, 80%);
     margin-bottom: 5rem;
     padding-bottom: 5rem;
   }
@@ -507,9 +535,6 @@
   .project__launcher-box{
     min-height:520px;
   }
-  .project__btns {
-    flex-flow:row;
-  }
   .project__title {
     font-size: 6rem;
     width:500px;
@@ -528,12 +553,15 @@
   }
 }
 @media (max-width: 767px) {
+  .project__mobile-lockup {
+    max-width: none;
+  }
   .project__site-mobile-views {
     grid-template-columns: minmax(0, 1fr);
     gap: 2rem;
 
     .project__phone-frame {
-      width: min(100%, 280px);
+      width: 100%;
     }
   }
   .project__site-views {
@@ -544,6 +572,6 @@
     font-size: 1.25rem;
   }
   .project__phone-frame {
-    width: min(100%, 210px);
+    width: 100%;
   }
 }

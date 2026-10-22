@@ -1,8 +1,9 @@
+@use "../../styles/mixins" as *;
+
 .heading {
   box-sizing: border-box;
-  width: 90%;
-  max-width: 1280px;
-  margin: 0 auto;
+  @include content-container;
+  margin-block: 0;
   padding: 4rem 0 2rem;
   color: var(--color-03);
   font-family: var(--font-family-compact), sans-serif;

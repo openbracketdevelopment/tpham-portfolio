@@ -78,7 +78,7 @@ export const experience = [
     location: "Plano, TX (Remote)",
     dates: "Aug 2024 – Present",
     bullets: [
-      "Lead Craft CMS developer for the Fidium Fiber ecosystem: architected and own a headless Craft CMS with a bespoke editor, page builder, GraphQL API, and custom modules serving Fidium Fiber, Business, Wholesale, Partners, Support, buyflow, fidium.net, and consolidated.com.",
+      "Lead Craft CMS developer for the Fidium Fiber enterprise website platform: architected and own a headless Craft CMS with a bespoke editor, page builder, GraphQL API, and custom modules serving Fidium Fiber, Business, Wholesale, Partners, Support, buyflow, fidium.net, and consolidated.com.",
       "Planned and drove delivery from foundation to launch, including the custom Craft modules that extend the platform.",
       "Redesigned and built the Next.js/React applications for Fidium Fiber, Business, Wholesale, Partners, and Consolidated, and built the original foundation of fidium.net; collaborate with the teams that own fidium.net and buyflow.",
       "Maintain a shared UI toolkit of reusable components, hooks, and webhooks, tested with Jest and documented in Storybook.",
