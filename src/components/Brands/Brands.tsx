@@ -144,13 +144,13 @@ const platforms: Brand[] = [
 ];
 
 const allItems = [...brands, ...platforms];
-const FADE_OUT_MS = 300;
-const FADE_IN_MS = 500;
+const GLITCH_OUT_MS = 480;
+const GLITCH_IN_MS = 560;
 const initialTiles = brands.slice(0, 9).flatMap((brand, index) => [brand, platforms[index]]);
 
 function Brands() {
   const [tiles, setTiles] = useState(initialTiles);
-  const [fade, setFade] = useState<{ index: number; phase: "out" | "in" } | null>(null);
+  const [glitch, setGlitch] = useState<{ index: number; phase: "out" | "in" } | null>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -175,7 +175,7 @@ function Brands() {
     const stop = () => {
       clearTimeout(rotationTimer);
       clearTimeout(transitionTimer);
-      setFade(null);
+      setGlitch(null);
     };
 
     const schedule = () => {
@@ -196,15 +196,15 @@ function Brands() {
           return;
         }
 
-        setFade({ index, phase: "out" });
+        setGlitch({ index, phase: "out" });
         transitionTimer = setTimeout(() => {
           swap();
-          setFade({ index, phase: "in" });
+          setGlitch({ index, phase: "in" });
           transitionTimer = setTimeout(() => {
-            setFade(null);
+            setGlitch(null);
             schedule();
-          }, FADE_IN_MS);
-        }, FADE_OUT_MS);
+          }, GLITCH_IN_MS);
+        }, GLITCH_OUT_MS);
       }, 4000 + Math.random() * 4000);
     };
 
@@ -240,18 +240,28 @@ function Brands() {
         outlinedLabel="I've worked with"
         align="center"
       />
+      <svg className={styles["brands__filters"]} aria-hidden="true" focusable="false">
+        <defs>
+          {[11, 47, 83, 129].map((seed, index) => (
+            <filter key={seed} id={`brands-static-${index + 1}`} x="-10%" y="-10%" width="120%" height="120%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.01 0.6" numOctaves="1" seed={seed} result="noise" />
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale={14 + index * 4} xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+          ))}
+        </defs>
+      </svg>
       <ul className={styles["brands__grid"]}>
         {tiles.map((brand, index) => {
           const Icon = brand.icon;
-          const phase = fade?.index === index ? fade.phase : null;
+          const phase = glitch?.index === index ? glitch.phase : null;
           return (
             <li
               key={index}
-              className={styles["brands__item"]}
+              className={`${styles["brands__item"]} ${phase ? styles["brands__item--glitching"] : ""}`}
               aria-label={brand.name}
             >
               <div
-                className={`${styles["brands__content"]} ${phase ? styles[`brands__content--fade-${phase}`] : ""}`}
+                className={`${styles["brands__content"]} ${phase ? styles[`brands__content--glitch-${phase}`] : ""}`}
               >
                 {brand.logo ? (
                   <>

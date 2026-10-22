@@ -1,7 +1,7 @@
 name: Release build
 
-# Pushing a tag like v1.4.0 (on a master commit) builds the site and uploads it to Netlify as a draft deploy.
-# Nothing goes live until the "Publish production" workflow is run manually.
+# Pushing a tag like v1.4.0 (on a master commit) builds and deploys the site.
+# Set AUTO_PUBLISH to "false" below to restore draft-only releases.
 on:
   push:
     tags:
@@ -15,6 +15,8 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     env:
+      # Temporary auto-publish toggle: "true" = live; "false" = draft + manual publish.
+      AUTO_PUBLISH: "true"
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
     steps:
@@ -34,10 +36,17 @@ jobs:
 
       - run: npm ci
 
-      - name: Build and upload draft deploy
+      - name: Build and deploy to Netlify
         id: deploy
         run: |
+          deploy_args=()
+          case "$AUTO_PUBLISH" in
+            true) deploy_args+=(--prod) ;;
+            false) ;;
+            *) echo "::error::AUTO_PUBLISH must be true or false"; exit 1 ;;
+          esac
           npx --yes netlify-cli@27 deploy \
+            "${deploy_args[@]}" \
             --context production \
             --message "Release ${GITHUB_REF_NAME} (${GITHUB_SHA::7})" \
             --json > deploy.json
@@ -47,11 +56,19 @@ jobs:
       - name: Summary
         run: |
           {
-            echo "## Draft deploy ready for ${GITHUB_REF_NAME}"
+            if [[ "$AUTO_PUBLISH" == "true" ]]; then
+              echo "## Published to production: ${GITHUB_REF_NAME}"
+            else
+              echo "## Draft deploy ready for ${GITHUB_REF_NAME}"
+            fi
             echo ""
             echo "- Preview: ${{ steps.deploy.outputs.deploy_url }}"
             echo "- Deploy ID: \`${{ steps.deploy.outputs.deploy_id }}\`"
             echo ""
-            echo "To go live, run **Actions → Publish production** with this deploy ID,"
-            echo "or click **Publish deploy** on it in the Netlify Deploys list."
+            if [[ "$AUTO_PUBLISH" == "true" ]]; then
+              echo "This release was automatically published to production."
+            else
+              echo "To go live, run **Actions → Publish production** with this deploy ID,"
+              echo "or click **Publish deploy** on it in the Netlify Deploys list."
+            fi
           } >> "$GITHUB_STEP_SUMMARY"

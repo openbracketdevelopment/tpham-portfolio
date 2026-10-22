@@ -44,9 +44,17 @@ Developer settings > Continuous deployment > Dependency management**. Remove or
 update any older `NODE_VERSION` environment-variable overrides. The
 `NODE_VERSION = "26"` setting in `netlify.toml` selects Node 26 for Netlify builds.
 
-After merging these settings into `master`, push a new `v*` tag to build a new
-draft deploy, then publish it manually. Republishing an existing deploy does not
-rebuild it with the new Node.js version.
+After merging these settings into `master`, push a new `v*` tag to build and
+automatically publish a production deploy. Republishing an existing deploy does
+not rebuild it with the new Node.js version.
+
+Auto-publishing is temporarily enabled via `AUTO_PUBLISH: "true"` in
+[the release workflow](.github/workflows/release.yml). Set it to `"false"` to
+restore draft-only releases. In draft mode, use **Actions > Publish production**
+from `master` with the deploy ID from the release summary, or publish that deploy
+in Netlify. The toggle takes effect for tags containing the workflow change;
+it does not publish existing drafts. Keep Netlify's native Git builds stopped
+to avoid a separate automatic deployment path.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
