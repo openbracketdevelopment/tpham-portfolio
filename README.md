@@ -2,6 +2,26 @@
 
 ## Instructions
 
+### Node.js and Netlify
+
+Use the latest Node.js 26.x release for local development and deployments.
+Node.js 26 is the Current release line; Node.js 24 is the LTS alternative.
+
+```bash
+nvm install
+nvm use
+```
+
+The version is configured in `.nvmrc`, `netlify.toml`, and the GitHub Actions
+workflows. In Netlify, also select Node.js 26 (if available) under **Project configuration >
+Developer settings > Continuous deployment > Dependency management**. Remove or
+update any older `NODE_VERSION` environment-variable overrides. The
+`NODE_VERSION = "26"` setting in `netlify.toml` selects Node 26 for Netlify builds.
+
+After merging these settings into `master`, push a new `v*` tag to build a new
+draft deploy, then publish it manually. Republishing an existing deploy does not
+rebuild it with the new Node.js version.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
