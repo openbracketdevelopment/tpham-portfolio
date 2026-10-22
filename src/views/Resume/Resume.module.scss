@@ -21,15 +21,14 @@ $accent: map.get($colors, "01");
 
 .resume {
   min-height: 100vh;
-  padding: 7rem 1.25rem 4rem;
+  padding: 7rem 0 4rem;
   background: map.get($colors, "02");
   color: map.get($colors, "03");
   font-family: map.get($font-families, "body"), sans-serif;
   line-height: 1.55;
 
   &__sheet {
-    max-width: 62rem;
-    margin: 0 auto;
+    @include content-container;
   }
 
   &__header {
@@ -273,6 +272,9 @@ $accent: map.get($colors, "01");
 
 // Print / PDF: light, compact, clean system font, no site chrome
 @media print {
+  .resume__sheet {
+    width: 100%;
+  }
   @page {
     size: Letter;
     margin: 0.25in 0.5in;

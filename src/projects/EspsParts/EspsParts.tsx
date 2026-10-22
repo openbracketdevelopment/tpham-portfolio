@@ -72,7 +72,7 @@ function EspsParts() {
           </div>
           <div className={styles["project__btns"]}>
             <Button btnLabel="Shop Parts" btnUrl={espsPartsData.workLiveLink} btnTarget="_blank" />
-            <Button btnLabel="ESPS Trailers" btnUrl={espsPartsData.workLiveLink2} btnTarget="_blank" />
+            <Link href="/esps">ESPS Trailers case study</Link>
           </div>
         </div>
       </section>

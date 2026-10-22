@@ -3,13 +3,15 @@
 
 .fwork__wrap{
   @apply grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
+  @include content-container;
 }
 .fwork {
   @apply flex justify-center items-center flex-col relative cursor-pointer;
   margin-bottom: 1rem;
   transform: preserve-3d;
-  max-width:80%;
+  width: 100%;
+  max-width:100%;
   margin: 0 auto;
   margin-bottom:2rem;
   filter: grayscale(100%);
@@ -69,8 +71,13 @@
   @apply relative z-[1];
 }
 .fwork__title {
-  @apply grid justify-self-center self-center;
-  padding: 1.5rem;
+  @apply flex justify-center items-center justify-self-center self-center;
+  width: 70%;
+  height: 62%;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  min-height: 0;
   font-family: var(--font-family-heading), -apple-system, "Helvetica Neue",
   sans-serif;
   text-decoration: none;
@@ -81,16 +88,30 @@
   // Filtered logos (e.g. Fidium) form their own stacking context and would otherwise sit above .fwork__link
   pointer-events: none;
 }
-.fwork__title img[src="/assets/images/toro-haven-logo.webp"] {
-  width: clamp(180px, 24vw, 320px);
-  max-width: 100%;
-  height: auto;
+.fwork__title img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 320px;
+  max-height: 100%;
+  object-fit: contain;
 }
 .fwork__title img[src="/assets/images/fidium-logo.svg"] {
-  width: clamp(160px, 20vw, 280px);
-  max-width: 100%;
-  height: auto;
+  width: 65%;
+  height: 65%;
+  max-width: 280px;
   filter: brightness(0) invert(1);
+}
+.fwork__title img[src="/assets/images/toro-haven-logo.webp"] {
+  width: 85%;
+  height: 85%;
+}
+.fwork__title img[src="/assets/images/brainstyles-logo.png"] {
+  width: 80%;
+  height: 80%;
+}
+.fwork__title img[src="/assets/images/esps-parts-logo.svg"] {
+  width: 50%;
 }
 .fwork__button-group {
   /* display: grid; */
@@ -123,8 +144,6 @@
     @apply grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
-    max-width: 90%;
-    margin: 0 auto;
   }
   .fwork {
     max-width:100%;

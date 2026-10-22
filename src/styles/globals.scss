@@ -10,6 +10,7 @@
   }
   --transition-linear: #{$transition-linear};
   --transition-swish: #{$transition-swish};
+  --content-width: min(90%, 1280px);
 }
 
 html {
