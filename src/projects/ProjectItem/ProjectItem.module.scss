@@ -496,7 +496,7 @@
   margin-bottom:1rem;
 }
 @include mq("md") {
-  .project__site-mobile-views:has(> figure:nth-child(4)) {
+  .project__site-mobile-views:has(> figure:nth-child(4)):not(:has(> figure:nth-child(6))) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .project__mobile.project__mobile-thirds{
@@ -571,6 +571,9 @@
   .project__site-views > .project__site-capture {
     width: min(calc(100% - 4rem), 1920px);
     margin-inline: auto;
+  }
+  .project__site-description {
+    margin-inline-start: max(2rem, calc((100% - 1920px) / 2));
   }
   .project__launcher-box,.project__img-lightbox,.project__section-heading-full,.project__work-desktop{
     @apply w-full;
