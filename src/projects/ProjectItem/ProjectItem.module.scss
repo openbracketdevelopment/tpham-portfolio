@@ -548,6 +548,30 @@
   }
 }
 @include mq("lg") {
+  .project__container:not(.project__work-nav, .project__site-gallery):not(:has(> .project__info, > .project__description, > .project__mobile, > .project__mobile-gallery)) {
+    grid-template-columns: minmax(0, min(calc(100% - 4rem), 1920px));
+  }
+  .project__container-full,
+  .project__container:has(> .project__mobile, > .project__mobile-gallery),
+  .project__site-gallery {
+    grid-template-columns: minmax(0, 100%);
+  }
+  .project__mobile,
+  .project__mobile.project__mobile-thirds,
+  .project__mobile-gallery,
+  .project__site-mobile-views {
+    width: min(calc(100% - 4rem), 1920px);
+    margin-inline: auto;
+  }
+  .project__site {
+    min-width: 0;
+  }
+  .project__site-heading,
+  .project__site-description,
+  .project__site-views > .project__site-capture {
+    width: min(calc(100% - 4rem), 1920px);
+    margin-inline: auto;
+  }
   .project__launcher-box,.project__img-lightbox,.project__section-heading-full,.project__work-desktop{
     @apply w-full;
   }

@@ -75,6 +75,10 @@
   color: var(--color-03);
 }
 @include mq("md") {
+  .header__nav {
+    width: 100%;
+    padding-inline: 1rem;
+  }
   .header__nav-menu::before {
     @apply hidden;
   }

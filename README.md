@@ -10,6 +10,13 @@ wrappers; case-study sections use the same width for their grid track. Nested
 content fills that track instead of adding another percentage-based gutter.
 Hero backgrounds remain full bleed, and desktop phone frames retain their size
 limits. Resume print styles use the printable page width independently.
+Desktop navigation uses the full width with a small inner inset. At 1024px and
+above, the work and Brands & tools grids and case-study media sections span the
+viewport with 2rem side gutters. Desktop case-study collages are full bleed;
+mobile-device rows and browser-window previews are centered, capped at 1920px,
+and retain at least 2rem side gutters.
+Case-study descriptions and navigation, About,
+and Connect retain the shared content gutters.
 
 ### Adobe product artwork
 

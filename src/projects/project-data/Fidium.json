@@ -1,6 +1,6 @@
 {
   "pageTitle": "Fidium Fiber - Project Study",
-  "pageDescription": "Enterprise website platform work with Craft CMS, Payload CMS and Next.js for the Fidium Fiber family of websites.",
+  "pageDescription": "Enterprise website development with Craft CMS and Next.js for the Fidium family of websites.",
   "canonical": "/fidium",
   "pageUrl": "https://tampham.io/fidium",
   "pageImage": "/assets/images/fidium-hero.webp",
@@ -15,11 +15,10 @@
   "workImagePath": "/assets/images/fidium-thumb.webp",
   "workHeroImagePath": "/assets/images/fidium-hero.webp",
   "workHeroImageAlt": "Family playing video games together on a couch at home",
-  "workDescription": "One shared enterprise website platform, built for a family of distinct websites. At Amdocs, I led development of the headless Craft CMS behind the Fidium ecosystem and built Next.js and React experiences for Fidium Fiber, Business, Wholesale, Partners and Consolidated Communications.",
+  "workDescription": "At Amdocs, I work on the enterprise website platform for Fidium Fiber, Business, Wholesale, Partners and Consolidated Communications, using Craft CMS, Next.js and React.",
   "workNarrative": [
-    "I built a bespoke page editor, page builder and custom Craft modules, with GraphQL APIs delivering content to seven Next.js applications. My responsibility extended beyond launch: maintaining content integrity, supporting the applications from the CMS side and developing solutions as technical issues arose. The broader platform work also included Payload CMS.",
-    "Across the sites, I maintained reusable components, hooks and webhooks, with Jest tests and Storybook documentation. I configured Nginx reverse proxies and supported dev, QA, staging and production deployments through GitLab CI/CD, working with engineering, marketing, IT and cloud teams.",
-    "The five sites below show how that shared foundation supports different audiences: residential customers, businesses, wholesale customers, partners and existing Consolidated customers."
+    "My work includes CMS development, page-building tools, GraphQL integration and shared React components, along with testing and documentation.",
+    "I also support maintenance and deployments across development, QA, staging and production, working with engineering, marketing, IT and cloud teams."
   ],
   "workHighlights": [
     "Built the headless Craft CMS (bespoke editor, GraphQL, custom modules) that serves content for 7 sites.",
