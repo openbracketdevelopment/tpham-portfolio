@@ -1,3 +1,4 @@
-# https://www.robotstxt.org/robotstxt.html
+# Allow crawlers to read noindex, nofollow metadata and social previews.
+# Indexing is disabled by page metadata and the X-Robots-Tag response header.
 User-agent: *
-Disallow:
+Allow: /
