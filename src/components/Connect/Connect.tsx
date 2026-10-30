@@ -87,7 +87,7 @@ function Connect() {
                   className={styles["connect__social-link"]}
                   target="_blank"
                   rel="noreferrer"
-                  href="https://github.com/hm-tam"
+                  href="https://github.com/openbracketdevelopment"
                   aria-label="GitHub"
                 >
                   <FaIcons.FaGithub />
