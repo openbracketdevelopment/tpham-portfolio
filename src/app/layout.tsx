@@ -1,13 +1,14 @@
+import type { Metadata } from "next";
+import { buildMetadata, SITE_URL } from "../lib/metadata";
+import homeData from "../views/page-data/Home.json";
 import Script from "next/script";
 import "../styles/tailwind.css";
 import "../styles/globals.scss";
 import Header from "../components/Header/Header";
 
-export const metadata = {
-  metadataBase: new URL("https://tampham.io"),
-  title: "Tam Pham - Full-Stack Developer",
-  description: "A Fort Worth based developer who makes unique web experiences.",
-  robots: { index: false, follow: false },
+export const metadata: Metadata = {
+  ...buildMetadata(homeData),
+  metadataBase: new URL(SITE_URL),
   manifest: "/manifest.json",
 };
 
