@@ -54,6 +54,9 @@ function HeroSection() {
             <span className={styles["hero__intro-label"]}>Hi, I'm Tam.</span>
             <TypedLabels />
           </h1>
+          <p className={styles["hero__summary"]}>
+            I build thoughtful web experiences and reliable software, from enterprise platforms to independent tools.
+          </p>
 
           <div className={styles["hero__btn"]}>
             <MqButton

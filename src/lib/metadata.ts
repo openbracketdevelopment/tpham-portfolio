@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const SITE_URL = "https://tampham.io";
-export const SITE_NAME = "Tam Pham | Developer & Designer";
+export const SITE_NAME = "Tam Pham | Software Engineer";
 export const PRIVATE_ROBOTS = { index: false, follow: false } as const;
 
 type PageData = {

@@ -65,6 +65,12 @@
   background: transparent;
   border: none;
 }
+.hero__summary {
+  max-width: 760px;
+  padding-bottom: 0;
+  margin-top: 1rem;
+  color: var(--color-03);
+}
 @include mq("md") {
   .hero__label {
     min-height: 9rem;

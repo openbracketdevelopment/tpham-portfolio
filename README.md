@@ -2,6 +2,11 @@
 
 ## Instructions
 
+### Software portfolio content
+
+See [the content-maintenance guide](docs/content-maintenance.md) for project
+evidence, work collections, shared résumé content, PDF generation and validation.
+
 ### Content gutters
 
 Content sections share `--content-width: min(90%, 1280px)` from
@@ -11,8 +16,10 @@ content fills that track instead of adding another percentage-based gutter.
 Hero backgrounds remain full bleed, and desktop phone frames retain their size
 limits. Resume print styles use the printable page width independently.
 Desktop navigation uses the full width with a small inner inset. At 1024px and
-above, the work and Brands & tools grids and case-study media sections span the
-viewport with 2rem side gutters. Desktop case-study collages are full bleed;
+above, the Brands & tools grid and legacy case-study media sections use
+2rem side gutters. Featured project grids and work collections span the desktop
+width with 2rem side gutters at 1024px and above; smaller screens use the shared
+content-container width. Desktop case-study collages are full bleed;
 mobile-device rows and browser-window previews are centered, capped at 1920px,
 and retain at least 2rem side gutters.
 Case-study descriptions and navigation, About,

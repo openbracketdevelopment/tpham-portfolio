@@ -204,7 +204,6 @@ $accent: map.get($colors, "01");
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
-
     dd {
       display: flex;
       flex-wrap: wrap;
@@ -223,6 +222,9 @@ $accent: map.get($colors, "01");
         background: rgba($accent, 0.2);
       }
     }
+  }
+  &__separator {
+    display: none;
   }
 
   &__job {
@@ -270,14 +272,14 @@ $accent: map.get($colors, "01");
   }
 }
 
-// Print / PDF: light, compact, clean system font, no site chrome
+// Ordinary flow and native bullets keep PDF extraction in document order.
 @media print {
   .resume__sheet {
     width: 100%;
   }
   @page {
     size: Letter;
-    margin: 0.25in 0.5in;
+    margin: 0.4in 0.5in;
   }
 
   :global(html),
@@ -293,7 +295,7 @@ $accent: map.get($colors, "01");
 
   .resume,
   .resume * {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-family: Arial, Helvetica, sans-serif !important;
     letter-spacing: 0 !important;
     color: #1a1a1a;
     background: transparent;
@@ -303,8 +305,8 @@ $accent: map.get($colors, "01");
     min-height: 0;
     padding: 0 3px 0 0;
     background: #fff;
-    font-size: 8.2pt;
-    line-height: 1.32;
+    font-size: 10pt;
+    line-height: 1.25;
 
     p,
     li,
@@ -313,13 +315,13 @@ $accent: map.get($colors, "01");
     dt {
       margin: 0;
       padding: 0;
-      font-size: 8.2pt;
-      line-height: 1.32;
+      font-size: 10pt;
+      line-height: 1.25;
     }
 
     ul {
-      padding-left: 0;
-      list-style: none;
+      padding-left: 1rem;
+      list-style: disc;
     }
 
     li {
@@ -327,19 +329,23 @@ $accent: map.get($colors, "01");
     }
 
     &__section li {
-      @include square-bullet(0.7rem, 4pt, 0.5em);
+      position: static;
+      padding-left: 0;
+
+      &::before {
+        content: none;
+      }
     }
 
     &__header {
-      grid-template-columns: 1fr auto;
-      gap: 0.5rem;
+      display: block;
       padding-bottom: 0.6rem;
       border-bottom: 1.5px solid $accent;
     }
 
     &__name {
       padding: 0;
-      font-size: 24pt;
+      font-size: 20pt;
       font-weight: 700;
       line-height: 1.05;
     }
@@ -354,11 +360,15 @@ $accent: map.get($colors, "01");
     &__contact {
       padding: 0;
       list-style: none !important;
-      text-align: right;
-      font-size: 8.5pt;
+      text-align: left;
+      font-size: 9pt;
+      list-style: none;
 
       li {
         padding: 0;
+        display: inline;
+        margin-right: 0.5rem;
+        font-size: 9pt;
       }
 
       a {
@@ -374,7 +384,7 @@ $accent: map.get($colors, "01");
         padding: 0 0 0.15rem;
         border-bottom: 0.75pt solid #d0d0d0;
         color: $accent !important;
-        font-size: 8.5pt;
+        font-size: 10pt;
         font-weight: 700;
         letter-spacing: 0.1em !important;
       }
@@ -391,22 +401,17 @@ $accent: map.get($colors, "01");
     }
 
     &__training {
-      grid-template-columns: 1fr 1fr;
-      gap: 0 1.5rem;
+      display: block;
       margin-top: 0.3rem;
-      list-style: none !important;
-      padding-left: 0 !important;
+      list-style: disc !important;
+      padding-left: 1rem !important;
 
       li {
-        padding-left: 0.7rem;
-        position: relative;
+        padding-left: 0;
+        position: static;
 
         &::before {
-          content: "";
-          top: 0.5em;
-          width: 4pt;
-          height: 4pt;
-          background: $accent;
+          content: none;
         }
       }
     }
@@ -433,24 +438,28 @@ $accent: map.get($colors, "01");
     }
 
     &__skills {
-      gap: 0.2rem;
+      display: block;
 
       > div {
-        display: grid;
-        grid-template-columns: 7.2rem 1fr;
-        gap: 0 0.5rem;
+        display: block;
+        margin-bottom: 0.15rem;
       }
 
       dt {
         color: #555 !important;
-        font-size: 7.8pt;
+        display: inline;
+        font-size: 10pt;
         font-weight: 700;
         letter-spacing: 0.06em !important;
         margin: 0;
+
+        &::after {
+          content: ": ";
+        }
       }
 
       dd {
-        display: block;
+        display: inline;
       }
 
       span {
@@ -458,12 +467,7 @@ $accent: map.get($colors, "01");
         padding: 0;
         border: 0;
         border-radius: 0;
-        font-size: 8.2pt;
-
-        &:not(:last-child)::after {
-          content: "\00a0· ";
-          color: #999;
-        }
+        font-size: 10pt;
 
         &.is-featured {
           background: transparent;
@@ -473,10 +477,11 @@ $accent: map.get($colors, "01");
     }
 
     &__job {
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.4rem;
     }
 
     &__job-head {
+      display: block;
       h3 {
         font-size: 9.8pt;
 
@@ -488,7 +493,7 @@ $accent: map.get($colors, "01");
 
       p {
         color: #555 !important;
-        font-size: 8.3pt;
+        font-size: 9pt;
       }
     }
 
@@ -497,15 +502,17 @@ $accent: map.get($colors, "01");
       font-size: 8.6pt;
     }
 
-    &__cols {
-      break-inside: avoid;
-      grid-template-columns: 1fr 1.6fr;
-      gap: 0 1.2rem;
+    &__separator {
+      display: inline;
+    }
 
-      .resume__expertise {
-        columns: 2;
-        column-gap: 1.2rem;
-      }
+    &__section h2 {
+      break-after: avoid;
+    }
+
+    &__job a {
+      font-size: 9pt;
+      overflow-wrap: anywhere;
     }
   }
 }
