@@ -25,15 +25,23 @@ function Header() {
             </Link>
           </div>
           <div className={styles["header__nav-wrap"]}>
-            <div className={styles["header__menu-icon"]} onClick={handleClick}>
+            <button
+              type="button"
+              className={styles["header__menu-icon"]}
+              onClick={handleClick}
+              aria-label={click ? "Close navigation" : "Open navigation"}
+              aria-expanded={click}
+              aria-controls="site-navigation"
+            >
               <i className={click ? "fas fa-times" : "fas fa-bars"} />
-            </div>
+            </button>
             <ul
+              id="site-navigation"
               className={click ? `${styles["header__nav-menu"]} ${styles["active"]}` : styles["header__nav-menu"]}
             >
               <li className={styles["header__nav-menu-item"]}>
                 <Link
-                  href="/#work"
+                  href="/work"
                   className={styles["header__nav-menu-link"]}
                   onClick={closeMobileMenu}
                 >

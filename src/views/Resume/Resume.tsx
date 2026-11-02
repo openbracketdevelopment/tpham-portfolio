@@ -2,15 +2,14 @@ import { Button } from "../../components/Button/Button";
 import styles from "./Resume.module.scss";
 import {
   profile,
-  strengths,
   skillGroups,
-  expertise,
   experience,
   education,
   awards,
   training,
   pdfPath,
 } from "./resume-data";
+import { softwareProjects } from "../../projects/software-data";
 
 function Resume() {
   return (
@@ -27,6 +26,7 @@ function Resume() {
             <li><a href={`mailto:${profile.email}`}>{profile.email}</a></li>
             <li><a href={profile.siteUrl}>{profile.site}</a></li>
             <li><a href={profile.linkedinUrl}>{profile.linkedin}</a></li>
+            <li><a href={profile.githubUrl}>{profile.github}</a></li>
           </ul>
           <a className={styles["resume__download"]} href={pdfPath} download>
             Download PDF
@@ -34,17 +34,12 @@ function Resume() {
         </header>
 
         <section className={styles["resume__section"]}>
-          <h2>Profile</h2>
+          <h2>Professional Summary</h2>
           <p>{profile.summary}</p>
-          <ul className={styles["resume__strengths"]}>
-            {strengths.map((s) => (
-              <li key={s}>{s}</li>
-            ))}
-          </ul>
         </section>
 
         <section className={styles["resume__section"]}>
-          <h2>Skills</h2>
+          <h2>Technical Skills</h2>
           <dl className={styles["resume__skills"]}>
             {skillGroups.map((g) => (
               <div key={g.label}>
@@ -55,7 +50,7 @@ function Resume() {
                       key={item}
                       className={g.featured?.includes(item) ? styles["is-featured"] : undefined}
                     >
-                      {item}
+                      {item}{g.items.indexOf(item) < g.items.length - 1 && <span className={styles["resume__separator"]}>, </span>}
                     </span>
                   ))}
                 </dd>
@@ -65,7 +60,7 @@ function Resume() {
         </section>
 
         <section className={styles["resume__section"]}>
-          <h2>Experience</h2>
+          <h2>Professional Experience</h2>
           {experience.map((job) => (
             <article key={job.company} className={styles["resume__job"]}>
               <div className={styles["resume__job-head"]}>
@@ -81,16 +76,21 @@ function Resume() {
                   <li key={b}>{b}</li>
                 ))}
               </ul>
-              {job.achievement && (
-                <p className={styles["resume__achievement"]}>
-                  <strong>Key achievement:</strong> {job.achievement}
-                </p>
-              )}
             </article>
           ))}
         </section>
 
-        <div className={styles["resume__cols"]}>
+        <section className={`${styles["resume__section"]} ${styles["resume__projects"]}`}>
+          <h2>Selected Software Projects</h2>
+          <p>Independent projects; source code and current scope are available on GitHub.</p>
+          {softwareProjects.map(project => (
+            <article key={project.id} className={styles["resume__job"]}>
+              <h3><a href={project.github}>{project.name}</a> <span>— {project.technologies.slice(0, 3).join(", ")}</span></h3>
+              <ul>{project.resumeBullets.map(bullet => <li key={bullet}>{bullet}</li>)}</ul>
+            </article>
+          ))}
+        </section>
+        <div>
           <section className={styles["resume__section"]}>
             <h2>Education</h2>
             <h3>{education.school}</h3>
@@ -103,18 +103,10 @@ function Resume() {
               ))}
             </ul>
           </section>
-          <section className={styles["resume__section"]}>
-            <h2>Areas of Expertise</h2>
-            <ul className={styles["resume__expertise"]}>
-              {expertise.map((e) => (
-                <li key={e}>{e}</li>
-              ))}
-            </ul>
-          </section>
         </div>
 
         <section className={styles["resume__section"]}>
-          <h2>Awards &amp; Certifications</h2>
+          <h2>Certifications</h2>
           <ul className={styles["resume__training"]}>
             {[...awards, ...training].map((t) => (
               <li key={t}>{t}</li>

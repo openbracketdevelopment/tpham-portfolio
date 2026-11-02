@@ -5,3 +5,7 @@ After changing a hero or logo, run `node scripts/generate-social-images.mjs` fro
 `src/lib/metadata.ts` supplies page titles, descriptions, canonical URLs, Open Graph metadata, Twitter large-image cards, and `noindex, nofollow`. Resume and Projects share the homepage brand image. The root layout supplies defaults for other pages. `next.config.ts` also sends `X-Robots-Tag: noindex, nofollow` on all responses, including files.
 
 Keep robots.txt crawlable so crawlers can read the noindex directives and social services can fetch preview images. Do not replace this with a blanket crawl block.
+
+Résumé generation, PDF reading-order validation, responsive route checks and
+shared content maintenance are documented in
+[`docs/content-maintenance.md`](../docs/content-maintenance.md).

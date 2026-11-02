@@ -13,8 +13,8 @@ const TypedLabels = () => {
   React.useEffect(() => {
     const options = {
       strings: [
-        "Developer^1000",
-        "<span style='color:var(--color-06);'>Designer</span>^1000",
+        "Software Engineer^1000",
+        "<span style='color:var(--color-06);'>Full-Stack Developer</span>^1000",
         "<span style='color:var(--color-01);'>Problem Solver</span>^3000",
       ],
       typeSpeed: 70,

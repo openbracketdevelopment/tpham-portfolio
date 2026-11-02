@@ -67,6 +67,9 @@
   line-height:normal;
 }
 .header__menu-icon {
+  border: 0;
+  background: transparent;
+  color: inherit;
   @apply grid self-center;
   padding: 1rem 0 1rem 1rem;
   min-height: 44px;

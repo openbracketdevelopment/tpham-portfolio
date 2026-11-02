@@ -180,25 +180,26 @@ function About() {
             <div className={styles["about__bio"]}>
               <SectionHeading label="How Are" outlinedLabel="Ya?" />
               <p>
-                I'm a software engineer and designer with 11+ years of
-                experience, based in Fort Worth, TX. I enjoy building clean,
-                fast, and thoughtful web experiences that people actually like
-                using.
+                I'm a software engineer based in Fort Worth, TX, with 11+ years
+                of professional experience. I build web applications and content
+                platforms, bringing a design background to practical engineering
+                problems.
               </p>
 
               <p>
-                These days I work mostly with React, Next.js, and Craft CMS,
-                creating headless content platforms and reusable UI that help
-                engineering, design, and marketing teams move faster. At
-                Amdocs, I led the build of the Craft CMS and Next.js sites
-                behind Fidium Fiber.
+                At Amdocs, I lead Craft CMS development for the shared platform
+                behind seven Fidium websites and applications, working with
+                React, Next.js, TypeScript and PHP. I collaborate with engineering,
+                marketing and cloud teams on delivery, testing and production support.
               </p>
 
               <p>
-                I'm a problem solver at heart who loves a good challenge and
-                working closely with great teams. Outside of work, you'll find
-                me learning new things as a software engineer, playing video
-                games, or spending time with my family.
+                Outside of client work, I develop useful tools that solve everyday
+                problems and explore new ideas and technologies. AI is part of my
+                toolkit, and I'm exploring how AI agents, LLMs and MCP can work
+                together to automate useful workflows as the field evolves.
+                Away from the keyboard, I enjoy playing video games and spending
+                time with my family.
               </p>
               <br></br>
               <Button

@@ -17,6 +17,7 @@
   "workHeroImageAlt": "Family playing video games together on a couch at home",
   "workDescription": "At Amdocs, I work on Fidium's enterprise web platform, using Craft CMS, Next.js and React. The shared headless CMS serves content to seven websites and applications: fidiumfiber.com, fidiumbusiness.com, fidiumwholesale.com, fidiumpartners.com, consolidated.com, the fidium.net customer portal and Buyflow, the purchasing experience.",
   "workNarrative": [
+    "I lead Craft CMS development and built the Next.js/React sites for Fidium Fiber, Business, Wholesale, Partners and Consolidated, along with the original fidium.net foundation. The customer portal and Buyflow are owned by collaborating teams; my work supports the shared platform and its integrations.",
     "This shared content platform supports marketing, customer account access and purchasing, making its availability important across the customer journey. My work includes custom Craft modules, page-building tools, GraphQL integration and shared React components, with Jest unit tests and Storybook documentation.",
     "We built Fidium Fiber's Check Availability experience to guide prospective customers from exploring internet plans into the purchasing journey, with a clear handoff to Buyflow.",
     "With multiple containerized application pods running in production on Kubernetes, we introduced Redis caching alongside Incremental Static Regeneration (ISR) to reduce their combined demand on Craft CMS and improve response times in the React/Next.js applications.",

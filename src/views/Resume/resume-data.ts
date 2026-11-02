@@ -1,6 +1,6 @@
 export const profile = {
   name: "Tam Pham II",
-  title: "Software Engineer · Full-Stack Development & Design",
+  title: "Software Engineer | Full-Stack Development",
   location: "Fort Worth, TX",
   phone: "817.845.1242",
   email: "phamt@live.com",
@@ -8,8 +8,10 @@ export const profile = {
   siteUrl: "https://tampham.io",
   linkedin: "linkedin.com/in/tamphamjr",
   linkedinUrl: "https://www.linkedin.com/in/tamphamjr",
+  github: "github.com/openbracketdevelopment",
+  githubUrl: "https://github.com/openbracketdevelopment",
   summary:
-    "Software Engineer and designer with 11+ years of experience building web experiences for international brands, corporations, startups, and non-profits. Currently leading a headless Craft CMS and Next.js platform at Amdocs, with strong skills in React, TypeScript, GraphQL, CI/CD, and cloud delivery. Uses AI coding tools such as GitHub Copilot, Codex, and Claude Code to ship faster without sacrificing quality or security. Detail-oriented and comfortable owning a project from design through deployment.",
+    "Software engineer with 11+ years of professional experience delivering web applications and enterprise content platforms with React, Next.js, TypeScript, PHP, and APIs. Lead Craft CMS development for Fidium at Amdocs; build independent software in Go, Rust, and Python. Own delivery from requirements and design through testing, deployment, and maintenance, with cross-functional collaboration, mentoring, and code review. Use AI coding assistants with human review and validation.",
 };
 
 export const strengths = [
@@ -21,39 +23,33 @@ export const strengths = [
 
 export const skillGroups: { label: string; items: string[]; featured?: string[] }[] = [
   {
+    label: "Languages",
+    items: ["TypeScript", "JavaScript", "PHP", "SQL", "Python", "Go (Golang)", "Rust"],
+  },
+  {
     label: "Front End",
-    items: ["React", "Next.js", "JavaScript / TypeScript", "HTML / CSS", "Tailwind", "Sass", "shadcn/ui", "MUI", "Apollo Client", "Axios", "GSAP"],
+    items: ["React", "Next.js", "Svelte", "HTML / CSS", "Tailwind CSS", "Sass", "Responsive Design", "Web Accessibility"],
     featured: ["React", "Next.js", "Tailwind", "Sass", "shadcn/ui", "Apollo Client"],
   },
   {
     label: "Back End & CMS",
-    items: ["PHP", "Craft CMS", "Custom Craft Modules", "Twig", "Headless CMS", "GraphQL", "REST APIs", "Okta", "Kong API Gateway", "OpenStreetMap APIs", "Webhooks", "PostgreSQL", "MySQL", "Redis", "Next.js Cache Handlers", "WordPress / Gutenberg"],
+    items: ["Craft CMS", "WordPress", "Headless CMS", "GraphQL", "REST APIs", "Webhooks", "Okta / OIDC", "PostgreSQL", "MySQL", "SQLite", "Redis", "ISR"],
     featured: ["PHP", "Craft CMS", "Custom Craft Modules", "Headless CMS", "GraphQL", "REST APIs", "Kong API Gateway", "OpenStreetMap APIs", "Webhooks", "PostgreSQL", "Redis", "Next.js Cache Handlers"],
   },
   {
     label: "DevOps & Cloud",
-    items: ["CI/CD", "Docker", "Kubernetes", "DDEV", "AWS S3", "AWS EC2", "AWS SES", "AWS RDS", "Nginx", "Reverse Proxies", "GitLab", "GitHub", "Linux"],
+    items: ["Continuous Integration and Continuous Delivery (CI/CD)", "GitLab CI/CD", "GitHub Actions", "Docker", "Kubernetes", "Amazon Web Services (AWS)", "Linux", "Nginx"],
     featured: ["CI/CD", "Docker", "Kubernetes", "DDEV", "AWS S3", "AWS EC2", "AWS SES", "AWS RDS", "Nginx", "Reverse Proxies", "GitLab", "GitHub"],
   },
   {
     label: "Testing & Tooling",
-    items: ["Dynatrace", "Splunk", "Jira", "Postman", "Jest", "Storybook", "ESLint", "Snyk", "Webpack", "BrowserStack"],
+    items: ["Automated Testing", "Jest", "Storybook", "Dynatrace", "Splunk", "Incident Response", "Secure Coding", "Code Review", "Technical Documentation"],
     featured: ["Dynatrace", "Splunk", "Jira", "Postman", "Jest", "Storybook", "Snyk"],
   },
   {
-    label: "AI Tools",
-    items: ["GitHub Copilot", "OpenAI Codex", "Claude Code", "Cursor", "Prompt Engineering"],
+    label: "AI-Assisted Development",
+    items: ["GitHub Copilot", "OpenAI Codex", "Claude Code", "Cursor", "Prompt Engineering for Coding Workflows"],
     featured: ["GitHub Copilot", "OpenAI Codex", "Claude Code"],
-  },
-  {
-    label: "Design",
-    items: ["Figma", "UI/UX", "Prototyping", "Wireframing", "Photoshop", "Illustrator", "Web Accessibility (ADA)"],
-    featured: ["Figma"],
-  },
-  {
-    label: "Motion & Media",
-    items: ["After Effects", "Premiere Pro", "DaVinci Resolve", "Blender", "Lightroom", "Motion Graphics", "Video Production", "Video Editing", "Visual Effects (VFX)", "3D Modeling & Rendering", "Photography", "Color Grading"],
-    featured: ["After Effects", "Premiere Pro", "Blender", "Motion Graphics"],
   },
 ];
 
@@ -78,16 +74,13 @@ export const experience = [
     location: "Plano, TX (Remote)",
     dates: "Aug 2024 – Present",
     bullets: [
-      "Lead Craft CMS developer for Fidium's enterprise web platform: own a headless CMS, page builder, GraphQL API, and custom modules serving seven websites and applications: fidiumfiber.com, fidiumbusiness.com, fidiumwholesale.com, fidiumpartners.com, consolidated.com, fidium.net (customer portal), and Buyflow (purchasing).",
+      "Lead development of a headless Craft CMS, custom modules, page builder, and GraphQL API serving seven Fidium websites and applications across marketing, customer access, and purchasing.",
       "Introduced Redis caching alongside Incremental Static Regeneration (ISR) to reduce Craft CMS load from multiple production Kubernetes pods and improve React/Next.js response times.",
-      "Redesigned and built the Next.js/React applications for Fidium Fiber, Business, Wholesale, Partners, and Consolidated, and built the original foundation of fidium.net; collaborate with the teams that own fidium.net and buyflow.",
-      "Maintain shared components, hooks, and webhooks with Jest unit tests and Storybook documentation; built Fidium Fiber's Check Availability experience to guide customers into purchasing with a clear handoff to Buyflow.",
+      "Built Next.js/React sites for Fidium Fiber, Business, Wholesale, Partners, and Consolidated, and the original fidium.net foundation; collaborate with the teams owning the portal and Buyflow purchasing experience.",
+      "Maintain shared components, hooks, and webhooks with Jest unit tests and Storybook documentation; built Check Availability UX with a clear purchasing handoff.",
       "Configure Nginx reverse proxies for multiple sites from one repo; support GitLab CI/CD pipelines and Kubernetes deployments across dev, QA, staging, and production.",
-      "Use Dynatrace and Splunk for performance and log visibility; provide on-call incident response for a shared platform supporting marketing, customer access, and purchasing.",
-      "Partner with engineers, marketing, IT, and cloud ops in Jira; mentor developers on Craft CMS. Authored pull requests and reviewed other developers' PRs to maintain code quality.",
+      "Use Dynatrace and Splunk for observability and on-call incident response; collaborate with engineering, marketing, IT, and cloud teams, mentor developers, and review code.",
     ],
-    achievement:
-      "Built a shared headless Craft CMS serving seven websites and applications across marketing, customer access, and purchasing; delivered Next.js sites for Fidium Fiber, Business, Partners, Wholesale, and Consolidated, plus the original fidium.net foundation.",
   },
   {
     role: "Lead PHP / WordPress Developer",
@@ -95,12 +88,9 @@ export const experience = [
     location: "Rhode Island (Remote)",
     dates: "Apr 2024 – Aug 2024",
     bullets: [
-      "Led development and maintenance of WordPress sites built with ACF and custom Gutenberg blocks, plus custom plugins, optimized for performance and SEO.",
-      "Modernized build tooling with Webpack and set up GitHub CI/CD pipelines using Husky and Release Please.",
-      "Managed hosting and servers, including PHP upgrades and Nginx/Apache configuration; on call for production issues.",
-      "Coordinated with developers, marketing managers, creative directors, and clients to deliver on expectations. Authored pull requests and reviewed other developers' PRs to maintain code quality.",
+      "Led WordPress development with ACF, Gutenberg, and custom plugins for Birth23.org, Fluval Aquatics, and Nutrience, with performance optimization and SEO.",
+      "Modernized Webpack and GitHub CI/CD pipelines; managed PHP upgrades, Nginx/Apache, production support, client collaboration, and code review.",
     ],
-    achievement: "Maintained and developed the Birth23.org, fluvalaquatics.com, and Nutrience.com websites.",
   },
   {
     role: "WordPress Developer",
@@ -108,11 +98,9 @@ export const experience = [
     location: "Baltimore, MD (Remote)",
     dates: "Mar 2023 – Nov 2023",
     bullets: [
-      "Built custom WordPress sites and multiple custom Gutenberg blocks for the company template.",
-      "Worked across dev, staging, and production with automated test and deploy pipelines (Git, Bitbucket); resolved server and pipeline issues.",
-      "Produced custom HTML emails and animated banners; ran monthly maintenance, QA, and ADA compliance checks. Authored pull requests and reviewed other developers' PRs to maintain code quality.",
+      "Built custom WordPress sites and Gutenberg blocks, including the Toro Haven robotic mower launch site.",
+      "Delivered through dev, staging, and production with Bitbucket test/deploy pipelines, QA, accessibility checks, maintenance, and code review.",
     ],
-    achievement: "Launched the new Toro Haven robotic mower site along with several other sites, on time and on budget.",
   },
   {
     role: "Director of Interactive Services",
@@ -120,14 +108,9 @@ export const experience = [
     location: "Dallas, TX (On-site)",
     dates: "Oct 2015 – Mar 2023",
     bullets: [
-      "Designed, developed, and maintained responsive sites and custom themes/templates across Craft CMS, WordPress, and other platforms using PHP, Twig, and JavaScript, with ongoing support for agency and client needs.",
-      "Led the interactive department: direction, training, and assignments for a team of developers, plus client meetings and project estimates.",
-      "Configured and deployed dev, staging, and production environments, maintained enterprise Linux servers, and kept PHP, CMS, and code current.",
-      "Collaborated with creative directors, developers, designers, animators, VFX artists, and clients, managing multiple projects against strict deadlines.",
-      "Ran email campaigns and digital ads, and produced animated video and photography for clients.",
+      "Led the interactive department, client discovery, project estimates, developer assignments, and training; delivered Craft CMS and WordPress sites with PHP, Twig, and JavaScript.",
+      "Managed Linux hosting and deployments; collaborated with creative teams and clients on responsive websites, including the EarthX redesign, integrations, and SEO.",
     ],
-    achievement:
-      "Redesigned 3 agency websites, boosting traffic and clientele; doubled traffic for EarthX.org after its 2019 redesign; recognized for Best UI/UX Design in Dallas 2019–2022.",
   },
   {
     role: "Web Developer",
@@ -135,11 +118,8 @@ export const experience = [
     location: "Fort Worth, TX (On-site)",
     dates: "Dec 2014 – Jul 2015",
     bullets: [
-      "Designed and developed WordPress, PHP, HTML/CSS, and JavaScript sites, including migrations, mobile QA, responsive optimization, plugin integration, and launches.",
-      "Created logos and brands for client sites and produced video and photography with developers and creative directors.",
-      "Mentored new creative hires, ran WordPress training for clients, and staffed the customer service call desk.",
+      "Delivered WordPress/PHP sites, migrations, plugin integrations, and mobile QA for clients including ESPS Trailers; trained clients and mentored creative hires.",
     ],
-    achievement: "Launched several websites, including ESPS Trailers, Dart Couriers, and Booher Consultants.",
   },
   {
     role: "Network Systems Administrator",
@@ -147,12 +127,8 @@ export const experience = [
     location: "Fort Worth, TX (On-site)",
     dates: "Apr 2013 – Dec 2014",
     bullets: [
-      "Resolved help desk tickets, specializing in Microsoft workstation repair, and staffed the customer service call desk.",
-      "Managed 80+ thin clients on IBM terminals and 100+ Windows XP/7 workstations; administered Active Directory and Microsoft Exchange.",
-      "Maintained HP and Xerox printers and hosted company video conferences via GoToMeeting and Zoom.",
+      "Administered Active Directory, Exchange, 80+ thin clients, and 100+ Windows workstations; supported help desk operations and desktop migrations.",
     ],
-    achievement:
-      "Replaced all 100+ legacy thin clients with new units on upgraded hardware and migrated Windows desktop workstations from XP to Windows 7; briefly worked on a 5 Gbps internet connection.",
   },
   {
     role: "IT Technician",
@@ -160,11 +136,8 @@ export const experience = [
     location: "Fort Worth, TX (On-site)",
     dates: "Nov 2011 – Dec 2013",
     bullets: [
-      "Handled Windows PC repair and troubleshooting, built custom desktops, and managed parts inventory and sales.",
-      "Performed virus removal (rootkits, spyware, and malware), upgrades, data backup and transfer, Windows installs and updates, and network troubleshooting.",
-      "Provided follow-up support, met customer deadlines, and optimized desktop and laptop performance.",
+      "Built and repaired desktop PCs, handled malware removal, backups, network troubleshooting, and customer support.",
     ],
-    achievement: "Built several custom desktop PCs to customer specifications.",
   },
 ];
 
