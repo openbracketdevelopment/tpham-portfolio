@@ -101,13 +101,14 @@ git diff --check
 The browser scripts use Chrome on macOS by default. Set `CHROME_PATH` to a
 Chrome/Chromium executable on other systems. PDF text validation requires
 `pypdf` in the chosen Python environment; use the environment that already
-provides it. Inspect rendered images of **both** PDF pages after regeneration:
+provides it. Inspect rendered images of **all three** PDF pages after regeneration:
 page count and text tests alone do not establish legibility or lack of clipping.
 Check actual desktop/mobile screenshots and links as well.
 
-Keep body text readable instead of shrinking it to force two pages. Consolidate
-older roles while retaining official titles, employers and dates. Any print
-content selection must continue to use the shared factual source.
+The full résumé uses three pages to retain detailed descriptions and key
+achievements for all seven jobs alongside the newer software projects. Keep
+body text readable and preserve that detail when updating the layout. The web
+page and PDF must continue to use the shared factual source.
 
 ## Publishing
 
