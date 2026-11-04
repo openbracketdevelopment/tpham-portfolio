@@ -76,6 +76,11 @@ function Resume() {
                   <li key={b}>{b}</li>
                 ))}
               </ul>
+              {job.achievement && (
+                <p className={styles["resume__achievement"]}>
+                  <strong>Key achievement:</strong> {job.achievement}
+                </p>
+              )}
             </article>
           ))}
         </section>
