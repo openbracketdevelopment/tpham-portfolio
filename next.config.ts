@@ -2,6 +2,9 @@ import path from "node:path";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [{ source: "/services", destination: "/work", permanent: false }];
+  },
   async headers() {
     return [{
       source: "/:path*",

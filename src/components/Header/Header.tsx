@@ -49,7 +49,7 @@ function Header() {
                 <MenuLink href="/resume" label="Resume" onClick={closeMobileMenu} />
               </li>
               <li className={`${styles["header__nav-menu-item"]} header__nav-connect`}>
-                <MenuLink href="/#connect" label="Connect" onClick={closeMobileMenu} />
+                <MenuLink href="/connect" label="Connect" onClick={closeMobileMenu} />
               </li>
             </ul>
           </div>

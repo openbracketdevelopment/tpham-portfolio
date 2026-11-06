@@ -1,6 +1,5 @@
 import { buildMetadata } from "../../lib/metadata";
 import About from "../../components/About/About";
-import Connect from "../../components/Connect/Connect";
 
 export const metadata = buildMetadata({
   pageTitle: "About | Tam Pham II - Software Engineer & UI/UX Designer",
@@ -12,7 +11,6 @@ export default function AboutPage() {
   return (
     <main>
       <About />
-      <Connect />
     </main>
   );
 }

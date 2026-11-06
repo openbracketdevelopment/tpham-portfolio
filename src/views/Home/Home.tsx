@@ -1,6 +1,5 @@
 import React from "react";
 
-import Connect from "../../components/Connect/Connect";
 // import Skills from "../../components/Skills/Skills";
 import Featured from "../../components/Featured/Featured";
 import Brands from "../../components/Brands/Brands";
@@ -14,7 +13,6 @@ function Home() {
       {/* <Skills /> */}
       <Featured />
       <Brands />
-      <Connect />
     </>
   );
 }

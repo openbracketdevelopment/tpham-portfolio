@@ -5,6 +5,8 @@ import Script from "next/script";
 import "../styles/tailwind.css";
 import "../styles/globals.scss";
 import Header from "../components/Header/Header";
+import Connect from "../components/Connect/Connect";
+import { SiteFooter } from "../components/Connect/SiteFooter";
 import { SiteMotion } from "../components/SiteMotion/SiteMotion";
 
 export const metadata: Metadata = {
@@ -29,7 +31,7 @@ export default function RootLayout({
       </head>
       <body>
         <Header />
-        <div id="page-content">{children}</div>
+        <div id="page-content">{children}<SiteFooter><Connect /></SiteFooter></div>
         <SiteMotion />
         <noscript><style>{'[data-intro-overlay] { display: none !important; }'}</style></noscript>
         <Script
