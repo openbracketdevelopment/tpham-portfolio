@@ -234,7 +234,7 @@ function Brands() {
 
   return (
     <section ref={sectionRef} className={styles["brands"]} aria-labelledby="brands-title">
-      <div className={styles["brands__heading"]}>
+      <div data-reveal className={styles["brands__heading"]}>
         <MarqueeHeading id="brands-title" label="BRANDS & FLAVORS" reverse />
       </div>
       <svg className={styles["brands__filters"]} aria-hidden="true" focusable="false">
@@ -255,6 +255,7 @@ function Brands() {
             <li
               key={index}
               className={`${styles["brands__item"]} ${phase ? styles["brands__item--glitching"] : ""}`}
+              data-reveal
               aria-label={brand.name}
             >
               <div

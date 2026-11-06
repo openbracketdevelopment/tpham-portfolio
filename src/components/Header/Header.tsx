@@ -3,6 +3,7 @@
 import styles from "./Header.module.scss";
 import React from "react";
 import { useState } from "react";
+import { MenuLink } from "./MenuLink";
 // import { animateScroll as scroll } from "react-scroll";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -39,40 +40,16 @@ function Header() {
               className={click ? `${styles["header__nav-menu"]} ${styles["active"]}` : styles["header__nav-menu"]}
             >
               <li className={styles["header__nav-menu-item"]}>
-                <Link
-                  href="/work"
-                  className={styles["header__nav-menu-link"]}
-                  onClick={closeMobileMenu}
-                >
-                  Projects
-                </Link>
+                <MenuLink href="/work" label="Projects" onClick={closeMobileMenu} />
               </li>
               <li className={styles["header__nav-menu-item"]}>
-                <Link
-                  href="/about"
-                  className={styles["header__nav-menu-link"]}
-                  onClick={closeMobileMenu}
-                >
-                  About
-                </Link>
+                <MenuLink href="/about" label="About" onClick={closeMobileMenu} />
               </li>
               <li className={styles["header__nav-menu-item"]}>
-                <Link
-                  href="/resume"
-                  className={styles["header__nav-menu-link"]}
-                  onClick={closeMobileMenu}
-                >
-                  Resume
-                </Link>
+                <MenuLink href="/resume" label="Resume" onClick={closeMobileMenu} />
               </li>
               <li className={`${styles["header__nav-menu-item"]} header__nav-connect`}>
-                <Link
-                  href="/#connect"
-                  className={styles["header__nav-menu-link"]}
-                  onClick={closeMobileMenu}
-                >
-                  Connect
-                </Link>
+                <MenuLink href="/#connect" label="Connect" onClick={closeMobileMenu} />
               </li>
             </ul>
           </div>

@@ -12,7 +12,7 @@ type MarqueeHeadingProps = {
 export function MarqueeHeading({ id, label, reverse = false, items, as: Tag = "h2", className = "" }: MarqueeHeadingProps) {
   const phrases = items ?? [label, label];
   return (
-    <Tag id={id} className={`${styles.heading} ${className}`} aria-label={label}>
+    <Tag data-reveal={Tag === "h2" ? "" : undefined} id={id} className={`${styles.heading} ${className}`} aria-label={label}>
       <span className={`${styles.track} ${reverse ? styles.reverse : ""}`} aria-hidden="true">
         {[0, 1].map(copy => (
           <span key={copy} className={styles.group}>

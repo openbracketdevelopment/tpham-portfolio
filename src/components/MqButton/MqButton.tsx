@@ -22,7 +22,7 @@ export const MqButton = ({
   buttonIdHashtag,
 }: MqButtonProps) => {
   return (
-    <div className={styles["mq__button"]}>
+    <div data-motion-button className={styles["mq__button"]}>
       <a
         className={styles["mq__button-url"]}
         aria-label={buttonImgAlt}
@@ -60,13 +60,15 @@ export const MqButton = ({
                   className={styles["mq__rotating-text"]}
                   xlinkHref={buttonIdHashtag}
                 >
-                  {buttonLabel}
+                  {Array.from(buttonLabel).map((letter, index) => (
+                    <tspan key={index} data-button-letter>{letter}</tspan>
+                  ))}
                   {/* See Work - See Work - */}
                 </textPath>
               </text>
             </g>
           </svg>
-          <div className={styles["mq__button-arrow"]}>
+          <div data-button-icon className={styles["mq__button-arrow"]}>
             <img
               src={buttonImg}
               alt={buttonImgAlt}

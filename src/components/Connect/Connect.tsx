@@ -55,7 +55,7 @@ function Connect() {
       <section id="connect" className={styles["connect__section"]}>
         <div className={styles["connect__wrap"]}>
           <div className={styles["connect__container"]}>
-            <div className={styles["connect__content"]}>
+            <div data-reveal className={styles["connect__content"]}>
               <div className={styles["connect__text"]}>
                 <SectionHeading label="Let's" outlinedLabel="Connect" />
                 <p>
@@ -85,7 +85,7 @@ function Connect() {
                 </a>
               </div>
             </div>
-            <div className={styles["connect__email"]}>
+            <div data-reveal className={styles["connect__email"]}>
               <MqButton
                 buttonLabel="Say Hello- Say Hello-"
                 buttonImg="/assets/images/email.svg"

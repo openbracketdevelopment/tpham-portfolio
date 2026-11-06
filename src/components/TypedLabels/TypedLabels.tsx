@@ -22,13 +22,15 @@ const TypedLabels = () => {
       loop: true,
     };
 
-    // elRef refers to the <span> rendered below
-    typed.current = new Typed(el.current as HTMLSpanElement, options);
+    // Start independently: an interrupted intro must never leave this empty.
+    typed.current = new Typed(el.current as HTMLSpanElement, {
+      ...options,
+      startDelay: document.documentElement.hasAttribute("data-intro-active") ? 2200 : 0,
+    });
 
     return () => {
-      // Make sure to destroy Typed instance during cleanup
-      // to prevent memory leaks
       typed.current?.destroy();
+      typed.current = null;
     };
   }, []);
 

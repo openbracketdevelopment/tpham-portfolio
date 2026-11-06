@@ -5,12 +5,12 @@ import { Button } from "../Button/Button";
 function About() {
   return (
     <section id="about" className={styles.about} aria-labelledby="about-title">
-      <div className={styles.photo}>
+      <div data-page-intro className={styles.photo}>
         <img src="/assets/images/headshot.jpg" alt="Tam Pham" width={800} height={1191} />
         <span className={styles.caption}>Tam Pham II / Fort Worth, TX</span>
       </div>
       <div className={styles.bio}>
-        <div className={styles.copy}>
+        <div data-page-intro className={styles.copy}>
           <p className={styles.eyebrow}>A little about me</p>
           <MarqueeHeading
             as="h1"
