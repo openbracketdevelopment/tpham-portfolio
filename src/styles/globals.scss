@@ -125,3 +125,12 @@ img {
 
   padding:64px 40px !important;
 }
+
+@media print {
+  [data-reveal], [data-page-intro], [data-hero-copy], [class*="project__container"] {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+}

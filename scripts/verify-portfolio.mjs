@@ -51,9 +51,9 @@ try {
   };
   await command("Page.enable");
   const softwareNames = ["ByteDown", "SitePaladin", "Hook, Line & Sender", "Daguerrify"];
-  const featuredNames = ["Fidium Fiber", "Diageo Innovation", "ESPS Trailer Parts", "Toro Haven", "EarthX", ...softwareNames];
+  const featuredNames = ["Fidium Fiber", "Diageo Innovation", "ESPS Trailer Parts", "Hook, Line & Sender", "Toro Haven", "ByteDown"];
   const legacy = ["/fidium", "/esps", "/esps-parts", "/toro", "/earthx", "/hmi", "/diageo", "/cintra", "/mwr", "/brainstyles", "/trinityrail", "/wilsonsseafood", "/baileys", "/crownroyal", "/johnniewalker"];
-  const routes = ["/", "/resume", "/projects", "/work", "/work/websites", "/work/apps", "/work/videos", "/work/bytedown", "/work/sitepaladin", "/work/hookline-and-sender", "/work/daguerrify", ...legacy];
+  const routes = ["/", "/about", "/connect", "/resume", "/projects", "/work", "/work/websites", "/work/apps", "/work/videos", "/work/bytedown", "/work/sitepaladin", "/work/hookline-and-sender", "/work/daguerrify", ...legacy];
   for (const route of [...routes, "/sitemap.xml", "/assets/files/PHAMT_RESUME.pdf"]) {
     const response = await fetch(new URL(route, base));
     assert.equal(response.status, 200, route);

@@ -20,6 +20,8 @@ $accent: map.get($colors, "01");
 }
 
 .resume {
+  position: relative;
+  isolation: isolate;
   min-height: 100vh;
   padding: 7rem 0 4rem;
   background: map.get($colors, "02");
@@ -28,6 +30,8 @@ $accent: map.get($colors, "01");
   line-height: 1.55;
 
   &__sheet {
+    position: relative;
+    z-index: 1;
     @include content-container;
   }
 

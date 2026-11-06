@@ -5,6 +5,14 @@
   padding: clamp(5rem, 10vw, 9rem) 0 clamp(6rem, 10vw, 9rem);
   overflow-x: clip;
 
+  &__heading {
+    @include content-container;
+
+    @include mq("lg") {
+      width: calc(100% - 4rem);
+    }
+  }
+
   &__grid {
     list-style: none;
     margin-block: clamp(2rem, 4vw, 4rem) 0;
@@ -45,7 +53,7 @@
       }
     }
 
-    &:nth-child(n + 13) {
+    &:nth-child(n + 9) {
       display: none;
 
       @include mq("lg") {

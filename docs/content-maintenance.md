@@ -120,3 +120,39 @@ Do not push a tag as part of content verification.
 Existing `noindex, nofollow` metadata and response headers are intentionally
 preserved. A sitemap is provided for route consistency; changing search-indexing
 policy is a separate owner decision.
+
+## Connect playground
+
+`/connect` lazy-loads a procedural Three.js/WebGL court from
+`src/components/ConnectPlayground`. The selected projectile uses a previewed
+gravity-based flight path, with a small target snap radius. Drag backward and
+release, or select a target and press Enter / the shoot button. A successful
+shot animates the target and opens its configured destination. Reset cancels
+pending navigation. `targets.ts` is the shared source for destination links.
+Direct links remain available without WebGL. Rendering pauses out of view and
+all WebGL resources and event handlers are disposed on navigation.
+
+The root layout renders the shared Connect footer once on every page except
+`/connect`, which already provides its own contact links. Do not
+add copies to individual pages. The footer is hidden when printing the résumé.
+
+The projectile changes with the selected or snapped target: paper football for
+email, basketball for GitHub, and a direction-aligned dart for LinkedIn. Touch
+uses pointer capture, an enlarged pickup radius, and a single active finger.
+
+Each target has its own landing sequence before destination navigation: the
+paper football slides into the hollow, envelope-filled mailbox, whose door
+opens as the shot approaches and closes after insertion; the basketball
+passes through an anchored diamond-cord net with localized stretch and a soft
+rebound, then bounces with gravity and restitution; the dart embeds its needle in
+the bullseye and stays there. Reset/Escape cancels both flight and landing
+animations as well as pending navigation. Basketball pebbling is a procedural
+bump texture and is disposed with the scene. Paper footballs spin on launch;
+darts spin around their shaft while their nose follows the flight direction.
+
+`projectilePhysics.ts` integrates ground contact at 120 Hz independently of
+render frame rate. Basketballs rebound, lose energy, and roll with friction;
+paper has high drag and nearly zero restitution; missed darts track velocity
+nose-first, then lose energy and settle sideways. Short-throw previews use the
+same ballistic plan as the actual flight. Reset also clears active physics and
+impact deformation tweens.

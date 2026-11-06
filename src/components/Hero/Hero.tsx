@@ -45,16 +45,17 @@ function HeroSection() {
 
   return (
     <>
-      <div className={styles["hero__background"]} ref={bgRef}>
+      <link rel="preload" href="/assets/images/abstract-bg.jpg" as="image" fetchPriority="high" />
+      <div data-hero-background className={styles["hero__background"]} ref={bgRef}>
         <LiquidBackground />
       </div>
-      <div className={styles["hero"]} ref={heroRef}>
+      <div data-hero className={styles["hero"]} ref={heroRef}>
         <div className={styles["hero__content"]}>
-          <h1 className={styles["hero__label"]}>
+          <h1 data-hero-copy className={styles["hero__label"]}>
             <span className={styles["hero__intro-label"]}>Hi, I'm Tam.</span>
             <TypedLabels />
           </h1>
-          <p className={styles["hero__summary"]}>
+          <p data-hero-copy className={styles["hero__summary"]}>
             I build thoughtful web experiences and reliable software, from enterprise platforms to independent tools.
           </p>
 

@@ -20,7 +20,7 @@ export function ProjectVisual({ project }: { project: WorkProject }) {
 
 export function ProjectCard({ project }: { project: WorkProject }) {
   return (
-    <article className={styles.card}>
+    <article data-reveal className={styles.card}>
       <ProjectVisual project={project} />
       <div className={styles.body}>
         <p className={styles.meta}>{project.context} / {project.category}</p>

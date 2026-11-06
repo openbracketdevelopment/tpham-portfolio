@@ -66,3 +66,14 @@
 }
 @include mq("lg") {
 }
+
+.connect__play {
+  display: inline-block;
+  margin-top: 1.25rem;
+  color: var(--color-06);
+  text-underline-offset: 0.3em;
+}
+
+@media print {
+  .connect__section { display: none !important; }
+}

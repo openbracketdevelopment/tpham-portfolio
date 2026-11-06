@@ -1,5 +1,6 @@
 import { Button } from "../../components/Button/Button";
 import styles from "./Resume.module.scss";
+import { ResumeEffects } from "./ResumeEffects";
 import {
   profile,
   skillGroups,
@@ -13,7 +14,8 @@ import { softwareProjects } from "../../projects/software-data";
 
 function Resume() {
   return (
-    <main className={styles["resume"]}>
+    <main data-resume className={styles["resume"]}>
+      <ResumeEffects />
       <div className={styles["resume__sheet"]}>
         <header className={styles["resume__header"]}>
           <div>

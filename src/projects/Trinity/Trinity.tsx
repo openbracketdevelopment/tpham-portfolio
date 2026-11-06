@@ -55,14 +55,6 @@ function trinity() {
               </div>
             </div>
           </div>
-
-          <div className={styles["project__btns"]}>
-            <Button
-              btnLabel="See it Live"
-              btnUrl={trinityRailData.workLiveLink}
-              btnTarget="_blank"
-            />
-          </div>
         </div>
       </section>
       {/* DESKTOP */}

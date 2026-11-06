@@ -55,23 +55,6 @@ function hmi() {
               </div>
             </div>
           </div>
-          <div className={styles["project__btns"]}>
-            <Button
-              btnLabel="See Ungated Version"
-              btnUrl={diageoData.workLiveLink}
-              btnTarget="_blank"
-            />
-            <Button
-              btnLabel="Okta Gated Version"
-              btnUrl={diageoData.workLiveLink4}
-              btnTarget="_blank"
-            />
-            <Button
-              btnLabel="G2FA Version"
-              btnUrl={diageoData.workLiveLink3}
-              btnTarget="_blank"
-            />
-          </div>
         </div>
       </section>
 

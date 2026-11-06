@@ -5,7 +5,7 @@ import { softwareProjects } from "../projects/software-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
-    "/", "/resume", "/projects", "/work",
+    "/", "/about", "/connect", "/resume", "/projects", "/work",
     ...collections.map(collection => `/work/${collection.id}`),
     ...softwareProjects.map(project => project.href),
     ...professionalProjects.map(project => project.href),

@@ -89,9 +89,6 @@ export default function Toro() {
               ))}
             </div>
           </div>
-          <div className={shared["project__btns"]}>
-            <Button btnLabel="See it Live" btnUrl={data.workLiveLink} btnTarget="_blank" />
-          </div>
         </div>
       </section>
 
