@@ -23,6 +23,7 @@ export function SiteMotion() {
     try { seenThisSession = sessionStorage.getItem(INTRO_SESSION_KEY) === "1"; } catch { /* Storage can be unavailable in private contexts. */ }
     const shell = overlay.current;
     if (!shell) return;
+    shell.hidden = true;
     gsap.set(shell, { display: "none" });
     const media = gsap.matchMedia();
     let active = true;
@@ -61,6 +62,7 @@ export function SiteMotion() {
           const bounds = element.getBoundingClientRect();
           return bounds.height > 0 && bounds.top >= window.innerHeight;
         });
+        if (!offscreen.length) return;
         revealContext = gsap.context(() => {
           gsap.set(offscreen, { autoAlpha: 0, y: 36 });
           ScrollTrigger.batch(offscreen, {
@@ -91,6 +93,7 @@ export function SiteMotion() {
           document.documentElement.setAttribute("data-intro-seen", "");
         }
         unlock();
+        shell.hidden = true;
         gsap.set(shell, { display: "none" });
         if (target) gsap.set(target, { clearProps: "opacity,visibility" });
         if (shell.contains(document.activeElement)) {
@@ -112,6 +115,7 @@ export function SiteMotion() {
           header.inert = headerInert;
         };
         document.documentElement.setAttribute("data-intro-active", "");
+        shell.hidden = false;
         gsap.set(shell, { display: "block" });
         gsap.set(fill, { scaleX: 0, transformOrigin: "left center" });
         counter.textContent = "000";
@@ -147,7 +151,7 @@ export function SiteMotion() {
           .to(shell.querySelector("button"), { autoAlpha: 0, duration: 0.2 }, 1.8);
       }
       const entry = runIntro ? 2.25 : 0;
-      if (runIntro) timeline.from(nav, { y: -18, autoAlpha: 0, duration: 0.65, stagger: 0.08, clearProps: "all" }, entry);
+      if (runIntro && nav.length) timeline.from(nav, { y: -18, autoAlpha: 0, duration: 0.65, stagger: 0.08, clearProps: "all" }, entry);
       if (hero) {
         timeline.call(startHero, [], entry + 0.1);
         const background = document.querySelector("[data-hero-background]");
@@ -185,6 +189,7 @@ export function SiteMotion() {
         timeline.kill();
         revealContext?.revert();
         document.documentElement.removeAttribute("data-intro-active");
+        shell.hidden = true;
         gsap.set(shell, { display: "none" });
         unlock();
       };
@@ -201,7 +206,7 @@ export function SiteMotion() {
   }, [pathname]);
 
   return (
-    <div ref={overlay} data-intro-overlay className={styles.intro} aria-label="Introduction">
+    <div hidden ref={overlay} data-intro-overlay className={styles.intro} aria-label="Introduction">
       <div className={styles.backdrop} data-intro-backdrop>
         <div className={styles.fill} data-intro-fill />
         <div className={styles.grid} aria-hidden="true" />
