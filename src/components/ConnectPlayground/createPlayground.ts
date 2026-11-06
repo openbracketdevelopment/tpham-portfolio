@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { gsap } from "gsap";
+import { createBody, stepBody, planThrow, type ProjectileBody, type ProjectileKind } from "./projectilePhysics";
 import { destinations, type GameState } from "./targets";
 
 type Callbacks = {
@@ -118,13 +119,22 @@ export function createPlayground(host: HTMLDivElement, callbacks: Callbacks): Pl
   line([[-0.38,2.6,-0.37],[0.38,2.6,-0.37],[0.38,3.08,-0.37],[-0.38,3.08,-0.37],[-0.38,2.6,-0.37]].map(p=>new THREE.Vector3(...p as [number,number,number])),0xb91910,hoop);
   const basket=mesh(new THREE.TorusGeometry(0.5,0.055,8,32),red,hoop,0,2.55,0.55);basket.rotation.x=Math.PI/2;
   const net=new THREE.Group();net.position.set(0,2.55,0.55);hoop.add(net);
-  for(let i=0;i<12;i++){
-    const a=i*Math.PI/6;
-    line([new THREE.Vector3(Math.cos(a)*0.48,-0.05,Math.sin(a)*0.48),new THREE.Vector3(Math.cos(a+0.3)*0.25,-0.63,Math.sin(a+0.3)*0.25)],0xe7e5d7,net,0.85);
+  const netColumns=16,netRows=6;
+  const netEdges:[number,number][]=[];
+  for(let row=0;row<netRows;row++)for(let column=0;column<netColumns;column++){
+    const next=(column+(row%2?1:-1)+netColumns)%netColumns;
+    netEdges.push([row*netColumns+column,(row+1)*netColumns+column],[row*netColumns+column,(row+1)*netColumns+next]);
   }
-  for(const [radius,y] of [[0.4,-0.22],[0.33,-0.43],[0.25,-0.63]]){
-    const ring=mesh(new THREE.TorusGeometry(radius,0.011,4,24),ivory,net,0,y,0);ring.rotation.x=Math.PI/2;
-  }
+  for(let column=0;column<netColumns;column++)netEdges.push([netRows*netColumns+column,netRows*netColumns+(column+1)%netColumns]);
+  const netGeometry=new THREE.BufferGeometry();
+  const netPositions=new THREE.BufferAttribute(new Float32Array(netEdges.length*6),3).setUsage(THREE.DynamicDrawUsage);
+  netGeometry.setAttribute('position',netPositions);
+  const cords=new THREE.LineSegments(netGeometry,new THREE.LineBasicMaterial({color:0xe7e5d7,transparent:true,opacity:0.85}));
+  cords.frustumCulled=false;net.add(cords);
+  const netNodes=Array.from({length:(netRows+1)*netColumns},()=>new THREE.Vector3());
+  const netRadii=Array.from({length:netRows+1},(_,row)=>0.48-0.19*row/netRows);
+  const netMotion={pull:0};
+
 
   // 03 / Right on target: concentric dartboard on a freestanding easel.
   const dart=targets[2];
@@ -205,6 +215,14 @@ export function createPlayground(host: HTMLDivElement, callbacks: Callbacks): Pl
   let flight:gsap.core.Tween|undefined;
   let landing:gsap.core.Timeline|undefined;
   let doorTween:gsap.core.Tween|undefined;
+  let impactTween:gsap.core.Tween|undefined;
+  let freeBody:ProjectileBody|null=null;
+  let onPhysicsRest:(()=>void)|undefined;
+  let physicsMissReported=false;
+  let physicsCountsMiss=false;
+  const floorOrientation=new THREE.Quaternion();
+  const physicsDirection=new THREE.Vector3();
+  const rollingAxis=new THREE.Vector3();
   let navTimer:number|undefined;
   let last=performance.now();
   let lastRender=0;
@@ -218,11 +236,25 @@ export function createPlayground(host: HTMLDivElement, callbacks: Callbacks): Pl
   const hint=host.querySelector<HTMLElement>('[data-pull-hint]');
   const preference=matchMedia('(prefers-reduced-motion: reduce)');
   const setState=(value:GameState)=>{state=value;callbacks.onState(value);host.dataset.throwState=value;};
-  const curveTo=(finish:THREE.Vector3,start=origin)=>new THREE.QuadraticBezierCurve3(start.clone(),new THREE.Vector3((start.x+finish.x)/2,Math.max(start.y,finish.y)+3.3,(start.z+finish.z)/2),finish.clone());
-  const preview=()=>{const curve=curveTo(end,paper.position);dots.forEach((dot,i)=>{dot.position.copy(curve.getPoint((i+1)/22));dot.visible=true;(dot.material as THREE.MeshBasicMaterial).color.set(candidate===null?0xe4d8ba:0x7fe9e0);});};
+  const preview=()=>{
+    const start=paper.position;
+    const plan=planThrow(projectileIndex as ProjectileKind,start,end,candidate!==null);
+    dots.forEach((dot,i)=>{
+      const t=(i+1)/22*plan.duration;
+      dot.position.set(start.x+plan.velocity.x*t,start.y+plan.velocity.y*t-0.5*plan.gravity*t*t,start.z+plan.velocity.z*t);
+      dot.visible=true;(dot.material as THREE.MeshBasicMaterial).color.set(candidate===null?0xe4d8ba:0x7fe9e0);
+    });
+  };
+  const dartAxis=new THREE.Vector3(0,1,0);
+  const dartAimDirection=new THREE.Vector3();
+  const aimDart=()=>{
+    dartAimDirection.subVectors(hitPoints[2],paper.position).normalize();
+    paper.quaternion.setFromUnitVectors(dartAxis,dartAimDirection);
+  };
   const setProjectile=(index:number)=>{
     if(projectileIndex===index)return;
     projectileIndex=index;morph?.kill();
+    if(index===2)aimDart();else paper.rotation.set(-0.72,0,0.12);
     models.forEach((model,i)=>{model.visible=i===index;model.scale.setScalar(modelSizes[i]);});
     host.dataset.projectile=destinations[index].projectile;
     const size=modelSizes[index];
@@ -231,12 +263,14 @@ export function createPlayground(host: HTMLDivElement, callbacks: Callbacks): Pl
   const select=(index:number)=>{setProjectile(index);selected=index;callbacks.onSelect(index);floorRings.forEach((r,i)=>(r.material as THREE.MeshBasicMaterial).opacity=i===index?0.75:0.2);};
   const clearNavigation=()=>{if(navTimer!==undefined)window.clearTimeout(navTimer);navTimer=undefined;};
   const reset=()=>{
-    clearNavigation();flight?.kill();landing?.kill();doorTween?.kill();dragging=false;
+    clearNavigation();flight?.kill();landing?.kill();doorTween?.kill();impactTween?.kill();dragging=false;
+    freeBody=null;onPhysicsRest=undefined;
     if(activePointer!==null&&canvas.hasPointerCapture(activePointer))canvas.releasePointerCapture(activePointer);
     activePointer=null;canvas.style.touchAction='none';
     paper.visible=true;paper.position.copy(origin);paper.rotation.set(-0.72,0,0.12);paper.scale.setScalar(1);
     shadow.visible=true;shadow.position.set(origin.x,0.04,origin.z);shadow.scale.setScalar(1);
-    net.scale.setScalar(1);dartModel.rotation.set(0,0,0);host.removeAttribute("data-landing-phase");
+    netMotion.pull=0;netRadii.forEach((_,row)=>{netRadii[row]=0.48-0.19*row/netRows;});
+    paperModel.rotation.set(0,0,0);dartModel.rotation.set(0,0,0);host.removeAttribute("data-landing-phase");
     dots.forEach(dot=>dot.visible=false);candidate=null;callbacks.onAim(null,0);setState('ready');
     motion.add(()=>{doorTween=gsap.to(door.rotation,{x:0,duration:0.25,ease:"power2.out"});});
   };
@@ -246,34 +280,87 @@ export function createPlayground(host: HTMLDivElement, callbacks: Callbacks): Pl
       gsap.to(floorRings[index].scale,{x:1.2,y:1.2,z:1.2,duration:0.2,yoyo:true,repeat:1,ease:'power2.out'});
     });
   };
+  const startPhysics=(kind:ProjectileKind,velocity:THREE.Vector3,countsMiss:boolean,onRest?:()=>void)=>{
+    freeBody=createBody(kind,paper.position,velocity);
+    physicsMissReported=false;physicsCountsMiss=countsMiss;onPhysicsRest=onRest;
+    physicsDirection.set(velocity.x,0,velocity.z);
+    if(physicsDirection.lengthSq()<0.001)physicsDirection.set(0,0,-1);
+    floorOrientation.setFromUnitVectors(dartAxis,physicsDirection.normalize());
+    host.dataset.landingPhase=kind===1?'physics-bounce':kind===0?'paper-drop':'dart-ground';
+    shadow.visible=true;
+  };
+  const updateNet=(delta:number,time:number)=>{
+    const ballNear=projectileIndex===1&&paper.visible&&Math.hypot(paper.position.x,paper.position.z+1.35)<0.3;
+    for(let row=0;row<=netRows;row++){
+      const f=row/netRows;
+      const y=-0.02-0.68*f-netMotion.pull*0.12*f*f;
+      const restRadius=0.48-0.19*f;
+      const distanceY=paper.position.y-(2.55+y);
+      const ballSection=ballNear&&Math.abs(distanceY)<0.44?Math.sqrt(0.44*0.44-distanceY*distanceY)+0.025:0;
+      const radius=row===0?0.48:Math.max(restRadius,ballSection);
+      netRadii[row]+=(radius-netRadii[row])*(1-Math.exp(-delta*20));
+      const sway=Math.sin(time*0.014)*netMotion.pull*0.025*f*f;
+      for(let column=0;column<netColumns;column++){
+        const angle=(column+(row%2?0.5:0))*Math.PI*2/netColumns;
+        netNodes[row*netColumns+column].set(Math.cos(angle)*netRadii[row]+sway,y,Math.sin(angle)*netRadii[row]);
+      }
+    }
+    netEdges.forEach(([a,b],index)=>{
+      netPositions.setXYZ(index*2,netNodes[a].x,netNodes[a].y,netNodes[a].z);
+      netPositions.setXYZ(index*2+1,netNodes[b].x,netNodes[b].y,netNodes[b].z);
+    });
+    netPositions.needsUpdate=true;
+  };
+  const updatePhysics=(delta:number)=>{
+    const body=freeBody;if(!body)return;
+    const impacts=stepBody(body,delta);
+    paper.position.set(body.position.x,body.position.y,body.position.z);
+    if(body.kind===1){
+      const speed=Math.hypot(body.velocity.x,body.velocity.z);
+      if(speed>0.01){rollingAxis.set(body.velocity.z,0,-body.velocity.x).normalize();paper.rotateOnWorldAxis(rollingAxis,speed*delta/0.44);}
+      if(!body.hasContact||body.position.y>0.46)paper.rotation.x+=delta*5;
+      if(impacts.some(impact=>impact>1))motion.add(()=>{impactTween?.kill();impactTween=gsap.to(paper.scale,{
+        keyframes:[{x:1.07,y:0.86,z:1.07,duration:0.055},{x:1,y:1,z:1,duration:0.13}],overwrite:true,
+      });});
+      if(body.position.y<=0.446)paper.position.y-=0.44*(1-paper.scale.y);
+    }else if(body.kind===2){
+      if(!body.hasContact){physicsDirection.set(body.velocity.x,body.velocity.y,body.velocity.z).normalize();paper.quaternion.setFromUnitVectors(dartAxis,physicsDirection);}
+      else paper.quaternion.slerp(floorOrientation,1-Math.exp(-delta*20));
+      if(!body.hasContact)dartModel.rotation.y+=delta*8*Math.exp(-body.age*3);
+    }else{
+      const flutter=body.hasContact?0:Math.sin(body.age*8)*0.08;
+      paper.rotation.set(-Math.PI/2+flutter,0,0.12+flutter*0.35);
+      if(!body.hasContact)paperModel.rotation.z+=delta*7*Math.exp(-body.age*4);
+    }
+    if(physicsCountsMiss&&body.hasContact&&!physicsMissReported){
+      physicsMissReported=true;callbacks.onShot(false);setState('miss');
+    }
+    if(body.settled){
+      freeBody=null;paper.scale.setScalar(1);host.dataset.landingPhase='resting';
+      const complete=onPhysicsRest;onPhysicsRest=undefined;complete?.();
+    }
+  };
   const settle=(index:number,stickQuaternion?:THREE.Quaternion)=>{
     shadow.visible=index===1;
     motion.add(()=>{
-      landing=gsap.timeline({onComplete:()=>{
+      const finishHit=()=>{
         callbacks.onShot(true);celebrate(index);setState('hit');host.dataset.landingPhase='complete';
         navTimer=window.setTimeout(()=>{if(!disposed&&state==='hit')window.location.assign(destinations[index].href);},900);
-      }});
+      };
+      landing=gsap.timeline({onComplete:index===1?undefined:finishHit});
       if(index===0){
         host.dataset.landingPhase='mailbox-entry';
-        landing.to(paper.rotation,{x:-Math.PI/2,y:0,z:-0.12,duration:0.25,ease:'power2.out'},0)
+        landing.set(paperModel.rotation,{z:0},0).to(paper.rotation,{x:-Math.PI/2,y:0,z:-0.12,duration:0.25,ease:'power2.out'},0)
           .to(paper.position,{x:-3.6,y:1.62,z:-1.88,duration:0.65,ease:'power2.inOut'},0)
           .to(paper.position,{y:1.4,duration:0.2,ease:'power2.in'},0.65)
           .call(()=>{host.dataset.landingPhase='mailbox-closing';},[],0.95)
           .to(door.rotation,{x:0,duration:0.45,ease:'power2.inOut'},0.95);
       }else if(index===1){
         host.dataset.landingPhase='net-swish';
-        landing.to(net.scale,{x:1.8,y:1.15,z:1.8,duration:0.2,ease:'power2.out'},0)
-          .to(paper.position,{y:0.44,duration:0.68,ease:p=>0.3865*p+0.6135*p*p},0)
-          .to(net.scale,{x:1,y:1,z:1,duration:0.65,ease:'elastic.out(1,0.3)'},0.5)
-          .call(()=>{host.dataset.landingPhase='bounce';},[],0.68)
-          .to(paper.position,{z:-0.85,duration:0.18,ease:'none'},0.5)
-          .to(paper.position,{y:1.2,z:-0.4,duration:0.32,ease:'power2.out'},0.68)
-          .to(paper.position,{y:0.44,z:0,duration:0.32,ease:'power2.in'},1)
-          .to(paper.position,{y:0.76,z:0.2,duration:0.23,ease:'power2.out'},1.32)
-          .to(paper.position,{y:0.44,z:0.4,duration:0.23,ease:'power2.in'},1.55)
-          .to(paper.rotation,{x:'+=6.28',z:'+=0.8',duration:1.78,ease:'none'},0)
-          .to(paper.scale,{x:1.06,y:0.88,z:1.06,duration:0.06},0.65)
-          .to(paper.scale,{x:1,y:1,z:1,duration:0.12,ease:'power2.out'},0.71);
+        landing.to(netMotion,{pull:1,duration:0.2,ease:'power2.out'},0)
+          .to(paper.position,{y:1.38,z:-1.35,duration:0.38,ease:'power1.in'},0)
+          .to(netMotion,{pull:0,duration:0.75,ease:'elastic.out(0.6,0.4)'},0.38)
+          .call(()=>startPhysics(1,new THREE.Vector3(0.12,-3.5,0.9),false,finishHit),[],0.38);
       }else{
         host.dataset.landingPhase='dart-stick';
         if(stickQuaternion)paper.quaternion.copy(stickQuaternion);
@@ -291,18 +378,36 @@ export function createPlayground(host: HTMLDivElement, callbacks: Callbacks): Pl
     // Place the needle inside the bullseye, leaving the barrel and fins outside.
     const tipOffset=0.74*modelSizes[2]+dartModel.position.y;
     const destination=hit===2?new THREE.Vector3(3.6,2.2,-1.83).addScaledVector(stickDirection,-tipOffset):finish;
-    const curve=curveTo(destination,paper.position);
+    const start=paper.position.clone();
+    const kind=projectileIndex as ProjectileKind;
+    const plan=planThrow(kind,start,destination,hit!==null);
+    const {duration,gravity}=plan;
+    const initialVelocity=new THREE.Vector3(plan.velocity.x,plan.velocity.y,plan.velocity.z);
+    const velocity=new THREE.Vector3();
     const progress={t:0};
     let mailboxOpened=false;
     motion.add(()=>{
-      flight=gsap.to(progress,{t:1,duration:1.2,ease:'none',onUpdate:()=>{
-        paper.position.copy(curve.getPoint(progress.t));
+      flight=gsap.to(progress,{t:1,duration,ease:'none',onUpdate:()=>{
+        const elapsed=progress.t*duration;
+        paper.position.copy(start).addScaledVector(initialVelocity,elapsed);paper.position.y-=0.5*gravity*elapsed*elapsed;
+        velocity.copy(initialVelocity);velocity.y-=gravity*elapsed;
+        if(kind===2)dartModel.rotation.y=elapsed*Math.PI*10;
+        if(kind===0)paperModel.rotation.z=hit===0?Math.PI*6*(1-(1-progress.t)**2):elapsed*14;
+        if(hit===null){
+          if(kind===2){
+            paper.quaternion.setFromUnitVectors(dartAxis,physicsDirection.copy(velocity).normalize());
+            const support=Math.max(0.21,-physicsDirection.y*0.742+0.01);
+            if(paper.position.y<support)paper.position.y=support;
+          }else if(kind===0)paper.rotation.set(-Math.PI/2+Math.sin(elapsed*8)*0.08,0,0.12);
+          else {paper.rotation.x=-0.72+elapsed*8;paper.rotation.z=0.12+elapsed*0.9;}
+          return;
+        }
         if(hit===0&&!mailboxOpened&&progress.t>=0.65){
           mailboxOpened=true;host.dataset.landingPhase='mailbox-opening';
           motion.add(()=>{doorTween?.kill();doorTween=gsap.to(door.rotation,{x:Math.PI/2,duration:0.35,ease:'power2.out'});});
         }
         if(projectileIndex===2){
-          paper.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),curve.getTangent(progress.t).normalize());
+          paper.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),physicsDirection.copy(velocity).normalize());
           if(hit===2)paper.quaternion.slerp(stickQuaternion,THREE.MathUtils.smoothstep(progress.t,0.72,1));
         }else if(hit===0){
           paper.rotation.set(-0.72-(Math.PI/2-0.72)*progress.t,0,0.12*(1-progress.t));
@@ -313,7 +418,7 @@ export function createPlayground(host: HTMLDivElement, callbacks: Callbacks): Pl
         }
       },onComplete:()=>{
         if(hit!==null)settle(hit,stickQuaternion);
-        else {callbacks.onShot(false);paper.rotation.set(-Math.PI/2,0,0.35);paper.position.y=0.15;setState('miss');}
+        else {velocity.copy(initialVelocity);velocity.y-=gravity*duration;startPhysics(kind,velocity,true);}
       }});
     });
   };
@@ -371,8 +476,11 @@ export function createPlayground(host: HTMLDivElement, callbacks: Callbacks): Pl
     frame=requestAnimationFrame(render);if(document.hidden||!sceneVisible)return;
     if(now-lastRender<1000/(coarsePointer?30:60))return;lastRender=now;
     const delta=Math.min((now-last)/1000,0.05);last=now;
+    updatePhysics(delta);
+    updateNet(delta,now);
     if(paper.visible&&shadow.visible){shadow.position.set(paper.position.x,0.04,paper.position.z);shadow.scale.setScalar(Math.max(0.3,1-paper.position.y*0.1));}
-    if(state==='ready'&&!preference.matches){paper.position.y=origin.y+Math.sin(now*0.0018)*0.06;paper.rotation.z=0.12+Math.sin(now*0.0012)*0.06;}
+    if(state==='ready'&&!freeBody&&!preference.matches){paper.position.y=origin.y+Math.sin(now*0.0018)*0.06;paper.rotation.z=0.12+Math.sin(now*0.0012)*0.06;}
+    if(projectileIndex===2&&(state==='ready'||state==='aiming'))aimDart();
     particles.forEach(p=>{if(!p.object.visible)return;p.age+=delta;if(p.age>1.4){p.object.visible=false;return;}p.velocity.y-=delta*6;p.object.position.addScaledVector(p.velocity,delta);p.object.rotation.x+=delta*3;p.object.rotation.z+=delta*2;p.object.scale.setScalar(Math.max(0.1,1-p.age/1.4));});
     labels.forEach((label,index)=>{if(!label)return;const p=screen(hitPoints[index].clone().add(new THREE.Vector3(0,index===1?1.3:1,0)));label.style.left=`${THREE.MathUtils.clamp(p.x,55,width-55)}px`;label.style.top=`${p.y}px`;});
     if(hint){const p=screen(paper.position.clone().add(new THREE.Vector3(0,0.85,-0.45)));hint.style.left=`${p.x}px`;hint.style.top=`${p.y-16}px`;hint.style.opacity=state==='ready'?'0.8':'0';}
@@ -384,7 +492,7 @@ export function createPlayground(host: HTMLDivElement, callbacks: Callbacks): Pl
   if(!preference.matches)motion.add(()=>gsap.fromTo(world.scale,{x:0.9,y:0.9,z:0.9},{x:1,y:1,z:1,duration:1.2,ease:'power3.out'}));
 
   return {aimAt,shootAt,reset,dispose:()=>{
-    disposed=true;clearNavigation();cancelAnimationFrame(frame);observer.disconnect();visibility.disconnect();flight?.kill();landing?.kill();doorTween?.kill();motion.revert();
+    disposed=true;freeBody=null;onPhysicsRest=undefined;clearNavigation();cancelAnimationFrame(frame);observer.disconnect();visibility.disconnect();flight?.kill();landing?.kill();doorTween?.kill();impactTween?.kill();motion.revert();
     canvas.removeEventListener('pointerdown',down);canvas.removeEventListener('pointermove',move);canvas.removeEventListener('pointerup',up);canvas.removeEventListener('pointercancel',cancel);canvas.removeEventListener('lostpointercapture',cancel);canvas.removeEventListener('keydown',key);canvas.removeEventListener('webglcontextlost',contextLost);
     const geometries=new Set<THREE.BufferGeometry>();const materials=new Set<THREE.Material>();
     scene.traverse(object=>{const renderable=object as THREE.Mesh;if(renderable.geometry)geometries.add(renderable.geometry);if(renderable.material){for(const m of Array.isArray(renderable.material)?renderable.material:[renderable.material])materials.add(m);}});

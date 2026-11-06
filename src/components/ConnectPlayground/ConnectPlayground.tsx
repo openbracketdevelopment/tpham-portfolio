@@ -76,9 +76,10 @@ export function ConnectPlayground() {
         </div>
         <div className={styles.controls}>
           <div><p className={styles.status} role="status" aria-live="polite">{status}</p><p id="playground-help" className={styles.help}>Drag with your finger or mouse · Or select a target and shoot · ← → + Enter</p></div>
+          <button type="button" className={styles.reset} aria-label="Reset projectile to the starting position"
+            disabled={state === "loading" || state === "unavailable"} onClick={() => game.current?.reset()}>↺ Reset</button>
           <div className={styles.actions}>
-            {state === "hit" && <a href={destination.href} className={styles.primary}>{destination.action} ↗</a>}
-            {(state === "hit" || state === "miss") ? <button type="button" onClick={() => game.current?.reset()}>Another shot ↺</button>
+            {state === "hit" ? <a href={destination.href} className={styles.primary}>{destination.action} ↗</a>
               : <button type="button" className={styles.primary} disabled={busy || state === "loading" || state === "unavailable"} onClick={() => game.current?.shootAt(selected)}>Shoot {destination.label} ↗</button>}
           </div>
         </div>
