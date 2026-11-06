@@ -11,7 +11,6 @@ export function WorkCollection({ collection }: { collection?: Collection }) {
   return (
     <main className={`${styles.section} ${styles.tileSection} ${styles.collection}`}>
       <h1 className={styles.heading}>{selected?.name ?? "All work"}</h1>
-      <p className={styles.intro}>{selected?.description ?? "Software projects, professional websites and video work. Independent projects are kept distinct from client delivery."}</p>
       <CollectionNav current={collection ?? "all"} />
       <div className={styles.grid}>
         {projects.map(project => <ProjectCard key={project.id} project={project} />)}

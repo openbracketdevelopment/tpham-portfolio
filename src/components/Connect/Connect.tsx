@@ -78,15 +78,6 @@ function Connect() {
                   className={styles["connect__social-link"]}
                   target="_blank"
                   rel="noreferrer"
-                  href="https://codepen.io/tampham"
-                  aria-label="CodePen"
-                >
-                  <FaIcons.FaCodepen />
-                </a>
-                <a
-                  className={styles["connect__social-link"]}
-                  target="_blank"
-                  rel="noreferrer"
                   href="https://github.com/openbracketdevelopment"
                   aria-label="GitHub"
                 >

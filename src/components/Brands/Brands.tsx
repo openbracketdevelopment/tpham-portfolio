@@ -47,7 +47,7 @@ import {
   SiWordpress,
   SiZsh,
 } from "react-icons/si";
-import { SectionHeading } from "../SectionHeading/SectionHeading";
+import { MarqueeHeading } from "../MarqueeHeading/MarqueeHeading";
 import styles from "./Brands.module.scss";
 
 type Brand = {
@@ -146,7 +146,7 @@ const platforms: Brand[] = [
 const allItems = [...brands, ...platforms];
 const GLITCH_OUT_MS = 480;
 const GLITCH_IN_MS = 560;
-const initialTiles = brands.slice(0, 9).flatMap((brand, index) => [brand, platforms[index]]);
+const initialTiles = brands.slice(0, 6).flatMap((brand, index) => [brand, platforms[index]]);
 
 function Brands() {
   const [tiles, setTiles] = useState(initialTiles);
@@ -180,7 +180,7 @@ function Brands() {
 
     const schedule = () => {
       rotationTimer = setTimeout(() => {
-        const visibleTileCount = desktopViewport.matches ? initialTiles.length : tabletViewport.matches ? 12 : 4;
+        const visibleTileCount = desktopViewport.matches ? initialTiles.length : tabletViewport.matches ? 8 : 4;
         const index = Math.floor(Math.random() * visibleTileCount);
         const swap = () => setTiles((current) => {
           const available = allItems.filter(
@@ -234,12 +234,9 @@ function Brands() {
 
   return (
     <section ref={sectionRef} className={styles["brands"]} aria-labelledby="brands-title">
-      <SectionHeading
-        id="brands-title"
-        label="Brands & tools"
-        outlinedLabel="I've worked with"
-        align="center"
-      />
+      <div className={styles["brands__heading"]}>
+        <MarqueeHeading id="brands-title" label="BRANDS & FLAVORS" reverse />
+      </div>
       <svg className={styles["brands__filters"]} aria-hidden="true" focusable="false">
         <defs>
           {[11, 47, 83, 129].map((seed, index) => (

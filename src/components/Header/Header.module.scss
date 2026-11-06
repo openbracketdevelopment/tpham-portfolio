@@ -102,3 +102,27 @@
     @apply hidden;
   }
 }
+
+.header--about {
+  --logo-shape-color: #000;
+
+  .header__menu-icon {
+    color: #000;
+  }
+}
+
+@media (max-width: 767px) {
+  .header--about[data-menu-open="true"] {
+    --logo-shape-color: #fff;
+
+    .header__menu-icon {
+      color: #fff;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .header--about .header__nav-menu-link {
+    color: #000;
+  }
+}

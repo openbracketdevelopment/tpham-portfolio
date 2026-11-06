@@ -1,100 +1,105 @@
-@use "mixins" as *;
-@reference "tailwindcss";
+@use "../../styles/mixins" as *;
 
-.about__section{
-  padding-block: clamp(4rem, 8vw, 7rem);
-}
-.about__wrap {
-  @apply grid;
-  grid-template-columns: minmax(auto, 1280px);
-  @include content-container;
-  @apply justify-center items-center flex-col relative;
-}
-.about__photo-image{
-  @apply z-[0];
-  filter: grayscale(100%);
-  border-radius: 1.5rem;
-  transition: filter 0.3s ease;
-}
-.about__photo:hover .about__photo-image {
-  filter: grayscale(0%);
-}
-.about__left-door{
-  background: #000000;
-  border:1px solid #3d3d3d;
-  height:500px;
-  width:500px;
-  @apply absolute z-[1];
-  top:0;
-  left:0;
-  @apply hidden;
-}
-.about__right-door{
-  background: #000000;
-  border:1px solid #3d3d3d;
-  height:500px;
-  width:500px;
-  @apply absolute z-[1];
-  top:0;
-  left:0;
-
-  @apply hidden;
-}
-.about__container {
-  @apply grid;
-  grid-template-columns: 1fr;
-  @apply items-center;
-  gap: 1rem;
-}
-.about__photo {
-  width: 100%;
-  min-width: 0;
-  @apply justify-self-center relative;
-}
-.about__bio {
-  @apply justify-self-center;
-  width: 100%;
-  min-width: 0;
-  @apply z-[11];
-}
-.about__bio h2 {
-  width: 100%;
-  margin: 0;
-  padding: 0 0 1rem;
-}
-.about__bio p {
-  font-size: 1rem;
-  line-height: 1.5rem;
+.about {
+  display: grid;
+  min-height: 100svh;
+  background: var(--color-02);
   color: var(--color-03);
-}
-@include mq("md") {
-  .about__left-door,.about__right-door{
-    @apply block;
-  }
-  .about__container {
-    gap: 4rem;
-  }
-  .about__photo {
-    max-width: 60%;
 
-    justify-self: flex-start;
-  }
-  .about__bio {
-    justify-self: flex-end;
-  }
-}
-@include mq("lg") {
-  .about__left-door,.about__right-door{
-    @apply h-full;
-  }
-  .about__photo {
-    max-width: 100%;
-  }
-  .about__bio {
-    max-width: 100%;
-    margin-top: unset;
-  }
-  .about__container {
+  @include mq("lg") {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+.photo {
+  position: relative;
+  min-height: 65svh;
+  overflow: hidden;
+  background: #fff;
+
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(1);
+    transition: filter 0.6s ease;
+  }
+
+  &:hover img {
+    filter: grayscale(0);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 65% 0 0;
+    background: linear-gradient(transparent, rgb(0 0 0 / 0.65));
+  }
+
+  @include mq("lg") {
+    min-height: 100svh;
+  }
+}
+
+.caption {
+  position: absolute;
+  bottom: 2rem;
+  left: clamp(1.5rem, 4vw, 4rem);
+  z-index: 1;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.bio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 3rem 6vw;
+  text-align: left;
+
+  @include mq("lg") {
+    min-height: 100svh;
+    padding: 6rem clamp(2rem, 4vw, 5rem);
+  }
+}
+
+.copy {
+  width: 100%;
+  max-width: 38rem;
+
+
+  p {
+    margin: 0 0 1.25rem;
+    font-size: clamp(1rem, 1.1vw, 1.125rem);
+    line-height: 1.65;
+    color: #c6c6c6;
+  }
+
+  .eyebrow {
+    margin-bottom: 1rem;
+    color: var(--color-06);
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+}
+
+.actions {
+  margin-top: 2rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo img { transition: none; }
+}
+
+.copy .greeting {
+  --marquee-font-size: clamp(3.5rem, 6vw, 6.5rem);
+  --marquee-duration: 140s;
+  margin: 0 0 1.5rem;
+  padding: 1rem 0;
 }

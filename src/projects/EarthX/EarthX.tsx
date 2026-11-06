@@ -55,28 +55,6 @@ function earthx() {
               </div>
             </div>
           </div>
-          <div className={styles["project__btns"]}>
-            <Button
-              btnLabel="Earthx2021"
-              btnUrl={earthxData.workLiveLink}
-              btnTarget="_blank"
-            />
-            <Button
-              btnLabel="Earthx2020"
-              btnUrl={earthxData.workLiveLink2}
-              btnTarget="_blank"
-            />
-            <Button
-              btnLabel="Earthx2019"
-              btnUrl={earthxData.workLiveLink3}
-              btnTarget="_blank"
-            />
-            <Button
-              btnLabel="Eco-Art Competition"
-              btnUrl={earthxData.workLiveLink4}
-              btnTarget="_blank"
-            />
-          </div>
         </div>
       </section>
 

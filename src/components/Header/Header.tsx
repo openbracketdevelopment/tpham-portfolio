@@ -5,23 +5,22 @@ import React from "react";
 import { useState } from "react";
 // import { animateScroll as scroll } from "react-scroll";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Logo } from "../Logo/Logo";
 
 function Header() {
+  const isAbout = usePathname() === "/about";
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
   return (
     <>
-      <header className={styles["header"]}>
+      <header className={`${styles["header"]} ${isAbout ? styles["header--about"] : ""}`} data-menu-open={click}>
         <nav className={styles["header__nav"]}>
           <div className={styles["header__logo"]}>
             <Link href="/" className="header_logo-link" onClick={closeMobileMenu}>
-              <img
-                src="/assets/images/logo.svg"
-                alt="Tam Pham - Full-Stack Developer"
-                className={styles["header__logo-img"]}
-              />
+              <Logo className={styles["header__logo-img"]} />
             </Link>
           </div>
           <div className={styles["header__nav-wrap"]}>
@@ -50,7 +49,7 @@ function Header() {
               </li>
               <li className={styles["header__nav-menu-item"]}>
                 <Link
-                  href="/#about"
+                  href="/about"
                   className={styles["header__nav-menu-link"]}
                   onClick={closeMobileMenu}
                 >
