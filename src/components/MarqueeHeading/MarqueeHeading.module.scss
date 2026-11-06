@@ -19,6 +19,11 @@
   align-items: center;
   width: max-content;
   animation: proud-scroll var(--marquee-duration, 60s) linear infinite;
+  animation-play-state: paused;
+}
+
+.heading[data-running] .track {
+  animation-play-state: running;
   will-change: transform;
 }
 
@@ -85,6 +90,12 @@
   }
 
   .track {
-    animation-duration: 120s;
+    animation: none;
+    transform: none;
+    will-change: auto;
   }
+}
+
+@media (pointer: coarse) {
+  .heading { mask-image: none; transform: none; }
 }

@@ -2,6 +2,7 @@
 
 import styles from "./Hero.module.scss";
 import React from "react";
+import Image from "next/image";
 import { MqButton } from "../MqButton/MqButton";
 import TypedLabels from "../TypedLabels/TypedLabels";
 import { LiquidBackground } from "./LiquidBackground";
@@ -15,6 +16,8 @@ function HeroSection() {
   const bgRef = useRef(null);
   const heroRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
+    // Touch scrolling should not drive a full-screen opacity repaint.
+    if (window.matchMedia("(hover: none), (pointer: coarse), (prefers-reduced-motion: reduce)").matches) return;
     const context = gsap.context(() => {
       const hero = gsap.timeline({
         scrollTrigger: {
@@ -45,8 +48,8 @@ function HeroSection() {
 
   return (
     <>
-      <link rel="preload" href="/assets/images/abstract-bg.jpg" as="image" fetchPriority="high" />
       <div data-hero-background className={styles["hero__background"]} ref={bgRef}>
+        <Image src="/assets/images/abstract-bg.webp" alt="" fill sizes="100vw" preload className={styles["hero__image"]} />
         <LiquidBackground />
       </div>
       <div data-hero className={styles["hero"]} ref={heroRef}>
