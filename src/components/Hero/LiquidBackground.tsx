@@ -1,9 +1,17 @@
 "use client";
 
-import { useEffect, useId, useRef } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import styles from "./Hero.module.scss";
 
 export function LiquidBackground() {
+  const [enabled, setEnabled] = useState(false);
+  useEffect(() => {
+    const media = matchMedia("(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)");
+    const update = () => setEnabled(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
   const id = useId().replace(/:/g, "");
   const svgRef = useRef<SVGSVGElement>(null);
   const ambientRef = useRef<SVGFEDisplacementMapElement>(null);
@@ -84,8 +92,9 @@ export function LiquidBackground() {
       document.removeEventListener("visibilitychange", update);
       preference.removeEventListener("change", update);
     };
-  }, []);
+  }, [enabled]);
 
+  if (!enabled) return null;
   return (
     <svg ref={svgRef} className={styles["hero__liquid"]} aria-hidden="true">
       <defs>
@@ -106,11 +115,11 @@ export function LiquidBackground() {
         </mask>
       </defs>
       <g filter={`url(#${id}-drift)`}>
-        <image href="/assets/images/abstract-bg.jpg" x="-3%" y="-3%" width="106%" height="106%" preserveAspectRatio="xMidYMid slice" />
+        <image href="/assets/images/abstract-bg.webp" x="-3%" y="-3%" width="106%" height="106%" preserveAspectRatio="xMidYMid slice" />
         <g mask={`url(#${id}-cursor)`}>
           <image
             ref={disturbanceRef}
-            href="/assets/images/abstract-bg.jpg"
+            href="/assets/images/abstract-bg.webp"
             x="-3%"
             y="-3%"
             width="106%"

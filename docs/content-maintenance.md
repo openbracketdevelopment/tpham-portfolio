@@ -156,3 +156,10 @@ paper has high drag and nearly zero restitution; missed darts track velocity
 nose-first, then lose energy and settle sideways. Short-throw previews use the
 same ballistic plan as the actual flight. Reset also clears active physics and
 impact deformation tweens.
+
+Home-page performance: touch/coarse-pointer devices use a static, responsive
+hero image instead of mounting the SVG displacement effects. The desktop
+liquid effect remains available for fine pointers with motion enabled. The
+compressed WebP is shared by both paths; project covers use Next Image sizes.
+Marquee headings pause outside the viewport and in hidden tabs, and stop for
+reduced motion. Touch logo swaps use opacity fades instead of SVG filters.

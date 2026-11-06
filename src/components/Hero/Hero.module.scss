@@ -2,7 +2,7 @@
 @reference "tailwindcss";
 
 .hero__background{
-  background: #000 url("/assets/images/abstract-bg.jpg") center / cover;
+  background: #000;
   height: 100vh;
   @apply w-full fixed;
   background-size: cover;
@@ -89,4 +89,11 @@
   .hero__label {
     min-height: 12rem;
   }
+}
+
+.hero__image { object-fit: cover; }
+.hero__liquid { position: absolute; inset: 0; }
+
+@media (hover: none), (pointer: coarse) {
+  .hero__background { position: absolute; height: 100svh; }
 }
