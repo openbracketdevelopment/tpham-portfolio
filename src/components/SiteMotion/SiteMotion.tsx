@@ -4,6 +4,7 @@ import { useLayoutEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArrowIcon } from "../Graphics/Graphics";
 import { Logo } from "../Logo/Logo";
 import styles from "./SiteMotion.module.scss";
 
@@ -82,6 +83,8 @@ export function SiteMotion() {
       };
 
       const startHero = () => {
+        document.documentElement.removeAttribute("data-intro-pending");
+        document.documentElement.removeAttribute("data-intro-boot");
         document.documentElement.removeAttribute("data-intro-active");
         window.dispatchEvent(new Event("portfolio:hero-ready"));
       };
@@ -102,6 +105,10 @@ export function SiteMotion() {
         prepareScroll();
       };
       const runIntro = initial && !seenThisSession && window.scrollY < 40;
+      if (!runIntro) {
+        document.documentElement.removeAttribute("data-intro-pending");
+        document.documentElement.removeAttribute("data-intro-boot");
+      }
       if (runIntro && target && page && header) {
         const oldOverflow = document.body.style.overflow;
         const pageInert = page.inert;
@@ -116,6 +123,7 @@ export function SiteMotion() {
         };
         document.documentElement.setAttribute("data-intro-active", "");
         shell.hidden = false;
+        document.documentElement.removeAttribute("data-intro-boot");
         gsap.set(shell, { display: "block" });
         gsap.set(fill, { scaleX: 0, transformOrigin: "left center" });
         counter.textContent = "000";
@@ -125,13 +133,23 @@ export function SiteMotion() {
         const pieces = mark.querySelectorAll("[data-logo-piece]");
         gsap.set(pieces, { clipPath: "inset(100% 0% 0% 0%)" });
         gsap.set(mark, { clipPath: "inset(0% 0% 0% 0%)" });
-        const progress = { value: 0 };
-        timeline.to(fill, { scaleX: 1, duration: 1.65, ease: "power2.inOut" }, 0.05)
-          .to(progress, {
-            value: 100, duration: 1.65, ease: "power2.inOut",
-            onUpdate: () => { counter.textContent = String(Math.round(progress.value)).padStart(3, "0"); },
-          }, 0.05)
-          .to(mark.querySelector("[data-logo-piece] rect"), { fill: "#000", duration: 0.2 }, 0.85)
+        // Wait for this route's critical assets, not lazy media on other pages.
+        // Bounded waits keep a failed resource from trapping the visitor.
+        const images = Array.from(document.images).filter(image => image.loading !== "lazy" || image.getBoundingClientRect().top < innerHeight);
+        const tasks: Promise<unknown>[] = [document.fonts.ready, ...images.map(image => image.decode().catch(() => {}))];
+        if (document.readyState !== "complete") tasks.push(new Promise<void>(resolve => window.addEventListener("load", () => resolve(), { once: true })));
+        let completed = 0;
+        const progress = (value: number) => {
+          if (!active) return;
+          counter.textContent = String(value).padStart(3, "0");
+          gsap.set(fill, { scaleX: value / 100 });
+        };
+        const assetsReady = Promise.race([
+          Promise.allSettled(tasks.map(task => task.finally(() => { completed++; progress(Math.round(completed / tasks.length * 95)); }))),
+          new Promise(resolve => setTimeout(resolve, 8000)),
+        ]).then(() => { progress(100); });
+        timeline.addPause(1.7, () => { assetsReady.then(() => { if (active) timeline.resume(); }); });
+        timeline.to(mark.querySelector("[data-logo-piece] rect"), { fill: "#000", duration: 0.2 }, 0.85)
           .to(pieces, {
           clipPath: "inset(0% 0% 0% 0%)", duration: 0.8,
           stagger: 0.18, ease: "power4.inOut",
@@ -139,6 +157,7 @@ export function SiteMotion() {
           .to(mark, {
             clipPath: "inset(100% 0% 0% 0%)", duration: 0.6, ease: "power4.inOut",
           }, 1.55)
+          .call(startHero, [], 1.85)
           .to(backdrop, {
             clipPath: "inset(100% 0% 0% 0%)", duration: 1.1, ease: "power4.inOut",
           }, 1.85)
@@ -189,6 +208,8 @@ export function SiteMotion() {
         timeline.kill();
         revealContext?.revert();
         document.documentElement.removeAttribute("data-intro-active");
+        document.documentElement.removeAttribute("data-intro-pending");
+        document.documentElement.removeAttribute("data-intro-boot");
         shell.hidden = true;
         gsap.set(shell, { display: "none" });
         unlock();
@@ -211,13 +232,11 @@ export function SiteMotion() {
         <div className={styles.fill} data-intro-fill />
         <div className={styles.grid} aria-hidden="true" />
         <div className={styles.readout} aria-hidden="true">
-          <span className={styles.kicker}>TP / INITIALIZING EXPERIENCE</span>
           <span className={styles.count}><span data-intro-count>000</span><small>%</small></span>
-          <span className={styles.status}>SYSTEM / INTRO SEQUENCE <span>01—01</span></span>
         </div>
       </div>
       <div className={styles.mark} data-intro-mark aria-hidden="true"><Logo /></div>
-      <button className={styles.skip} onClick={() => skip.current()}>Skip intro ↗</button>
+      <button className={styles.skip} onClick={() => skip.current()}>Skip intro <ArrowIcon /></button>
     </div>
   );
 }

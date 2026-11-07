@@ -25,6 +25,8 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <head>
+        <script dangerouslySetInnerHTML={{ __html: `(function(){try{if(location.pathname!=="/resume"&&sessionStorage.getItem("portfolio:intro-seen:v2")!=="1"){document.documentElement.setAttribute("data-intro-pending","");document.documentElement.setAttribute("data-intro-boot","");setTimeout(function(){document.documentElement.removeAttribute("data-intro-boot");document.documentElement.removeAttribute("data-intro-pending")},12000)}}catch(e){}})()` }} />
+        <style>{`html[data-intro-pending] body > header,html[data-intro-pending] #page-content{visibility:hidden}html[data-intro-boot]::after{content:"";position:fixed;inset:0;background:#000;z-index:99}html[data-intro-pending]{background:#000}`}</style>
         <link rel="preload" href="/assets/fonts/RightGrotesk-CompactDark.otf" as="font" type="font/otf" crossOrigin="anonymous" />
         <link rel="preload" href="/assets/fonts/TradeGothic-LT.otf" as="font" type="font/otf" crossOrigin="anonymous" />
 
@@ -33,7 +35,7 @@ export default function RootLayout({
         <Header />
         <div id="page-content">{children}<SiteFooter><Connect /></SiteFooter></div>
         <SiteMotion />
-        <noscript><style>{'[data-intro-overlay] { display: none !important; }'}</style></noscript>
+        <noscript><style>{'[data-intro-overlay] { display: none !important; } html[data-intro-pending] #page-content, html[data-intro-pending] body > header { visibility: visible; } html[data-intro-boot]::after { display:none; }'}</style></noscript>
         <Script
           src="https://kit.fontawesome.com/fc781da2fc.js"
           crossOrigin="anonymous"

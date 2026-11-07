@@ -16,6 +16,7 @@
   @apply flex;
   gap: 1rem;
   flex-direction: row;
+  flex-wrap: wrap;
   align-self: flex-start;
 }
 .connect__social-link {
@@ -25,7 +26,14 @@
   min-width: 44px;
   min-height: 44px;
   color: var(--color-03);
-  font-size: 1.25rem;
+  font-size: 0.85rem;
+  text-decoration: none;
+  gap: 0.7rem;
+  border: 1px solid #444;
+  border-radius: 999px;
+  padding: 0.65rem 1rem;
+  svg { color: var(--color-06); }
+  &:hover { border-color: var(--color-06); }
 }
 .connect__container {
   @apply grid;

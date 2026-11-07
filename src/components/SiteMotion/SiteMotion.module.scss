@@ -25,6 +25,9 @@
 }
 
 .skip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   position: absolute;
   bottom: 2rem;
   right: max(5vw, 1.5rem);
