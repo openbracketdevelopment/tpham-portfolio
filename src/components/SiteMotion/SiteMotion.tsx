@@ -30,12 +30,20 @@ export function SiteMotion() {
     let active = true;
     let unlock = () => {};
     let refreshFrame = 0;
+    let assetTimer: ReturnType<typeof setTimeout> | undefined;
+    let loadHandler: (() => void) | undefined;
     const escape = (event: KeyboardEvent) => { if (event.key === "Escape") skip.current(); };
     window.addEventListener("keydown", escape);
 
     media.add("all", () => {
       // Keep the printable resume in ordinary document flow at all times.
-      if (pathname === "/resume") return;
+      if (pathname === "/resume" || matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.removeAttribute("data-intro-pending");
+        document.documentElement.removeAttribute("data-intro-boot");
+        firstVisit.current = false;
+        window.dispatchEvent(new Event("portfolio:hero-ready"));
+        return;
+      }
       const header = document.querySelector<HTMLElement>("body > header");
       const page = document.querySelector<HTMLElement>("#page-content");
       const target = header?.querySelector<SVGSVGElement>(".header_logo-link svg");
@@ -137,7 +145,7 @@ export function SiteMotion() {
         // Bounded waits keep a failed resource from trapping the visitor.
         const images = Array.from(document.images).filter(image => image.loading !== "lazy" || image.getBoundingClientRect().top < innerHeight);
         const tasks: Promise<unknown>[] = [document.fonts.ready, ...images.map(image => image.decode().catch(() => {}))];
-        if (document.readyState !== "complete") tasks.push(new Promise<void>(resolve => window.addEventListener("load", () => resolve(), { once: true })));
+        if (document.readyState !== "complete") tasks.push(new Promise<void>(resolve => window.addEventListener("load", loadHandler = () => resolve(), { once: true })));
         let completed = 0;
         const progress = (value: number) => {
           if (!active) return;
@@ -146,8 +154,8 @@ export function SiteMotion() {
         };
         const assetsReady = Promise.race([
           Promise.allSettled(tasks.map(task => task.finally(() => { completed++; progress(Math.round(completed / tasks.length * 95)); }))),
-          new Promise(resolve => setTimeout(resolve, 8000)),
-        ]).then(() => { progress(100); });
+          new Promise(resolve => { assetTimer = setTimeout(resolve, 8000); }),
+        ]).then(() => { clearTimeout(assetTimer); progress(100); });
         timeline.addPause(1.7, () => { assetsReady.then(() => { if (active) timeline.resume(); }); });
         timeline.to(mark.querySelector("[data-logo-piece] rect"), { fill: "#000", duration: 0.2 }, 0.85)
           .to(pieces, {
@@ -218,6 +226,8 @@ export function SiteMotion() {
 
     return () => {
       active = false;
+      clearTimeout(assetTimer);
+      if (loadHandler) window.removeEventListener("load", loadHandler);
       cancelAnimationFrame(refreshFrame);
       media.revert();
       unlock();

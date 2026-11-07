@@ -20,7 +20,10 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
-    "start": "next start"
+    "start": "next start",
+    "test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test scripts/projectile-physics.test.mjs",
+    "test:routes": "node scripts/verify-portfolio.mjs",
+    "test:motion": "node scripts/verify-motion.mjs"
   },
   "devDependencies": {
     "@types/node": "^26.6.5",

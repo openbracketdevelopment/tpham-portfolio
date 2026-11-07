@@ -11,6 +11,10 @@ const TypedLabels = () => {
   const typed = React.useRef<Typed | null>(null);
 
   React.useEffect(() => {
+    const element = el.current;
+    if (!element) return;
+    const preference = matchMedia("(prefers-reduced-motion: reduce)");
+    let visible = true;
     const options = {
       strings: [
         "Software Engineer^1000",
@@ -22,13 +26,32 @@ const TypedLabels = () => {
       loop: true,
     };
 
-    // Start independently: an interrupted intro must never leave this empty.
-    typed.current = new Typed(el.current as HTMLSpanElement, {
-      ...options,
-      startDelay: document.documentElement.hasAttribute("data-intro-active") ? 2200 : 0,
-    });
-
+    const update = () => {
+      if (preference.matches) {
+        typed.current?.destroy();
+        typed.current = null;
+        element.textContent = "Software Engineer";
+        return;
+      }
+      if (!typed.current) {
+        element.textContent = "";
+        typed.current = new Typed(element, {
+          ...options,
+          startDelay: document.documentElement.hasAttribute("data-intro-active") ? 2200 : 0,
+        });
+      }
+      if (visible && !document.hidden) typed.current.start();
+      else typed.current.stop();
+    };
+    const observer = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; update(); });
+    observer.observe(element);
+    document.addEventListener("visibilitychange", update);
+    preference.addEventListener("change", update);
+    update();
     return () => {
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", update);
+      preference.removeEventListener("change", update);
       typed.current?.destroy();
       typed.current = null;
     };

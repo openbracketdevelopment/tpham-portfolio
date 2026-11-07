@@ -42,6 +42,16 @@ function Header() {
     return () => { cancelAnimationFrame(frame); window.removeEventListener("scroll", schedule); window.removeEventListener("resize", schedule); };
   }, [pathname, isAbout, click]);
 
+  useEffect(() => {
+    if (!click) return;
+    const button = header.current?.querySelector<HTMLButtonElement>('button[aria-controls]');
+    const key = (event: KeyboardEvent) => {
+      if (event.key === "Escape") { setClick(false); button?.focus(); }
+    };
+    window.addEventListener("keydown", key);
+    return () => window.removeEventListener("keydown", key);
+  }, [click]);
+
   return (
     <>
       <header ref={header} className={`${styles["header"]} ${isAbout ? styles["header--about"] : ""}`} data-menu-open={click}>

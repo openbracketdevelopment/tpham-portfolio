@@ -23,36 +23,42 @@ html {
     format("opentype");
   font-weight: 800;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Neue Montreal Bold";
   src: url(/assets/fonts/NeueMontreal-Bold.otf) format("opentype");
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Neue Montreal Book";
   src: url(/assets/fonts/NeueMontreal-Book.otf) format("opentype");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Neue Montreal Medium";
   src: url(/assets/fonts/NeueMontreal-Medium.otf) format("opentype");
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Neue Montreal Thin";
   src: url(/assets/fonts/NeueMontreal-Thin.otf) format("opentype");
   font-weight: 200;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Trade Gothic LT";
   src: url(/assets/fonts/TradeGothic-LT.otf) format("opentype");
   font-weight: 200;
   font-style: normal;
+  font-display: swap;
 }
 
 html {
@@ -134,3 +140,5 @@ img {
     clip-path: none !important;
   }
 }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

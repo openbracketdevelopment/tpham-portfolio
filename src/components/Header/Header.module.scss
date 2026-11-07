@@ -44,6 +44,7 @@
   @apply pointer-events-none;
 }
 .header__nav-menu {
+  visibility: hidden;
   @apply absolute;
   top: 6rem;
   @apply grid;
@@ -56,6 +57,7 @@
   transition: all 0.5s ease;
 }
 .header__nav-menu.active {
+  visibility: visible;
   right: 0%;
   transition: all 0.5s ease;
 }
@@ -98,6 +100,7 @@
   }
   .header__nav-menu,
   .header__nav-menu.active {
+    visibility: visible;
     @apply relative;
     top: unset;
     right: unset;
@@ -140,3 +143,5 @@
 }
 
 @media (prefers-reduced-motion: reduce) { .header { transition: none; } }
+
+.header:has(:focus-visible) { transform: none; pointer-events: auto; }

@@ -13,7 +13,7 @@ export function MenuLink({ href, label, onClick }: MenuLinkProps) {
   const letters = () => link.current?.querySelectorAll("[data-menu-letter]") ?? [];
 
   const play = () => {
-    if (animation.current?.isActive()) return;
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches || animation.current?.isActive()) return;
     gsap.set(letters(), { clearProps: "opacity,transform" });
     const sequence = gsap.timeline();
     animation.current = sequence;

@@ -9,3 +9,19 @@ Keep robots.txt crawlable so crawlers can read the noindex directives and social
 Résumé generation, PDF reading-order validation, responsive route checks and
 shared content maintenance are documented in
 [`docs/content-maintenance.md`](../docs/content-maintenance.md).
+
+Run `npm test` for deterministic projectile physics tests (Node 26+).
+For browser regressions, first run `npm run build` and `npm start`, then:
+
+```sh
+npm run test:routes -- http://localhost:3000
+npm run test:motion -- http://localhost:3000
+```
+
+The browser checks use installed Google Chrome on macOS; set `CHROME_PATH`
+for another Chrome installation. Routes cover 28 pages at six widths from
+320–2240 px, sitemap entries, image frames, PDF download, and expected 404s.
+Motion checks cover delayed-asset loading, session completion, SVG graphics,
+contact links, header direction/contrast, Escape, and reduced motion.
+They do not open contact destinations. Real iOS Safari and GPU performance
+still require device testing; mobile Chrome emulation is not Safari.
