@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { OrbitMark } from "../Graphics/Graphics";
 import styles from "./MarqueeHeading.module.scss";
 
 type MarqueeHeadingProps = {
@@ -36,7 +37,7 @@ export function MarqueeHeading({ id, label, reverse = false, items, as: Tag = "h
               return (
                 <span key={`${index}-${text}`} className={styles.item}>
                   <span lang={lang} className={index % 2 === 0 ? styles.filled : styles.outlined}>{text}</span>
-                  <span className={styles.star}>✳</span>
+                  <span className={styles.star}><OrbitMark /></span>
                 </span>
               );
             })}

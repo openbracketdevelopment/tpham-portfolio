@@ -75,7 +75,8 @@
 
 .star {
   color: var(--color-06);
-  font-size: 0.65em;
+  display: inline-flex;
+  svg { width: 0.65em; height: 0.65em; }
 }
 
 @keyframes proud-scroll {

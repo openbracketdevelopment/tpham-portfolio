@@ -4,9 +4,14 @@
 .header {
   background: transparent;
   @apply grid fixed w-full z-[11];
+  top: 0;
+  left: 0;
+  padding-top: env(safe-area-inset-top, 0px);
+  transition: transform 0.25s ease;
+  &[data-scroll-hidden="true"] { transform: translateY(-110%); pointer-events: none; }
 }
 .header__logo {
-  padding-block: 1rem;
+  padding-block: 0.75rem;
 }
 .header__logo-img {
   width: 60px;
@@ -39,6 +44,7 @@
   @apply pointer-events-none;
 }
 .header__nav-menu {
+  visibility: hidden;
   @apply absolute;
   top: 6rem;
   @apply grid;
@@ -51,6 +57,7 @@
   transition: all 0.5s ease;
 }
 .header__nav-menu.active {
+  visibility: visible;
   right: 0%;
   transition: all 0.5s ease;
 }
@@ -93,6 +100,7 @@
   }
   .header__nav-menu,
   .header__nav-menu.active {
+    visibility: visible;
     @apply relative;
     top: unset;
     right: unset;
@@ -103,7 +111,7 @@
   }
 }
 
-.header--about {
+.header--about[data-light-surface="true"] {
   --logo-shape-color: #000;
 
   .header__menu-icon {
@@ -122,7 +130,7 @@
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  .header--about .header__nav-menu-link {
+  .header--about[data-light-surface="true"] .header__nav-menu-link {
     color: #000;
   }
 }
@@ -133,3 +141,7 @@
 
   > span { display: inline-block; }
 }
+
+@media (prefers-reduced-motion: reduce) { .header { transition: none; } }
+
+.header:has(:focus-visible) { transform: none; pointer-events: auto; }

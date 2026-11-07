@@ -163,3 +163,11 @@ liquid effect remains available for fine pointers with motion enabled. The
 compressed WebP is shared by both paths; project covers use Next Image sizes.
 Marquee headings pause outside the viewport and in hidden tabs, and stop for
 reduced motion. Touch logo swaps use opacity fades instead of SVG filters.
+
+The first-session intro is gated before hydration by an inline head script.
+It waits for current-route critical image decoding, fonts, and window load,
+with an 8-second asset fallback and a 12-second bootstrap fail-open. Lazy
+below-fold media and other routes stay deferred. The session key still skips
+repeat intros. Header visibility follows scroll direction, with a small
+movement threshold; About contrast follows the photo's current bounds.
+Decorative marquee separators and arrows are inline SVG, not emoji glyphs.

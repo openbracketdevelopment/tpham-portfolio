@@ -50,6 +50,8 @@ try {
     return result.result.value;
   };
   await command("Page.enable");
+  // Structural checks should not race staggered entrance animations.
+  await command("Emulation.setEmulatedMedia", { features: [{ name: "prefers-reduced-motion", value: "reduce" }] });
   const softwareNames = ["ByteDown", "SitePaladin", "Hook, Line & Sender", "Daguerrify"];
   const featuredNames = ["Fidium Fiber", "Diageo Innovation", "ESPS Trailer Parts", "Hook, Line & Sender", "Toro Haven", "ByteDown"];
   const legacy = ["/fidium", "/esps", "/esps-parts", "/toro", "/earthx", "/hmi", "/diageo", "/cintra", "/mwr", "/brainstyles", "/trinityrail", "/wilsonsseafood", "/baileys", "/crownroyal", "/johnniewalker"];

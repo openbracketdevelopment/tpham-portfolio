@@ -13,7 +13,7 @@ export function ResumeEffects() {
     const root = canvas.current?.closest("[data-resume]");
     if (!root) return;
     const media = gsap.matchMedia();
-    media.add("screen", () => {
+    media.add("screen and (prefers-reduced-motion: no-preference)", () => {
       const elements = gsap.utils.toArray<HTMLElement>(root.querySelectorAll(
         "header, section:not(:has(article)), section:has(article) > h2, section:has(article) > p, article",
       ));

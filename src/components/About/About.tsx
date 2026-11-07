@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./About.module.scss";
 import { MarqueeHeading } from "../MarqueeHeading/MarqueeHeading";
 import { Button } from "../Button/Button";
@@ -5,8 +6,8 @@ import { Button } from "../Button/Button";
 function About() {
   return (
     <section id="about" className={styles.about} aria-labelledby="about-title">
-      <div data-page-intro className={styles.photo}>
-        <img src="/assets/images/headshot.jpg" alt="Tam Pham" width={800} height={1191} />
+      <div data-header-light data-page-intro className={styles.photo}>
+        <Image sizes="(min-width: 1024px) 50vw, 100vw" src="/assets/images/headshot.jpg" alt="Tam Pham" width={800} height={1191} />
         <span className={styles.caption}>Tam Pham II / Fort Worth, TX</span>
       </div>
       <div className={styles.bio}>

@@ -134,6 +134,7 @@ export function createPlayground(host: HTMLDivElement, callbacks: Callbacks): Pl
   const netNodes=Array.from({length:(netRows+1)*netColumns},()=>new THREE.Vector3());
   const netRadii=Array.from({length:netRows+1},(_,row)=>0.48-0.19*row/netRows);
   const netMotion={pull:0};
+  let netResting=false;
 
 
   // 03 / Right on target: concentric dartboard on a freestanding easel.
@@ -291,6 +292,9 @@ export function createPlayground(host: HTMLDivElement, callbacks: Callbacks): Pl
   };
   const updateNet=(delta:number,time:number)=>{
     const ballNear=projectileIndex===1&&paper.visible&&Math.hypot(paper.position.x,paper.position.z+1.35)<0.3;
+    const moving=ballNear||Math.abs(netMotion.pull)>0.0001||netRadii.some((radius,row)=>Math.abs(radius-(0.48-0.19*row/netRows))>0.0001);
+    if(netResting&&!moving)return;
+    netResting=!moving;
     for(let row=0;row<=netRows;row++){
       const f=row/netRows;
       const y=-0.02-0.68*f-netMotion.pull*0.12*f*f;
@@ -468,6 +472,9 @@ export function createPlayground(host: HTMLDivElement, callbacks: Callbacks): Pl
     const portraitFov=THREE.MathUtils.radToDeg(2*Math.atan(Math.tan(THREE.MathUtils.degToRad(58)/2)/aspect));
     camera.fov=THREE.MathUtils.clamp(Math.max(45,portraitFov),45,110);
     camera.updateProjectionMatrix();
+    camera.updateMatrixWorld();
+    // Target labels are static in world space; project only when the viewport changes.
+    labels.forEach((label,index)=>{if(!label)return;const p=screen(hitPoints[index].clone().add(new THREE.Vector3(0,index===1?1.3:1,0)));label.style.left=`${THREE.MathUtils.clamp(p.x,55,width-55)}px`;label.style.top=`${p.y}px`;});
   };
   const observer=new ResizeObserver(resize);observer.observe(host);resize();
   const visibility=new IntersectionObserver(([entry])=>{sceneVisible=entry.isIntersecting;});visibility.observe(host);
@@ -482,7 +489,6 @@ export function createPlayground(host: HTMLDivElement, callbacks: Callbacks): Pl
     if(state==='ready'&&!freeBody&&!preference.matches){paper.position.y=origin.y+Math.sin(now*0.0018)*0.06;paper.rotation.z=0.12+Math.sin(now*0.0012)*0.06;}
     if(projectileIndex===2&&(state==='ready'||state==='aiming'))aimDart();
     particles.forEach(p=>{if(!p.object.visible)return;p.age+=delta;if(p.age>1.4){p.object.visible=false;return;}p.velocity.y-=delta*6;p.object.position.addScaledVector(p.velocity,delta);p.object.rotation.x+=delta*3;p.object.rotation.z+=delta*2;p.object.scale.setScalar(Math.max(0.1,1-p.age/1.4));});
-    labels.forEach((label,index)=>{if(!label)return;const p=screen(hitPoints[index].clone().add(new THREE.Vector3(0,index===1?1.3:1,0)));label.style.left=`${THREE.MathUtils.clamp(p.x,55,width-55)}px`;label.style.top=`${p.y}px`;});
     if(hint){const p=screen(paper.position.clone().add(new THREE.Vector3(0,0.85,-0.45)));hint.style.left=`${p.x}px`;hint.style.top=`${p.y-16}px`;hint.style.opacity=state==='ready'?'0.8':'0';}
     renderer.render(scene,camera);
   };
